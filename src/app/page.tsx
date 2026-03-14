@@ -11,6 +11,7 @@ export default function Home() {
       <Nav />
 
       <RevealSection className="hero">
+        <div className="hero-rule" />
         <h1>
           I study how compounding
           <br />
@@ -210,7 +211,10 @@ export default function Home() {
       </RevealSection>
 
       <footer>
-        <span>© 2026 Will Lu</span>
+        <div>
+          <span>© 2026 Will Lu</span>
+          <span className="footer-tagline"> · Cupertino, California</span>
+        </div>
         <div className="footer-links">
           <a
             href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"

@@ -33,7 +33,7 @@ export default async function EssayPage({
   return (
     <article className="essay-page">
       <Link href="/#writing" className="back-link">
-        &larr; Back
+        ← Back
       </Link>
 
       <header className="essay-header">

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Newsreader, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-newsreader",
-  weight: ["300", "400", "500"],
+  variable: "--font-fraunces",
   style: ["normal", "italic"],
+  axes: ["opsz"],
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${newsreader.variable} ${inter.variable}`}>
+      <body className={`${fraunces.variable} ${inter.variable}`}>
         {children}
       </body>
     </html>
