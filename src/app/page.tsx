@@ -184,13 +184,15 @@ export default function Home() {
 
             <div className="now-card">
               <div className="now-card-header">
-                <Image
-                  src="/logo-peipei.png"
-                  alt="PeiPei"
-                  width={64}
-                  height={64}
-                  className="now-card-logo"
-                />
+                <div className="logo-dark-bg">
+                  <Image
+                    src="/logo-peipei.png"
+                    alt="PeiPei"
+                    width={64}
+                    height={64}
+                    className="now-card-logo"
+                  />
+                </div>
                 <div>
                   <h3>PeiPei</h3>
                   <div className="now-card-type">AI running coach</div>

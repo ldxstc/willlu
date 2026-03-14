@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="#1A1A2E"/>
+  
+  <defs>
+    <radialGradient id="dawn" cx="52%" cy="58%" r="42%">
+      <stop offset="0%" stop-color="#C4956A" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1A1A2E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- P-Horizon — heavier stroke for icon legibility -->
+  <path 
+    d="M 155 380 
+       L 155 170
+       C 155 110, 195 78, 260 78 
+       C 335 78, 355 128, 355 180 
+       C 355 232, 330 264, 288 274 
+       C 315 270, 348 268, 385 267 
+       L 440 267"
+    fill="none" 
+    stroke="#F2EDE4" 
+    stroke-width="15" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"/>
+  
+  <ellipse cx="268" cy="182" rx="40" ry="52" fill="url(#dawn)"/>
+</svg>
