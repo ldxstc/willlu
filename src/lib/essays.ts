@@ -8,6 +8,7 @@ export interface Essay {
   description: string;
   date: string;
   readTime: string;
+  linkedin: boolean;
 }
 
 const essaysDir = path.join(process.cwd(), "content", "essays");
@@ -24,6 +25,7 @@ export function getEssays(): Essay[] {
       description: data.description,
       date: data.date,
       readTime: data.readTime,
+      linkedin: data.linkedin ?? false,
     } as Essay;
   });
 

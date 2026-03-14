@@ -137,6 +137,45 @@ export default function Home() {
               internal bet that keeps my enterprise credibility sharp.
             </p>
           </div>
+
+          <div className="now-item">
+            <h3>Enterprise SLM Pipeline</h3>
+            <div className="type">
+              Stacked small language models for enterprise AI
+            </div>
+            <p>
+              Orchestrated small language models that beat frontier models at a
+              fraction of the cost. Fine-tuned per task, running on-prem. The
+              routing layer is the real product — if the specialist is not
+              confident, it escalates. Most requests never need the expensive
+              model.
+            </p>
+          </div>
+
+          <div className="now-item">
+            <h3>Lore</h3>
+            <div className="type">
+              Developer analytics for AI coding agents
+            </div>
+            <p>
+              Visualizes how developers actually use AI coding agents — session
+              patterns, cost, model usage, code quality. 257 sessions analyzed.
+              Built to understand the human-AI collaboration patterns that will
+              define the next decade of software.
+            </p>
+          </div>
+
+          <div className="now-item">
+            <h3>Telos</h3>
+            <div className="type">AI product management engine</div>
+            <p>
+              Role-based AI agents that already know the PM — their taste,
+              domain, standards. Chat-first interface. No forms, no
+              configuration pages. You talk to the system; the system updates
+              itself. Built on the insight that PMs cannot brain-dump their
+              tribal knowledge into a tool.
+            </p>
+          </div>
         </div>
       </RevealSection>
 
