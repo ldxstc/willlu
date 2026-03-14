@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import RevealSection from "@/components/RevealSection";
 import SubscribeForm from "@/components/SubscribeForm";
@@ -6,25 +7,63 @@ import { getEssays, formatDate } from "@/lib/essays";
 export default function Home() {
   const essays = getEssays();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Will Lu",
+    jobTitle: "VP Engineering & Head of AI Strategy at Uniphore",
+    url: "https://willlu.com",
+    image: "https://willlu.com/headshot.jpg",
+    sameAs: ["https://linkedin.com/in/will-dongxu-lu-9b9b972b"],
+    description:
+      "Enterprise AI builder. Stanford GSB. Google Cloud AI. Founded Orby AI ($245M exit).",
+  };
+
   return (
     <>
       <Nav />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <RevealSection className="hero">
         <div className="hero-orb" />
-        <div className="hero-rule" />
-        <h1>
-          I study how compounding
-          <br />
-          businesses get built
-        </h1>
-        <p className="hero-intro">
-          I spent <strong>9 years building enterprise AI at Google Cloud</strong>, then
-          co-founded a company that was{" "}
-          <strong>acquired for $245 million</strong>. Now I write about the
-          patterns I see — how experienced operators are using AI to build things
-          that compound over decades, not months.
-        </p>
+        <div className="hero-layout">
+          <div className="hero-text">
+            <div className="hero-rule" />
+            <h1>
+              I study how compounding
+              <br />
+              businesses get built
+            </h1>
+            <p className="hero-intro">
+              I spent{" "}
+              <strong>9 years building enterprise AI at Google Cloud</strong>,
+              then co-founded a company that was{" "}
+              <strong>acquired for $245 million</strong>. Now I write about the
+              patterns I see — how experienced operators are using AI to build
+              things that compound over decades, not months.
+            </p>
+            <div className="credential-line">
+              Stanford GSB · Google Cloud AI · $245M Exit · Uniphore
+            </div>
+          </div>
+          <div className="hero-photo-wrap">
+            <div className="hero-photo">
+              <Image
+                src="/headshot.jpg"
+                alt="Will Lu"
+                width={200}
+                height={200}
+                priority
+              />
+            </div>
+            <p className="hero-location">
+              Cupertino, CA · Building at the intersection of AI and enterprise
+            </p>
+          </div>
+        </div>
       </RevealSection>
 
       <hr className="hero-divider" />
@@ -35,12 +74,19 @@ export default function Home() {
 
         <div className="essay-list">
           {essays.map((essay) => (
-            <a key={essay.slug} href={`/essays/${essay.slug}`} className="essay">
-              <h3>{essay.title}</h3>
-              <p>{essay.description}</p>
-              <div className="essay-meta">
-                {essay.readTime} · {formatDate(essay.date)}
+            <a
+              key={essay.slug}
+              href={`/essays/${essay.slug}`}
+              className="essay"
+            >
+              <div className="essay-inner">
+                <h3>{essay.title}</h3>
+                <p>{essay.description}</p>
+                <div className="essay-meta">
+                  {essay.readTime} · {formatDate(essay.date)}
+                </div>
               </div>
+              <span className="essay-arrow">→</span>
             </a>
           ))}
         </div>
@@ -104,101 +150,147 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <hr className="divider" />
+      <div className="section-breath" />
 
-      <RevealSection className="now" id="now">
-        <h2>Building now</h2>
+      <div className="now-band">
+        <RevealSection className="now" id="now">
+          <h2>Building now</h2>
 
-        <div className="now-items">
-          <div className="now-item">
-            <h3>Rumin</h3>
-            <div className="type">Ambient intelligence for small teams</div>
-            <p>
-              A judgment model that becomes unmigratable over time. Permanent
-              memory, autonomous execution, partnership intelligence. Not an
-              app — a presence.
-            </p>
-          </div>
-
-          <div className="now-item">
-            <h3>PeiPei</h3>
-            <div className="type">AI running coach</div>
-            <p>
-              Garmin sync, adaptive training, weight tracking. Near MVP. The
-              small bet that teaches me consumer product-market fit.
-            </p>
-          </div>
-
-          <div className="now-item">
-            <h3>Helix</h3>
-            <div className="type">
-              Next-generation enterprise AI agent platform at Uniphore
+          <div className="now-grid">
+            <div className="now-card">
+              <div className="now-card-header">
+                <Image
+                  src="/logo-rumin.png"
+                  alt="Rumin"
+                  width={48}
+                  height={48}
+                  className="now-card-logo"
+                />
+                <div>
+                  <h3>Rumin</h3>
+                  <div className="now-card-type">
+                    Ambient intelligence for small teams
+                  </div>
+                </div>
+              </div>
+              <p>
+                A judgment model that becomes unmigratable over time. Permanent
+                memory, autonomous execution, partnership intelligence. Not an
+                app — a presence.
+              </p>
             </div>
-            <p>
-              The complete rethinking of how enterprises build and deploy AI
-              agents. Stacked SLMs, a self-improving flywheel, and an
-              architecture where every interaction makes the system smarter.
-              Not an incremental upgrade — a generational leap.
-            </p>
-          </div>
 
-          <div className="now-item">
-            <h3>Enterprise SLM Pipeline</h3>
-            <div className="type">
-              Stacked small language models for enterprise AI
+            <div className="now-card">
+              <div className="now-card-header">
+                <Image
+                  src="/logo-peipei.png"
+                  alt="PeiPei"
+                  width={48}
+                  height={48}
+                  className="now-card-logo"
+                />
+                <div>
+                  <h3>PeiPei</h3>
+                  <div className="now-card-type">AI running coach</div>
+                </div>
+              </div>
+              <p>
+                Garmin sync, adaptive training, weight tracking. Near MVP. The
+                small bet that teaches me consumer product-market fit.
+              </p>
             </div>
-            <p>
-              Orchestrated small language models that beat frontier models at a
-              fraction of the cost. Fine-tuned per task, running on-prem. The
-              routing layer is the real product — if the specialist is not
-              confident, it escalates. Most requests never need the expensive
-              model.
-            </p>
-          </div>
 
-          <div className="now-item">
-            <h3>Lore</h3>
-            <div className="type">
-              Tribal knowledge, without the tribe
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-helix" />
+                <div>
+                  <h3>Helix</h3>
+                  <div className="now-card-type">
+                    Enterprise AI agent platform at Uniphore
+                  </div>
+                </div>
+              </div>
+              <p>
+                The complete rethinking of how enterprises build and deploy AI
+                agents. Stacked SLMs, a self-improving flywheel, and an
+                architecture where every interaction makes the system smarter.
+              </p>
             </div>
-            <p>
-              Every engineering org has lore — the unwritten rules, the patterns
-              that work, the mistakes nobody documented. Lore captures it
-              automatically from AI coding sessions across your org and turns it
-              into a living, shared brain.
-            </p>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-slm" />
+                <div>
+                  <h3>Enterprise SLM</h3>
+                  <div className="now-card-type">
+                    Stacked small language models
+                  </div>
+                </div>
+              </div>
+              <p>
+                Orchestrated small language models that beat frontier models at a
+                fraction of the cost. The routing layer is the real product.
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <Image
+                  src="/logo-lore.png"
+                  alt="Lore"
+                  width={48}
+                  height={48}
+                  className="now-card-logo"
+                />
+                <div>
+                  <h3>Lore</h3>
+                  <div className="now-card-type">
+                    Tribal knowledge, without the tribe
+                  </div>
+                </div>
+              </div>
+              <p>
+                Every engineering org has lore — the unwritten rules, the
+                patterns that work. Lore captures it automatically from AI
+                coding sessions and turns it into a living, shared brain.
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-telos" />
+                <div>
+                  <h3>Telos</h3>
+                  <div className="now-card-type">
+                    AI product management engine
+                  </div>
+                </div>
+              </div>
+              <p>
+                Role-based AI agents that already know the PM. Chat-first
+                interface. You talk to the system; the system updates itself.
+              </p>
+            </div>
           </div>
+        </RevealSection>
+      </div>
 
-          <div className="now-item">
-            <h3>Telos</h3>
-            <div className="type">AI product management engine</div>
-            <p>
-              Role-based AI agents that already know the PM — their taste,
-              domain, standards. Chat-first interface. No forms, no
-              configuration pages. You talk to the system; the system updates
-              itself. Built on the insight that PMs cannot brain-dump their
-              tribal knowledge into a tool.
-            </p>
-          </div>
-        </div>
-      </RevealSection>
-
-      <hr className="divider" />
-
-      <RevealSection className="long-game">
-        <div className="long-game-accent" />
-        <blockquote>
-          I want to build something that outlasts me. Not a product — a
-          compounding system of ideas, trust, and leverage that keeps growing
-          whether I am in the room or not.
-        </blockquote>
-        <p>
-          I am forty. I have a proven exit, a decade of enterprise AI depth, a
-          Stanford network, and trilingual access to the American, Chinese, and
-          Korean markets. The next decade is about deploying all of that at once.
-          I am writing to hold myself accountable.
-        </p>
-      </RevealSection>
+      <div className="long-game-band">
+        <RevealSection className="long-game">
+          <div className="long-game-accent" />
+          <blockquote>
+            I want to build something that outlasts me. Not a product — a
+            compounding system of ideas, trust, and leverage that keeps growing
+            whether I am in the room or not.
+          </blockquote>
+          <p>
+            I am forty. I have a proven exit, a decade of enterprise AI depth, a
+            Stanford network, and trilingual access to the American, Chinese, and
+            Korean markets. The next decade is about deploying all of that at
+            once. I am writing to hold myself accountable.
+          </p>
+        </RevealSection>
+      </div>
 
       <hr className="divider" />
 
@@ -209,6 +301,10 @@ export default function Home() {
           years in the arena.
         </p>
         <SubscribeForm />
+        <p className="subscribe-proof">
+          Read by founders and operators at Google, Uniphore, and startups
+          building in AI.
+        </p>
       </RevealSection>
 
       <footer>

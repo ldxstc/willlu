@@ -16,9 +16,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Will Lu",
+  title: "Will Lu — Enterprise AI Builder",
   description:
-    "Enterprise AI builder. Frameworks for building compounding businesses.",
+    "Enterprise AI builder. Stanford GSB. Google Cloud AI. $245M exit. Frameworks for building compounding businesses.",
+  openGraph: {
+    title: "Will Lu — Enterprise AI Builder",
+    description:
+      "Enterprise AI builder. Frameworks for building compounding businesses.",
+    url: "https://willlu.com",
+    siteName: "Will Lu",
+    images: [
+      {
+        url: "https://willlu.com/headshot.jpg",
+        width: 800,
+        height: 800,
+        alt: "Will Lu",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Will Lu — Enterprise AI Builder",
+    description:
+      "Enterprise AI builder. Frameworks for building compounding businesses.",
+    images: ["https://willlu.com/headshot.jpg"],
+  },
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

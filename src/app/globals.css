@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────
-   30 ITERATIONS OF IVE — DESIGN SYSTEM
+   JOBS ITERATION — 30 ITERATIONS OF IVE
    ────────────────────────────────────────────────────────── */
 
 :root {
-  /* Typography — Iteration 1 */
+  /* Typography */
   --serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --sans: var(--font-inter), -apple-system, system-ui, sans-serif;
 
-  /* Color & Material — Iterations 7-9 */
+  /* Color & Material */
   --bg: #FAF9F6;
   --bg-end: #F7F6F3;
   --text: #1C1917;
@@ -19,17 +19,18 @@
   --accent: #B45309;
   --link: #1C1917;
 
-  /* Borders — Iteration 10 */
+  /* Borders */
   --border: rgba(28, 25, 23, 0.08);
 
-  /* Layout — Iteration 16 */
+  /* Layout */
   --content-w: 720px;
 
-  /* Motion — Iteration 19 */
+  /* Motion */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-apple: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Type scale — Iteration 2 */
+  /* Type scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -54,21 +55,19 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Iteration 7: warm cream background with subtle gradient (aged paper) */
 body {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 17px; /* Iteration 4 */
-  line-height: 1.75; /* Iteration 4 */
-  letter-spacing: 0.005em; /* Iteration 6: body slightly wider */
+  font-size: 17px;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Bottom page gradient — warmer fade */
 body::after {
   content: "";
   position: fixed;
@@ -81,19 +80,19 @@ body::after {
   z-index: 50;
 }
 
-/* ── SCROLL PROGRESS BAR ── */
+/* ── SCROLL PROGRESS BAR — Iteration 29 ── */
 .scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  height: 3px;
   background: var(--accent);
+  box-shadow: 0 0 8px rgba(180, 83, 9, 0.3);
   z-index: 200;
   width: 0%;
   transition: none;
 }
 
-/* Iteration 11: warm amber selection */
 ::selection {
   background: rgba(180, 83, 9, 0.15);
 }
@@ -109,7 +108,6 @@ a:hover {
 }
 
 /* ── NAV ── */
-/* Iteration 22: smooth blur transition */
 nav {
   position: fixed;
   top: 0;
@@ -130,7 +128,7 @@ nav {
   font-family: var(--serif);
   font-size: var(--text-md);
   font-weight: 400;
-  letter-spacing: -0.02em; /* Iteration 6 */
+  letter-spacing: -0.02em;
   font-variation-settings: "opsz" 24;
 }
 
@@ -150,7 +148,6 @@ nav {
   position: relative;
 }
 
-/* Nav link underline grow from center */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -173,7 +170,6 @@ nav {
 }
 
 /* ── HERO ── */
-/* Iteration 14: 200px top padding */
 .hero {
   padding: 200px 2rem 96px;
   max-width: var(--content-w);
@@ -182,7 +178,74 @@ nav {
   overflow: visible;
 }
 
-/* ── ANIMATED MESH GRADIENT ORB ── */
+/* Hero flex layout: text left, photo right */
+.hero-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── HEADSHOT — Iterations 1-5 ── */
+.hero-photo-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.hero-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(180, 83, 9, 0.15);
+  box-shadow: 0 8px 32px rgba(28, 25, 23, 0.08);
+  animation: photo-float 6s ease-in-out infinite;
+  transition: border-color 0.4s var(--ease);
+}
+
+.hero-photo:hover {
+  border-color: rgba(180, 83, 9, 0.3);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes photo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hero-location {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  letter-spacing: 0.01em;
+  max-width: 200px;
+  line-height: 1.5;
+}
+
+/* ── CREDENTIAL LINE — Iteration 21 ── */
+.credential-line {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+  margin-top: 16px;
+}
+
+/* ── ANIMATED MESH GRADIENT ORB — Iteration 19: subdued ── */
 .hero-orb {
   position: absolute;
   top: 80px;
@@ -196,6 +259,7 @@ nav {
     radial-gradient(circle at 50% 30%, rgba(212, 168, 83, 0.18), transparent 65%),
     radial-gradient(circle at 40% 70%, rgba(217, 119, 6, 0.12), transparent 50%);
   filter: blur(70px);
+  opacity: 0.15;
   animation: orb-breathe 14s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
@@ -204,28 +268,22 @@ nav {
 @keyframes orb-breathe {
   0%, 100% {
     transform: scale(1) translate(0, 0);
-    opacity: 0.7;
   }
   33% {
     transform: scale(1.08) translate(10px, -15px);
-    opacity: 0.85;
   }
   66% {
     transform: scale(0.95) translate(-8px, 10px);
-    opacity: 0.65;
   }
 }
 
-/* Iteration 29: thin rule above headline */
 .hero-rule {
   width: 32px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--text-tertiary), transparent);
-  margin: 0 auto 24px;
-  text-align: center;
+  margin-bottom: 24px;
 }
 
-/* Iteration 3: hero headline LARGE — bumped to 4.5rem */
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 6vw, 4.5rem);
@@ -238,7 +296,7 @@ nav {
 
 .hero-intro {
   margin-top: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 0;
   font-size: var(--text-md);
   color: var(--text-secondary);
   line-height: 1.8;
@@ -251,7 +309,6 @@ nav {
 }
 
 /* ── DIVIDER ── */
-/* Gradient dividers — breaths, not cuts */
 .divider {
   margin: 0 auto;
   border: none;
@@ -266,7 +323,6 @@ nav {
   max-width: 64px;
 }
 
-/* Hero bottom: gradient fade replaces hard hr */
 .hero-divider {
   margin: 0 auto;
   border: none;
@@ -281,8 +337,12 @@ nav {
   max-width: 80px;
 }
 
+/* Iteration 18: breathing space between sections */
+.section-breath {
+  height: 64px;
+}
+
 /* ── WRITING ── */
-/* Iteration 15: 96px between sections */
 .writing {
   padding: 96px 2rem;
   max-width: var(--content-w);
@@ -302,7 +362,7 @@ nav {
   color: var(--text-tertiary);
   font-size: var(--text-sm);
   letter-spacing: 0.01em;
-  margin-bottom: 48px; /* Iteration 13 */
+  margin-bottom: 48px;
 }
 
 .essay-list {
@@ -310,11 +370,15 @@ nav {
   flex-direction: column;
 }
 
+/* Iteration 20: essay with flex layout for arrow */
 .essay {
   padding: 28px 8px;
   margin: 0 -8px;
   border-top: 1px solid var(--border);
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   text-decoration: none;
   color: inherit;
   border-radius: 4px;
@@ -335,6 +399,26 @@ nav {
   color: var(--accent);
 }
 
+.essay-inner {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Iteration 20: right-arrow appears on hover */
+.essay-arrow {
+  font-size: var(--text-base);
+  color: var(--text-tertiary);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  flex-shrink: 0;
+}
+
+.essay:hover .essay-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .essay h3 {
   font-family: var(--serif);
   font-size: 1.2rem;
@@ -352,7 +436,6 @@ nav {
   line-height: 1.65;
 }
 
-/* Iteration 24: bullet separator with proper spacing */
 .essay-meta {
   font-size: var(--text-xs);
   color: var(--text-tertiary);
@@ -382,7 +465,6 @@ nav {
   position: relative;
 }
 
-/* Timeline thread */
 .path-items::before {
   content: "";
   position: absolute;
@@ -441,7 +523,13 @@ nav {
   line-height: 1.65;
 }
 
-/* ── NOW ── */
+/* ── NOW — Iterations 6-15, 16, 28 ── */
+
+/* Iteration 16: full-width warm band behind Building now */
+.now-band {
+  background: #F5F4F0;
+}
+
 .now {
   padding: 96px 2rem;
   max-width: var(--content-w);
@@ -457,71 +545,163 @@ nav {
   font-variation-settings: "opsz" 32;
 }
 
-.now-items {
+/* Iteration 6: 2-column grid */
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Iteration 12: warm cream card */
+.now-card {
+  background: #FAFAF8;
+  border: 1px solid rgba(28, 25, 23, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.6s var(--ease-spring),
+    transform 0.4s var(--ease-apple),
+    box-shadow 0.4s var(--ease-apple),
+    border-color 0.4s var(--ease-apple);
+}
+
+/* Iteration 13: card hover — lift + shadow + terracotta border */
+.reveal.visible .now-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(28, 25, 23, 0.06);
+  border-color: rgba(180, 83, 9, 0.2);
+}
+
+/* Iteration 28: staggered card reveals */
+.reveal.visible .now-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible .now-card:nth-child(1) { transition-delay: 0ms; }
+.reveal.visible .now-card:nth-child(2) { transition-delay: 80ms; }
+.reveal.visible .now-card:nth-child(3) { transition-delay: 160ms; }
+.reveal.visible .now-card:nth-child(4) { transition-delay: 240ms; }
+.reveal.visible .now-card:nth-child(5) { transition-delay: 320ms; }
+.reveal.visible .now-card:nth-child(6) { transition-delay: 400ms; }
+
+/* Iteration 7: card header with logo + name */
+.now-card-header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
-/* Iteration 25: left border accent on hover */
-.now-item {
-  padding: 24px 0 24px 16px;
-  border-top: 1px solid var(--border);
-  position: relative;
-  transition: padding-left 0.3s var(--ease-spring);
+.now-card-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-.now-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--accent);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.4s var(--ease-spring);
-}
-
-.now-item:hover::before {
-  transform: scaleY(1);
-}
-
-.now-item:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-.now-item h3 {
+/* Iteration 15: card typography */
+.now-card h3 {
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 400;
   letter-spacing: -0.02em;
   font-variation-settings: "opsz" 20;
+  line-height: 1.3;
 }
 
-.now-item .type {
-  font-size: var(--text-xs);
-  color: var(--text-tertiary);
-  margin-top: 2px;
+.now-card-type {
+  font-size: 0.8rem;
+  color: var(--accent);
   letter-spacing: 0.01em;
+  margin-top: 1px;
 }
 
-.now-item p {
+.now-card p {
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin-top: 8px;
-  max-width: 540px;
+  line-height: 1.65;
 }
 
-/* ── LONG GAME — Monument Treatment ── */
+/* ── CSS-ONLY ICONS — Iteration 11 ── */
+.now-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Helix: two intertwined gradient diagonals */
+.icon-helix {
+  background:
+    linear-gradient(35deg, transparent 40%, rgba(180, 83, 9, 0.55) 40%, rgba(180, 83, 9, 0.55) 43%, transparent 43%),
+    linear-gradient(-35deg, transparent 40%, rgba(217, 119, 6, 0.45) 40%, rgba(217, 119, 6, 0.45) 43%, transparent 43%),
+    linear-gradient(135deg, #1C1917, #292524);
+}
+
+/* Enterprise SLM: 3 stacked bars */
+.icon-slm {
+  background: linear-gradient(135deg, #1C1917, #292524);
+  overflow: hidden;
+}
+
+.icon-slm::before {
+  content: "";
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  top: 33%;
+  background: rgba(180, 83, 9, 0.6);
+  border-radius: 1px;
+  box-shadow: 0 7px 0 rgba(180, 83, 9, 0.45), 0 14px 0 rgba(180, 83, 9, 0.3);
+}
+
+/* Telos: compass/target circles */
+.icon-telos {
+  background: linear-gradient(135deg, #1C1917, #292524);
+  overflow: hidden;
+}
+
+.icon-telos::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(180, 83, 9, 0.45);
+  border-radius: 50%;
+}
+
+.icon-telos::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background: rgba(180, 83, 9, 0.6);
+  border-radius: 50%;
+}
+
+/* ── LONG GAME — Iteration 17: warmer background band ── */
+.long-game-band {
+  background: #F3F1EC;
+}
+
 .long-game {
   padding: 160px 2rem;
   max-width: var(--content-w);
   margin: 0 auto;
 }
 
-/* Accent line above blockquote */
 .long-game-accent {
   width: 48px;
   height: 1px;
@@ -599,7 +779,6 @@ nav {
   border-color: var(--accent);
 }
 
-/* Iteration 9: accent color for the most important interactive element */
 .subscribe-btn {
   padding: 10px 20px;
   border: none;
@@ -614,7 +793,6 @@ nav {
   white-space: nowrap;
 }
 
-/* Hover: ink → terracotta */
 .subscribe-btn:hover {
   background: var(--accent);
 }
@@ -626,8 +804,16 @@ nav {
   letter-spacing: 0.01em;
 }
 
+/* Iteration 23: social proof below subscribe */
+.subscribe-proof {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+
 /* ── FOOTER ── */
-/* Iteration 26: add "Cupertino, California" tagline */
 footer {
   padding: 48px 2rem 32px;
   display: flex;
@@ -647,7 +833,6 @@ footer a {
   transition: color 0.25s;
 }
 
-/* Iteration 12: hover warms */
 footer a:hover {
   color: var(--accent);
 }
@@ -663,7 +848,6 @@ footer a:hover {
 }
 
 /* ── REVEAL & STAGGER ── */
-/* Iteration 19: 12px translate, 0.7s, spring curve */
 .reveal {
   opacity: 0;
   transform: translateY(12px);
@@ -675,7 +859,7 @@ footer a:hover {
   transform: translateY(0);
 }
 
-/* Iteration 20: stagger children 60ms each */
+/* Stagger direct children */
 .reveal.visible > *:nth-child(1) { transition-delay: 0ms; }
 .reveal.visible > *:nth-child(2) { transition-delay: 60ms; }
 .reveal.visible > *:nth-child(3) { transition-delay: 120ms; }
@@ -696,6 +880,12 @@ footer a:hover {
   transform: translateY(0);
 }
 
+/* Override: now-cards handle their own stagger, don't double-apply */
+.now-grid {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* ── ESSAY PAGE ── */
 .essay-page {
   max-width: var(--content-w);
@@ -703,7 +893,6 @@ footer a:hover {
   padding: 128px 2rem 96px;
 }
 
-/* Iteration 27: back arrow with hover nudge */
 .back-link {
   display: inline-block;
   font-size: var(--text-sm);
@@ -822,7 +1011,29 @@ footer a:hover {
     right: -60px;
     width: 300px;
     height: 300px;
-    opacity: 0.4;
+    opacity: 0.1;
+  }
+  /* Mobile: photo on top, text below */
+  .hero-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-photo-wrap {
+    order: -1;
+  }
+  .hero-photo {
+    width: 140px;
+    height: 140px;
+  }
+  .hero-rule {
+    margin: 0 auto 24px;
+  }
+  .hero-intro {
+    max-width: 100%;
+  }
+  .credential-line {
+    text-align: center;
   }
   .writing,
   .path,
@@ -846,6 +1057,10 @@ footer a:hover {
   }
   .path-year {
     padding-top: 0;
+  }
+  /* Mobile: single column cards */
+  .now-grid {
+    grid-template-columns: 1fr;
   }
   .subscribe-form {
     flex-direction: column;
