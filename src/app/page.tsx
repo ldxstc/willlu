@@ -128,13 +128,15 @@ export default function Home() {
           </div>
 
           <div className="now-item">
-            <h3>Helix</h3>
+            <h3>Helix (Agent 2.0)</h3>
             <div className="type">
-              Next-generation agent platform at Uniphore
+              Next-generation enterprise AI agent platform at Uniphore
             </div>
             <p>
-              Redefining how enterprises deploy conversational AI at scale. The
-              internal bet that keeps my enterprise credibility sharp.
+              The complete rethinking of how enterprises build and deploy AI
+              agents. Stacked SLMs, a self-improving flywheel, and an
+              architecture where every interaction makes the system smarter.
+              Not an incremental upgrade — a generational leap.
             </p>
           </div>
 
