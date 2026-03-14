@@ -1,65 +1,192 @@
-import Image from "next/image";
+import Nav from "@/components/Nav";
+import RevealSection from "@/components/RevealSection";
+import SubscribeForm from "@/components/SubscribeForm";
+import { getEssays, formatDate } from "@/lib/essays";
 
 export default function Home() {
+  const essays = getEssays();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Nav />
+
+      <RevealSection className="hero">
+        <h1>
+          I study how compounding
+          <br />
+          businesses get built
+        </h1>
+        <p className="hero-intro">
+          I spent <strong>9 years building enterprise AI at Google</strong>, then
+          founded a company that was{" "}
+          <strong>acquired for $245 million</strong>. Now I write about the
+          patterns I see — how experienced operators are using AI to build things
+          that compound over decades, not months.
+        </p>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="writing" id="writing">
+        <h2>Writing</h2>
+        <p>Frameworks and honest lessons from 13 years in enterprise AI.</p>
+
+        <div className="essay-list">
+          {essays.map((essay) => (
+            <a key={essay.slug} href={`#`} className="essay">
+              <h3>{essay.title}</h3>
+              <p>{essay.description}</p>
+              <div className="essay-meta">
+                {essay.readTime} · {formatDate(essay.date)}
+              </div>
+            </a>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="path" id="path">
+        <h2>Path</h2>
+
+        <div className="path-items">
+          <div className="path-item">
+            <div className="path-year">2008</div>
+            <div className="path-content">
+              <h3>Stanford GSB</h3>
+              <div className="at">Graduate School of Business</div>
+              <p className="lesson">
+                Where I learned to think in decades instead of quarters.
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
+            <div className="path-year">2012</div>
+            <div className="path-content">
+              <h3>Google</h3>
+              <div className="at">Enterprise AI · 9 years</div>
+              <p className="lesson">
+                Built AI systems at scale. Learned how large organizations
+                actually buy, deploy, and depend on AI. The pattern recognition
+                that later became my unfair advantage started here.
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
+            <div className="path-year">2021</div>
+            <div className="path-content">
+              <h3>Orby AI</h3>
+              <div className="at">Founder & CEO · Acquired for $245M</div>
+              <p className="lesson">
+                Left Google to build. Took the enterprise AI thesis and turned it
+                into a product, a team, a company. Acquired by Uniphore within
+                18 months. The thesis worked.
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
+            <div className="path-year">2022</div>
+            <div className="path-content">
+              <h3>Uniphore</h3>
+              <div className="at">VP Engineering · Head of AI Strategy</div>
+              <p className="lesson">
+                Post-acquisition, leading AI strategy and building
+                next-generation agent platforms. Using this chapter to prepare
+                for the next one.
+              </p>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="now" id="now">
+        <h2>Building now</h2>
+
+        <div className="now-items">
+          <div className="now-item">
+            <h3>Rumin</h3>
+            <div className="type">Ambient intelligence for small teams</div>
+            <p>
+              A judgment model that becomes unmigratable over time. Permanent
+              memory, autonomous execution, partnership intelligence. Not an
+              app — a presence.
+            </p>
+          </div>
+
+          <div className="now-item">
+            <h3>PeiPei</h3>
+            <div className="type">AI running coach</div>
+            <p>
+              Garmin sync, adaptive training, weight tracking. Near MVP. The
+              small bet that teaches me consumer product-market fit.
+            </p>
+          </div>
+
+          <div className="now-item">
+            <h3>Helix</h3>
+            <div className="type">
+              Next-generation agent platform at Uniphore
+            </div>
+            <p>
+              Redefining how enterprises deploy conversational AI at scale. The
+              internal bet that keeps my enterprise credibility sharp.
+            </p>
+          </div>
+        </div>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="long-game">
+        <blockquote>
+          The target is a billion dollars by fifty. Not from a single
+          moonshot — from ten years of compounding in skills, equity, and trust.
+        </blockquote>
+        <p>
+          I&apos;m forty. I have a proven exit, a decade of enterprise AI depth,
+          a Stanford network, and trilingual access to the American, Chinese, and
+          Korean markets. The question isn&apos;t whether the pieces are there.
+          It&apos;s whether I can compound them fast enough. I&apos;m writing to
+          find out.
+        </p>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="subscribe" id="subscribe">
+        <h2>Subscribe</h2>
+        <p>
+          A weekly essay on building compounding businesses in the AI era.
+          Frameworks from 13 years of enterprise AI. No spam, unsubscribe
+          anytime.
+        </p>
+        <SubscribeForm />
+      </RevealSection>
+
+      <footer>
+        <span>© 2026 Will Lu</span>
+        <div className="footer-links">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            LinkedIn
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://twitter.com/willlu"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Documentation
+            Twitter
           </a>
         </div>
-      </main>
-    </div>
+      </footer>
+    </>
   );
 }

@@ -1,0 +1,41 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+export default function Nav() {
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    let lastY = 0;
+    const handler = () => {
+      const y = window.scrollY;
+      if (navRef.current) {
+        navRef.current.style.transform =
+          y > lastY && y > 60 ? "translateY(-100%)" : "";
+      }
+      lastY = y;
+    };
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <nav ref={navRef}>
+      <div className="nav-name">Will Lu</div>
+      <div className="nav-right">
+        <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>Writing</a>
+        <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>Path</a>
+        <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>Now</a>
+        <a href="#subscribe" className="nav-link" onClick={(e) => handleClick(e, "#subscribe")}>Subscribe</a>
+      </div>
+    </nav>
+  );
+}

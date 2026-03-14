@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will Lu</title>
+<meta name="description" content="Enterprise AI builder. Frameworks for building compounding businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!--
+  DESIGN NOTES — Jony Ive Process
+  ════════════════════════════════
+  Iter 1:  Removed 4 email captures → 1. Removed avatar stacks, badges, tags, emoji.
+  Iter 2:  Structure = the inevitable flow: Intro → Ideas → Path → Now → One CTA.
+  Iter 3:  Light warm palette. Material honesty. No dark-mode costume.
+  Iter 4:  No section numbers. No decorative labels. Content IS the hierarchy.
+  Iter 5:  Two typefaces only: Newsreader (voice) + Inter (utility). Space does the rest.
+  Iter 6:  Subtle transitions. Hover states feel physical. Spacing is mathematical.
+  Iter 7:  No social proof gimmicks. Credentials woven into prose, not displayed.
+  Iter 8:  Identity emerges through writing, not a card with badges.
+  Iter 9:  Extreme whitespace. The space between elements IS the design.
+  Iter 10: Every element tested: can I remove it? If yes, removed.
+-->
+<style>
+:root {
+  --bg: #fafaf8;
+  --bg-warm: #f5f4f0;
+  --text: #1a1a1a;
+  --text-secondary: #555;
+  --text-tertiary: #999;
+  --text-light: #bbb;
+  --accent: #1a1a1a;
+  --link: #1a1a1a;
+  --border: rgba(0,0,0,0.08);
+  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --content-w: 680px;
+  --wide-w: 900px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(26,26,26,0.12); }
+
+a { color: var(--link); text-decoration-color: var(--border); text-underline-offset: 3px; transition: text-decoration-color 0.3s; }
+a:hover { text-decoration-color: var(--text); }
+
+/* ═══════ NAV — barely there ═══════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 2rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(16px) saturate(1.8);
+  background: rgba(250,250,248,0.85);
+  transition: transform 0.4s var(--ease), opacity 0.4s;
+}
+
+.nav-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 400;
+  transition: color 0.25s;
+}
+
+.nav-link:hover { color: var(--text); text-decoration: none; }
+
+/* ═══════ HERO — who is this, in 5 seconds ═══════ */
+/* Ive: "The solution seems inevitable." The hero is just: name, one line, context. */
+.hero {
+  padding: 10rem 2rem 6rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.hero-intro {
+  margin-top: 1.75rem;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.hero-intro strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ═══════ DIVIDER — a single line ═══════ */
+.divider {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ═══════ WRITING — the content engine ═══════ */
+/* Ive Iter 1 & 7: No tags, no badges, no dates in boxes. Just essays. */
+.writing {
+  padding: 5rem 2rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.writing > h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.writing > p {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.essay-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.essay {
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--border);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.25s;
+}
+
+.essay:last-child { border-bottom: 1px solid var(--border); }
+
+.essay:hover { opacity: 0.65; }
+
+.essay h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+}
+
+.essay p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.essay-meta {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 0.35rem;
+}
+
+/* ═══════ PATH — the reinvention narrative ═══════ */
+/* Ive Iter 2 & 8: Identity emerges through the story. No cards, no badges. */
+.path {
+  padding: 5rem 2rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.path > h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.path-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.path-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.path-item:last-child { border-bottom: 1px solid var(--border); }
+
+.path-year {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  padding-top: 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.path-content h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.path-content .at {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 0.05rem;
+}
+
+.path-content .lesson {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-top: 0.5rem;
+  line-height: 1.65;
+}
+
+/* ═══════ NOW — what's being built ═══════ */
+/* Ive Iter 4: No emoji. No stage badges. Just the work. */
+.now {
+  padding: 5rem 2rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.now > h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.now-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.now-item {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.now-item:last-child { border-bottom: 1px solid var(--border); }
+
+.now-item h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.now-item .type {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin-top: 0.05rem;
+}
+
+.now-item p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.5rem;
+  max-width: 540px;
+}
+
+/* ═══════ LONG GAME — the quiet statement ═══════ */
+/* Ive Iter 3 & 9: Let the whitespace carry the weight. */
+.long-game {
+  padding: 6rem 2rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.long-game blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text);
+  max-width: 520px;
+}
+
+.long-game > p {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* ═══════ SUBSCRIBE — one. natural. ═══════ */
+/* Ive Iter 7: No gimmicks. No urgency. Just: "If you want more, here." */
+.subscribe {
+  padding: 5rem 2rem 6rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.subscribe h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.subscribe > p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.subscribe-input {
+  flex: 1;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background: white;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.subscribe-input::placeholder { color: var(--text-light); }
+.subscribe-input:focus { border-color: var(--text); }
+
+.subscribe-btn {
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.25s;
+  white-space: nowrap;
+}
+
+.subscribe-btn:hover { opacity: 0.75; }
+
+.subscribe-note {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* ═══════ FOOTER ═══════ */
+footer {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--content-w);
+  margin: 0 auto;
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+footer a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+footer a:hover { color: var(--text); }
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* ═══════ REVEAL ═══════ */
+/* Ive Iter 6: Subtle. Physical. Not performative. */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 700px) {
+  nav { padding: 0 1.25rem; }
+  .hero { padding: 8rem 1.25rem 4rem; }
+  .writing, .path, .now, .long-game, .subscribe { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .divider { margin-left: 1.25rem; margin-right: 1.25rem; }
+  .path-item { grid-template-columns: 1fr; gap: 0.25rem; }
+  .path-year { padding-top: 0; }
+  .subscribe-form { flex-direction: column; }
+  footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .nav-right .nav-link:not(:last-child) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Will Lu</div>
+  <div class="nav-right">
+    <a href="#writing" class="nav-link">Writing</a>
+    <a href="#path" class="nav-link">Path</a>
+    <a href="#now" class="nav-link">Now</a>
+    <a href="#subscribe" class="nav-link">Subscribe</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+     Ive: "The solution seems inevitable."
+     No tagline. No badges. Just: who, what, why.
+     ═══════════════════════════════════════════════════ -->
+<section class="hero reveal">
+  <h1>I study how compounding<br>businesses get built</h1>
+  <p class="hero-intro">
+    I spent <strong>9 years building enterprise AI at Google</strong>, then founded a company
+    that was <strong>acquired for $245 million</strong>. Now I write about the patterns I see—
+    how experienced operators are using AI to build things that compound
+    over decades, not months.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     WRITING
+     Ive: "There's an applied style of being minimal,
+     and then there's real simplicity."
+     No tags. No cards. Just titles and ideas.
+     ═══════════════════════════════════════════════════ -->
+<section class="writing reveal" id="writing">
+  <h2>Writing</h2>
+  <p>Frameworks and honest lessons from 13 years in enterprise AI.</p>
+
+  <div class="essay-list">
+    <a href="#" class="essay">
+      <h3>The One-Person Enterprise Company</h3>
+      <p>Everyone talks about AI enabling tiny teams. Nobody talks about the prerequisite: a decade of trust you can't shortcut.</p>
+      <div class="essay-meta">12 min · March 2026</div>
+    </a>
+
+    <a href="#" class="essay">
+      <h3>Platform Over Tool — A Pattern from 100 Outcomes</h3>
+      <p>Every lasting enterprise company is a platform. Here's how to know if you're building one.</p>
+      <div class="essay-meta">8 min · February 2026</div>
+    </a>
+
+    <a href="#" class="essay">
+      <h3>The Unmigratable Moat</h3>
+      <p>The most durable competitive advantage in AI isn't data or models. It's a judgment layer that learns you over time.</p>
+      <div class="essay-meta">10 min · January 2026</div>
+    </a>
+
+    <a href="#" class="essay">
+      <h3>40–50: The Enterprise Builder's Window</h3>
+      <p>Benioff started Salesforce at 35 after 13 years at Oracle. Yuan built Zoom at 41. In enterprise, experience is the product.</p>
+      <div class="essay-meta">6 min · January 2026</div>
+    </a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     PATH
+     Ive Iter 2 & 8: The reinvention narrative.
+     Identity emerges from the story, not from badges.
+     ═══════════════════════════════════════════════════ -->
+<section class="path reveal" id="path">
+  <h2>Path</h2>
+
+  <div class="path-items">
+    <div class="path-item">
+      <div class="path-year">2008</div>
+      <div class="path-content">
+        <h3>Stanford GSB</h3>
+        <div class="at">Graduate School of Business</div>
+        <p class="lesson">Where I learned to think in decades instead of quarters.</p>
+      </div>
+    </div>
+
+    <div class="path-item">
+      <div class="path-year">2012</div>
+      <div class="path-content">
+        <h3>Google</h3>
+        <div class="at">Enterprise AI · 9 years</div>
+        <p class="lesson">Built AI systems at scale. Learned how large organizations actually buy, deploy, and depend on AI. The pattern recognition that later became my unfair advantage started here.</p>
+      </div>
+    </div>
+
+    <div class="path-item">
+      <div class="path-year">2021</div>
+      <div class="path-content">
+        <h3>Orby AI</h3>
+        <div class="at">Founder & CEO · Acquired for $245M</div>
+        <p class="lesson">Left Google to build. Took the enterprise AI thesis and turned it into a product, a team, a company. Acquired by Uniphore within 18 months. The thesis worked.</p>
+      </div>
+    </div>
+
+    <div class="path-item">
+      <div class="path-year">2022</div>
+      <div class="path-content">
+        <h3>Uniphore</h3>
+        <div class="at">VP Engineering · Head of AI Strategy</div>
+        <p class="lesson">Post-acquisition, leading AI strategy and building next-generation agent platforms. Using this chapter to prepare for the next one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     NOW
+     Ive Iter 4: No emoji. No stage badges. Just work.
+     ═══════════════════════════════════════════════════ -->
+<section class="now reveal" id="now">
+  <h2>Building now</h2>
+
+  <div class="now-items">
+    <div class="now-item">
+      <h3>Rumin</h3>
+      <div class="type">Ambient intelligence for small teams</div>
+      <p>A judgment model that becomes unmigratable over time. Permanent memory, autonomous execution, partnership intelligence. Not an app — a presence.</p>
+    </div>
+
+    <div class="now-item">
+      <h3>PeiPei</h3>
+      <div class="type">AI running coach</div>
+      <p>Garmin sync, adaptive training, weight tracking. Near MVP. The small bet that teaches me consumer product-market fit.</p>
+    </div>
+
+    <div class="now-item">
+      <h3>Helix</h3>
+      <div class="type">Next-generation agent platform at Uniphore</div>
+      <p>Redefining how enterprises deploy conversational AI at scale. The internal bet that keeps my enterprise credibility sharp.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     THE LONG GAME
+     Ive Iter 9: White space carries the weight.
+     One quiet statement. No timeline. No metrics.
+     ═══════════════════════════════════════════════════ -->
+<section class="long-game reveal">
+  <blockquote>
+    The target is a billion dollars by fifty.
+    Not from a single moonshot — from ten years of
+    compounding in skills, equity, and trust.
+  </blockquote>
+  <p>
+    I'm forty. I have a proven exit, a decade of enterprise AI depth,
+    a Stanford network, and trilingual access to the American,
+    Chinese, and Korean markets. The question isn't whether the
+    pieces are there. It's whether I can compound them fast enough.
+    I'm writing to find out.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════
+     SUBSCRIBE
+     Ive Iter 7: "No gimmicks. No urgency.
+     Just: if you want more, here."
+     One form. One sentence. Done.
+     ═══════════════════════════════════════════════════ -->
+<section class="subscribe reveal" id="subscribe">
+  <h2>Subscribe</h2>
+  <p>
+    A weekly essay on building compounding businesses in the AI era.
+    Frameworks from 13 years of enterprise AI.
+    No spam, unsubscribe anytime.
+  </p>
+  <form class="subscribe-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed'; this.querySelector('input').disabled=true; this.querySelector('input').value='';">
+    <input type="email" class="subscribe-input" placeholder="your@email.com" required>
+    <button type="submit" class="subscribe-btn">Subscribe</button>
+  </form>
+  <div class="subscribe-note">Free. Weekly. Unsubscribe anytime.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════ -->
+<footer>
+  <span>© 2026 Will Lu</span>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/will-dongxu-lu-9b9b972b" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/willlu" target="_blank">Twitter</a>
+  </div>
+</footer>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav hide
+let ly = 0;
+const nav = document.querySelector('nav');
+addEventListener('scroll', () => {
+  const y = scrollY;
+  nav.style.transform = y > ly && y > 60 ? 'translateY(-100%)' : '';
+  ly = y;
+}, { passive: true });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+
+</body>
+</html>

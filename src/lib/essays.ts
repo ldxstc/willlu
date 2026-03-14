@@ -1,0 +1,39 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export interface Essay {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+}
+
+const essaysDir = path.join(process.cwd(), "content", "essays");
+
+export function getEssays(): Essay[] {
+  const files = fs.readdirSync(essaysDir).filter((f) => f.endsWith(".mdx"));
+
+  const essays = files.map((file) => {
+    const raw = fs.readFileSync(path.join(essaysDir, file), "utf-8");
+    const { data } = matter(raw);
+    return {
+      slug: file.replace(/\.mdx$/, ""),
+      title: data.title,
+      description: data.description,
+      date: data.date,
+      readTime: data.readTime,
+    } as Essay;
+  });
+
+  essays.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return essays;
+}
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+
+export { formatDate };
