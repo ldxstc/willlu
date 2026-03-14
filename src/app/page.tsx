@@ -33,7 +33,7 @@ export default function Home() {
 
         <div className="essay-list">
           {essays.map((essay) => (
-            <a key={essay.slug} href={`#`} className="essay">
+            <a key={essay.slug} href={`/essays/${essay.slug}`} className="essay">
               <h3>{essay.title}</h3>
               <p>{essay.description}</p>
               <div className="essay-meta">

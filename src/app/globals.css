@@ -442,6 +442,111 @@ footer a:hover {
   transform: translateY(0);
 }
 
+/* ESSAY PAGE */
+.essay-page {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: 7rem 2rem 6rem;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  margin-bottom: 3rem;
+  transition: color 0.25s;
+}
+
+.back-link:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.essay-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+}
+
+.essay-page-meta {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.essay-linkedin-note {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-top: 0.35rem;
+}
+
+.essay-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.essay-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.essay-body strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.essay-body em {
+  font-style: italic;
+}
+
+.essay-body blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.essay-body blockquote p {
+  color: var(--text-secondary);
+}
+
+.essay-body h2 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.essay-body h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.essay-body ul,
+.essay-body ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.essay-body li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
 /* RESPONSIVE */
 @media (max-width: 700px) {
   nav {
@@ -454,7 +559,8 @@ footer a:hover {
   .path,
   .now,
   .long-game,
-  .subscribe {
+  .subscribe,
+  .essay-page {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }

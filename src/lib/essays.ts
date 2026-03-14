@@ -38,4 +38,20 @@ function formatDate(dateStr: string): string {
   return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
+export function getEssayBySlug(slug: string) {
+  const filePath = path.join(essaysDir, `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
+  return {
+    slug,
+    title: data.title as string,
+    description: data.description as string,
+    date: data.date as string,
+    readTime: data.readTime as string,
+    linkedin: (data.linkedin as boolean) ?? false,
+    content,
+  };
+}
+
 export { formatDate };
