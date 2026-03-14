@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Nav() {
   const navRef = useRef<HTMLElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     let lastY = 0;
@@ -14,6 +15,10 @@ export default function Nav() {
           y > lastY && y > 60 ? "translateY(-100%)" : "";
       }
       lastY = y;
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
+      setScrollProgress(progress);
     };
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
@@ -28,14 +33,20 @@ export default function Nav() {
   };
 
   return (
-    <nav ref={navRef}>
-      <div className="nav-name">Will Lu</div>
-      <div className="nav-right">
-        <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>Writing</a>
-        <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>Path</a>
-        <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>Now</a>
-        <a href="#subscribe" className="nav-link" onClick={(e) => handleClick(e, "#subscribe")}>Subscribe</a>
-      </div>
-    </nav>
+    <>
+      <div
+        className="scroll-progress"
+        style={{ width: `${scrollProgress}%` }}
+      />
+      <nav ref={navRef}>
+        <div className="nav-name">Will Lu</div>
+        <div className="nav-right">
+          <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>Writing</a>
+          <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>Path</a>
+          <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>Now</a>
+          <a href="#subscribe" className="nav-link" onClick={(e) => handleClick(e, "#subscribe")}>Subscribe</a>
+        </div>
+      </nav>
+    </>
   );
 }

@@ -11,6 +11,7 @@ export default function Home() {
       <Nav />
 
       <RevealSection className="hero">
+        <div className="hero-orb" />
         <div className="hero-rule" />
         <h1>
           I study how compounding
@@ -26,7 +27,7 @@ export default function Home() {
         </p>
       </RevealSection>
 
-      <hr className="divider" />
+      <hr className="hero-divider" />
 
       <RevealSection className="writing" id="writing">
         <h2>Writing</h2>
@@ -185,6 +186,7 @@ export default function Home() {
       <hr className="divider" />
 
       <RevealSection className="long-game">
+        <div className="long-game-accent" />
         <blockquote>
           I want to build something that outlasts me. Not a product — a
           compounding system of ideas, trust, and leverage that keeps growing
@@ -203,9 +205,8 @@ export default function Home() {
       <RevealSection className="subscribe" id="subscribe">
         <h2>Subscribe</h2>
         <p>
-          A weekly essay on building compounding businesses in the AI era.
-          Frameworks from 13 years of enterprise AI. No spam, unsubscribe
-          anytime.
+          Weekly frameworks on enterprise AI, building, and compounding. From 13
+          years in the arena.
         </p>
         <SubscribeForm />
       </RevealSection>
