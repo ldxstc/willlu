@@ -183,15 +183,15 @@ export default function Home() {
 
       <RevealSection className="long-game">
         <blockquote>
-          The target is a billion dollars by fifty. Not from a single
-          moonshot — from ten years of compounding in skills, equity, and trust.
+          I want to build something that outlasts me. Not a product — a
+          compounding system of ideas, trust, and leverage that keeps growing
+          whether I am in the room or not.
         </blockquote>
         <p>
-          I&apos;m forty. I have a proven exit, a decade of enterprise AI depth,
-          a Stanford network, and trilingual access to the American, Chinese, and
-          Korean markets. The question isn&apos;t whether the pieces are there.
-          It&apos;s whether I can compound them fast enough. I&apos;m writing to
-          find out.
+          I am forty. I have a proven exit, a decade of enterprise AI depth, a
+          Stanford network, and trilingual access to the American, Chinese, and
+          Korean markets. The next decade is about deploying all of that at once.
+          I am writing to hold myself accountable.
         </p>
       </RevealSection>
 
