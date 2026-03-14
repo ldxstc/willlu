@@ -17,8 +17,8 @@ export default function Home() {
           businesses get built
         </h1>
         <p className="hero-intro">
-          I spent <strong>9 years building enterprise AI at Google</strong>, then
-          founded a company that was{" "}
+          I spent <strong>9 years building enterprise AI at Google Cloud</strong>, then
+          co-founded a company that was{" "}
           <strong>acquired for $245 million</strong>. Now I write about the
           patterns I see — how experienced operators are using AI to build things
           that compound over decades, not months.
@@ -65,7 +65,7 @@ export default function Home() {
             <div className="path-year">2012</div>
             <div className="path-content">
               <h3>Google</h3>
-              <div className="at">Enterprise AI · 9 years</div>
+              <div className="at">Google Cloud AI · 9 years</div>
               <p className="lesson">
                 Built AI systems at scale. Learned how large organizations
                 actually buy, deploy, and depend on AI. The pattern recognition
@@ -78,7 +78,7 @@ export default function Home() {
             <div className="path-year">2021</div>
             <div className="path-content">
               <h3>Orby AI</h3>
-              <div className="at">Founder & CEO · Acquired for $245M</div>
+              <div className="at">Co-Founder & CTO · Acquired for $245M</div>
               <p className="lesson">
                 Left Google to build. Took the enterprise AI thesis and turned it
                 into a product, a team, a company. Acquired by Uniphore within
