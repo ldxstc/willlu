@@ -54,8 +54,8 @@ export default function Home() {
               <Image
                 src="/headshot.jpg"
                 alt="Will Lu"
-                width={200}
-                height={200}
+                width={240}
+                height={240}
                 priority
               />
             </div>
@@ -159,13 +159,15 @@ export default function Home() {
           <div className="now-grid">
             <div className="now-card">
               <div className="now-card-header">
-                <Image
-                  src="/logo-rumin.png"
-                  alt="Rumin"
-                  width={48}
-                  height={48}
-                  className="now-card-logo"
-                />
+                <div className="logo-dark-bg">
+                  <Image
+                    src="/logo-rumin.png"
+                    alt="Rumin"
+                    width={64}
+                    height={64}
+                    className="now-card-logo"
+                  />
+                </div>
                 <div>
                   <h3>Rumin</h3>
                   <div className="now-card-type">
@@ -185,8 +187,8 @@ export default function Home() {
                 <Image
                   src="/logo-peipei.png"
                   alt="PeiPei"
-                  width={48}
-                  height={48}
+                  width={64}
+                  height={64}
                   className="now-card-logo"
                 />
                 <div>
@@ -235,13 +237,15 @@ export default function Home() {
 
             <div className="now-card">
               <div className="now-card-header">
-                <Image
-                  src="/logo-lore.png"
-                  alt="Lore"
-                  width={48}
-                  height={48}
-                  className="now-card-logo"
-                />
+                <div className="logo-dark-bg">
+                  <Image
+                    src="/logo-lore.png"
+                    alt="Lore"
+                    width={64}
+                    height={64}
+                    className="now-card-logo"
+                  />
+                </div>
                 <div>
                   <h3>Lore</h3>
                   <div className="now-card-type">
