@@ -128,7 +128,7 @@ export default function Home() {
           </div>
 
           <div className="now-item">
-            <h3>Helix (Agent 2.0)</h3>
+            <h3>Helix</h3>
             <div className="type">
               Next-generation enterprise AI agent platform at Uniphore
             </div>
