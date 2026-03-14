@@ -157,13 +157,13 @@ export default function Home() {
           <div className="now-item">
             <h3>Lore</h3>
             <div className="type">
-              Developer analytics for AI coding agents
+              Tribal knowledge, without the tribe
             </div>
             <p>
-              Visualizes how developers actually use AI coding agents — session
-              patterns, cost, model usage, code quality. 257 sessions analyzed.
-              Built to understand the human-AI collaboration patterns that will
-              define the next decade of software.
+              Every engineering org has lore — the unwritten rules, the patterns
+              that work, the mistakes nobody documented. Lore captures it
+              automatically from AI coding sessions across your org and turns it
+              into a living, shared brain.
             </p>
           </div>
 
