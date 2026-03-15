@@ -185,13 +185,17 @@ export default function Home() {
             <div className="now-card">
               <div className="now-card-header">
                 <div className="logo-dark-bg">
-                  <Image
-                    src="/logo-peipei.png"
-                    alt="PeiPei"
-                    width={64}
-                    height={64}
-                    className="now-card-logo"
-                  />
+                  <svg viewBox="0 0 512 512" width="64" height="64" aria-label="PeiPei logo" style={{borderRadius:'10px'}}>
+                    <rect width="512" height="512" rx="112" fill="#1A1A2E"/>
+                    <defs>
+                      <radialGradient id="dawn-glow" cx="52%" cy="58%" r="42%">
+                        <stop offset="0%" stopColor="#C4956A" stopOpacity="0.4"/>
+                        <stop offset="100%" stopColor="#1A1A2E" stopOpacity="0"/>
+                      </radialGradient>
+                    </defs>
+                    <path d="M 155 380 L 155 170 C 155 110, 195 78, 260 78 C 335 78, 355 128, 355 180 C 355 232, 330 264, 288 274 C 315 270, 348 268, 385 267 L 440 267" fill="none" stroke="#F2EDE4" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round"/>
+                    <ellipse cx="268" cy="182" rx="40" ry="52" fill="url(#dawn-glow)"/>
+                  </svg>
                 </div>
                 <div>
                   <h3>PeiPei</h3>
