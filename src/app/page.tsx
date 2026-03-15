@@ -163,8 +163,8 @@ export default function Home() {
                   <Image
                     src="/logo-rumin.png"
                     alt="Rumin"
-                    width={64}
-                    height={64}
+                    width={40}
+                    height={40}
                     className="now-card-logo"
                   />
                 </div>
@@ -185,7 +185,7 @@ export default function Home() {
             <div className="now-card">
               <div className="now-card-header">
                 <div className="logo-dark-bg">
-                  <svg viewBox="0 0 512 512" width="64" height="64" aria-label="PeiPei logo" style={{borderRadius:'10px'}}>
+                  <svg viewBox="0 0 512 512" width="56" height="56" aria-label="PeiPei logo" style={{borderRadius:'10px'}}>
                     <rect width="512" height="512" rx="112" fill="#1A1A2E"/>
                     <defs>
                       <radialGradient id="dawn-glow" cx="52%" cy="58%" r="42%">
@@ -247,8 +247,8 @@ export default function Home() {
                   <Image
                     src="/logo-lore.png"
                     alt="Lore"
-                    width={64}
-                    height={64}
+                    width={40}
+                    height={40}
                     className="now-card-logo"
                   />
                 </div>
