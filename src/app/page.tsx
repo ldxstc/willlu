@@ -46,7 +46,7 @@ export default function Home() {
               things that compound over decades, not months.
             </p>
             <div className="credential-line">
-              Stanford GSB · Google Cloud AI · $245M Exit · Uniphore
+              UF · NVIDIA · Google Cloud AI · Stanford GSB · $245M Exit · Uniphore
             </div>
           </div>
           <div className="hero-photo-wrap">
@@ -99,12 +99,12 @@ export default function Home() {
 
         <div className="path-items">
           <div className="path-item">
-            <div className="path-year">2008</div>
+            <div className="path-year">2010</div>
             <div className="path-content">
-              <h3>Stanford GSB</h3>
-              <div className="at">Graduate School of Business</div>
+              <h3>University of Florida</h3>
+              <div className="at">Computer Science</div>
               <p className="lesson">
-                Where I learned to think in decades instead of quarters.
+                Where the foundation was laid. Engineering first, everything else second.
               </p>
             </div>
           </div>
@@ -112,12 +112,34 @@ export default function Home() {
           <div className="path-item">
             <div className="path-year">2012</div>
             <div className="path-content">
+              <h3>NVIDIA</h3>
+              <div className="at">GPU Computing & AI</div>
+              <p className="lesson">
+                Early exposure to the hardware that would power the AI revolution. Learned to think at the intersection of silicon and software.
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
+            <div className="path-year">2013</div>
+            <div className="path-content">
               <h3>Google</h3>
               <div className="at">Google Cloud AI · 9 years</div>
               <p className="lesson">
                 Built AI systems at scale. Learned how large organizations
                 actually buy, deploy, and depend on AI. The pattern recognition
                 that later became my unfair advantage started here.
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
+            <div className="path-year">2019</div>
+            <div className="path-content">
+              <h3>Stanford GSB</h3>
+              <div className="at">Graduate School of Business</div>
+              <p className="lesson">
+                Where I learned to think in decades instead of quarters.
               </p>
             </div>
           </div>
