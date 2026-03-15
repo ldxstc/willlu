@@ -44,7 +44,7 @@ export default function Nav() {
           <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>Writing</a>
           <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>Path</a>
           <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>Now</a>
-          <a href="#subscribe" className="nav-link" onClick={(e) => handleClick(e, "#subscribe")}>Subscribe</a>
+
         </div>
       </nav>
     </>

@@ -1094,3 +1094,25 @@ footer a:hover {
     display: none;
   }
 }
+
+/* ── CLOSING LINE ── */
+.closing {
+  padding: 3rem 2rem 2rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.closing-line {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-variation-settings: "opsz" 14;
+}
+
+.closing-line a {
+  color: var(--text-primary);
+  font-style: normal;
+  font-weight: 500;
+}

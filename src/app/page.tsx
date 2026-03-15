@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import RevealSection from "@/components/RevealSection";
-import SubscribeForm from "@/components/SubscribeForm";
+
 import { getEssays, formatDate } from "@/lib/essays";
 
 export default function Home() {
@@ -324,18 +324,17 @@ export default function Home() {
         </RevealSection>
       </div>
 
-      <hr className="divider" />
-
-      <RevealSection className="subscribe" id="subscribe">
-        <h2>Subscribe</h2>
-        <p>
-          Weekly frameworks on enterprise AI, building, and compounding. From 13
-          years in the arena.
-        </p>
-        <SubscribeForm />
-        <p className="subscribe-proof">
-          Read by founders and operators at Google, Uniphore, and startups
-          building in AI.
+      <RevealSection className="closing" as="div">
+        <p className="closing-line">
+          I publish on{" "}
+          <a
+            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>{" "}
+          and update this site as I build.
         </p>
       </RevealSection>
 
