@@ -46,7 +46,7 @@ export default function Home() {
               things that compound over decades, not months.
             </p>
             <div className="credential-line">
-              UF · NVIDIA · Google Cloud AI · Stanford GSB · Acquired by Uniphore · Uniphore
+              UF · NVIDIA · Google Cloud AI · Stanford GSB · Orby AI · Uniphore
             </div>
           </div>
           <div className="hero-photo-wrap">
@@ -68,58 +68,10 @@ export default function Home() {
 
       <hr className="hero-divider" />
 
-      <RevealSection className="writing" id="writing">
-        <h2>Writing</h2>
-        <p>Frameworks and honest lessons from enterprise AI.</p>
-
-        <div className="essay-list">
-          {essays.map((essay) => (
-            <a
-              key={essay.slug}
-              href={`/essays/${essay.slug}`}
-              className="essay"
-            >
-              <div className="essay-inner">
-                <h3>{essay.title}</h3>
-                <p>{essay.description}</p>
-                <div className="essay-meta">
-                  {essay.readTime} · {formatDate(essay.date)}
-                </div>
-              </div>
-              <span className="essay-arrow">→</span>
-            </a>
-          ))}
-        </div>
-      </RevealSection>
-
-      <hr className="divider" />
-
       <RevealSection className="path" id="path">
         <h2>Path</h2>
 
         <div className="path-items">
-          <div className="path-item">
-            <div className="path-year">2010</div>
-            <div className="path-content">
-              <h3>University of Florida</h3>
-              <div className="at">Computer Science</div>
-              <p className="lesson">
-                Where the foundation was laid. Engineering first, everything else second.
-              </p>
-            </div>
-          </div>
-
-          <div className="path-item">
-            <div className="path-year">2012</div>
-            <div className="path-content">
-              <h3>NVIDIA</h3>
-              <div className="at">GPU Computing & AI</div>
-              <p className="lesson">
-                Early exposure to the hardware that would power the AI revolution. Learned to think at the intersection of silicon and software.
-              </p>
-            </div>
-          </div>
-
           <div className="path-item">
             <div className="path-year">2013</div>
             <div className="path-content">
@@ -151,8 +103,7 @@ export default function Home() {
               <div className="at">Co-Founder & CTO · Acquired by Uniphore</div>
               <p className="lesson">
                 Left Google to build. Took the enterprise AI thesis and turned it
-                into a product, a team, a company. Acquired by Uniphore within
-                18 months. The thesis worked.
+                into a product, a team, a company. The thesis worked.
               </p>
             </div>
           </div>
@@ -163,12 +114,37 @@ export default function Home() {
               <h3>Uniphore</h3>
               <div className="at">VP Engineering · Head of AI Strategy</div>
               <p className="lesson">
-                Post-acquisition, leading AI strategy and building
-                next-generation agent platforms. Using this chapter to prepare
-                for the next one.
+                Leading AI strategy and building next-generation agent platforms.
+                Using this chapter to prepare for the next one.
               </p>
             </div>
           </div>
+        </div>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="writing" id="writing">
+        <h2>Writing</h2>
+        <p>Frameworks and honest lessons from enterprise AI.</p>
+
+        <div className="essay-list">
+          {essays.map((essay) => (
+            <a
+              key={essay.slug}
+              href={`/essays/${essay.slug}`}
+              className="essay"
+            >
+              <div className="essay-inner">
+                <h3>{essay.title}</h3>
+                <p>{essay.description}</p>
+                <div className="essay-meta">
+                  {essay.readTime} · {formatDate(essay.date)}
+                </div>
+              </div>
+              <span className="essay-arrow">→</span>
+            </a>
+          ))}
         </div>
       </RevealSection>
 
