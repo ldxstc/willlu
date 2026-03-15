@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Will Lu — Enterprise AI Builder",
   description:
-    "Enterprise AI builder. Stanford GSB. Google Cloud AI. $245M exit. Frameworks for building compounding businesses.",
+    "Enterprise AI builder. Stanford GSB. Google Cloud AI. Co-Founded Orby AI (acquired by Uniphore). Frameworks for building compounding businesses.",
   openGraph: {
     title: "Will Lu — Enterprise AI Builder",
     description:
