@@ -39,7 +39,7 @@ export default function Home() {
             </h1>
             <p className="hero-intro">
               I spent{" "}
-              <strong>9 years building enterprise AI at Google Cloud</strong>,
+              <strong>building enterprise AI at Google Cloud</strong>,
               then co-founded a company that was{" "}
               <strong>acquired for $245 million</strong>. Now I write about the
               patterns I see — how experienced operators are using AI to build
@@ -70,7 +70,7 @@ export default function Home() {
 
       <RevealSection className="writing" id="writing">
         <h2>Writing</h2>
-        <p>Frameworks and honest lessons from 13 years in enterprise AI.</p>
+        <p>Frameworks and honest lessons from enterprise AI.</p>
 
         <div className="essay-list">
           {essays.map((essay) => (
@@ -124,7 +124,7 @@ export default function Home() {
             <div className="path-year">2013</div>
             <div className="path-content">
               <h3>Google</h3>
-              <div className="at">Google Cloud AI · 9 years</div>
+              <div className="at">Google Cloud AI</div>
               <p className="lesson">
                 Built AI systems at scale. Learned how large organizations
                 actually buy, deploy, and depend on AI. The pattern recognition
@@ -316,7 +316,7 @@ export default function Home() {
             whether I am in the room or not.
           </blockquote>
           <p>
-            I am forty. I have a proven exit, a decade of enterprise AI depth, a
+            I have a proven exit, deep enterprise AI experience, a
             Stanford network, and trilingual access to the American, Chinese, and
             Korean markets. The next decade is about deploying all of that at
             once. I am writing to hold myself accountable.
