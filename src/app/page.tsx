@@ -327,13 +327,7 @@ export default function Home() {
           >
             LinkedIn
           </a>
-          <a
-            href="https://twitter.com/willlu"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Twitter
-          </a>
+
         </div>
       </footer>
     </>
