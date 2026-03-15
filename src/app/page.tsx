@@ -16,7 +16,7 @@ export default function Home() {
     image: "https://willlu.com/headshot.jpg",
     sameAs: ["https://linkedin.com/in/will-dongxu-lu-9b9b972b"],
     description:
-      "Enterprise AI builder. Stanford GSB. Google Cloud AI. Founded Orby AI ($245M exit).",
+      "Enterprise AI builder. Stanford GSB. Google Cloud AI. Co-Founded Orby AI (acquired by Uniphore).",
   };
 
   return (
@@ -41,12 +41,12 @@ export default function Home() {
               I spent{" "}
               <strong>building enterprise AI at Google Cloud</strong>,
               then co-founded a company that was{" "}
-              <strong>acquired for $245 million</strong>. Now I write about the
+              <strong>acquired for hundreds of millions</strong>. Now I write about the
               patterns I see — how experienced operators are using AI to build
               things that compound over decades, not months.
             </p>
             <div className="credential-line">
-              UF · NVIDIA · Google Cloud AI · Stanford GSB · $245M Exit · Uniphore
+              UF · NVIDIA · Google Cloud AI · Stanford GSB · Acquired by Uniphore · Uniphore
             </div>
           </div>
           <div className="hero-photo-wrap">
@@ -148,7 +148,7 @@ export default function Home() {
             <div className="path-year">2022</div>
             <div className="path-content">
               <h3>Orby AI</h3>
-              <div className="at">Co-Founder & CTO · Acquired for $245M</div>
+              <div className="at">Co-Founder & CTO · Acquired by Uniphore</div>
               <p className="lesson">
                 Left Google to build. Took the enterprise AI thesis and turned it
                 into a product, a team, a company. Acquired by Uniphore within
