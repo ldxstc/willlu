@@ -145,7 +145,7 @@ export default function Home() {
           </div>
 
           <div className="path-item">
-            <div className="path-year">2021</div>
+            <div className="path-year">2022</div>
             <div className="path-content">
               <h3>Orby AI</h3>
               <div className="at">Co-Founder & CTO · Acquired for $245M</div>
@@ -158,7 +158,7 @@ export default function Home() {
           </div>
 
           <div className="path-item">
-            <div className="path-year">2022</div>
+            <div className="path-year">2025</div>
             <div className="path-content">
               <h3>Uniphore</h3>
               <div className="at">VP Engineering · Head of AI Strategy</div>
