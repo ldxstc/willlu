@@ -1,0 +1,31 @@
+---
+title: "MCP vs CLI Is the Wrong Debate"
+description: "We just gave an AI agent unrestricted CLI access to our staging environment. The security team found out from a Slack alert — not a governance review."
+date: 2026-03-15
+readTime: "3 min"
+linkedin: true
+---
+
+We just gave an AI agent unrestricted CLI access to our staging environment. The security team found out from a Slack alert — not a governance review.
+
+This is the real story behind the "MCP vs CLI" debate flooding Medium and Hacker News right now.
+
+CLI is just MCP without the governance layer. MCP gives agents structured, schema-driven access to tools. CLI gives agents the exact same access — through bash commands a human would type. The only difference? CLI skips the audit trail entirely.
+
+The question was never "which protocol." The question is: **who's watching?**
+
+NIST just launched their AI Agent Standards Initiative with a draft paper on "Software and AI Agent Identity and Authorization." Read that title carefully. Identity. Authorization. Not "which RPC format should agents use."
+
+The government figured out in one paper what the tech community has been arguing about for months: the problem isn't the tool interface. It's the trust architecture.
+
+From building enterprise AI agents, here's what I see in every deployment:
+
+An agent that CAN read your database doesn't mean it SHOULD. CLI agents inherit the developer's permissions — all of them. No scoping, no audit trail, no revocation.
+
+When a human runs CLI commands, there's a human deciding what to run. When an agent does it, the decision loop is invisible. Most orgs can't answer: "What did the agent do, and why?"
+
+144 non-human identities per employee in the average enterprise. AI agents are about to 10x that number. And most don't have their own identity — they masquerade as the human who deployed them.
+
+The MCP vs CLI debate is like arguing whether your intern should use the front door or the back door. The real question: should the intern have the keys at all? And who's checking the security camera?
+
+Protocol is plumbing. Governance is the product.
