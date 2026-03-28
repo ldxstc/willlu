@@ -6,8 +6,8 @@
 
 :root {
   /* Typography */
-  --serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --sans: var(--font-inter), -apple-system, system-ui, sans-serif;
+  --serif: var(--font-fraunces), var(--font-noto-sc), Georgia, "Times New Roman", serif;
+  --sans: var(--font-inter), var(--font-noto-sc), -apple-system, system-ui, sans-serif;
 
   /* Color & Material */
   --bg: #FAF9F6;
@@ -167,6 +167,16 @@ nav {
 .nav-link:hover {
   color: var(--text);
   text-decoration: none;
+}
+
+.nav-lang-separator {
+  color: var(--text-light);
+  font-size: var(--text-xs);
+  user-select: none;
+}
+
+.nav-lang {
+  font-size: var(--text-xs);
 }
 
 /* ── HERO ── */

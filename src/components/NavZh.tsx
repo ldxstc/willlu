@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function Nav() {
+export default function NavZh() {
   const navRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -39,13 +39,13 @@ export default function Nav() {
         style={{ width: `${scrollProgress}%` }}
       />
       <nav ref={navRef}>
-        <div className="nav-name">Will Lu</div>
+        <div className="nav-name">陆东旭</div>
         <div className="nav-right">
-          <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>Path</a>
-          <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>Writing</a>
-          <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>Now</a>
+          <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>经历</a>
+          <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>文章</a>
+          <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>构建</a>
           <span className="nav-lang-separator">|</span>
-          <a href="/zh" className="nav-link nav-lang">中</a>
+          <a href="/" className="nav-link nav-lang">EN</a>
         </div>
       </nav>
     </>
