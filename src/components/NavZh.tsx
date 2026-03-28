@@ -39,7 +39,7 @@ export default function NavZh() {
         style={{ width: `${scrollProgress}%` }}
       />
       <nav ref={navRef}>
-        <div className="nav-name">陆东旭</div>
+        <div className="nav-name">卢东旭</div>
         <div className="nav-right">
           <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>经历</a>
           <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>文章</a>

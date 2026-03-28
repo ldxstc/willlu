@@ -2,15 +2,15 @@ import Image from "next/image";
 import NavZh from "@/components/NavZh";
 import RevealSection from "@/components/RevealSection";
 
-import { getEssays, formatDate } from "@/lib/essays";
+import { getEssaysZh, formatDateZh } from "@/lib/essays-zh";
 
 export default function HomeZh() {
-  const essays = getEssays();
+  const essays = getEssaysZh();
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "陆东旭 (Will Lu)",
+    name: "卢东旭 (Will Lu)",
     jobTitle: "VP Engineering & Head of AI Strategy at Uniphore",
     url: "https://willlu.com/zh",
     image: "https://willlu.com/headshot.jpg",
@@ -51,7 +51,7 @@ export default function HomeZh() {
             <div className="hero-photo">
               <Image
                 src="/headshot.jpg"
-                alt="陆东旭"
+                alt="卢东旭"
                 width={240}
                 height={240}
                 priority
@@ -129,14 +129,14 @@ export default function HomeZh() {
           {essays.map((essay) => (
             <a
               key={essay.slug}
-              href={`/essays/${essay.slug}`}
+              href={`/zh/essays/${essay.slug}`}
               className="essay"
             >
               <div className="essay-inner">
                 <h3>{essay.title}</h3>
                 <p>{essay.description}</p>
                 <div className="essay-meta">
-                  {essay.readTime} · {formatDate(essay.date)}
+                  {essay.readTime} · {formatDateZh(essay.date)}
                 </div>
               </div>
               <span className="essay-arrow">→</span>
@@ -308,7 +308,7 @@ export default function HomeZh() {
 
       <footer>
         <div>
-          <span>© 2026 陆东旭</span>
+          <span>© 2026 卢东旭</span>
           <span className="footer-tagline"> · 加州·库比蒂诺</span>
         </div>
         <div className="footer-links">
