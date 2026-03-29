@@ -1,0 +1,31 @@
+---
+title: "An AI Agent Just Beat NVIDIA's Own Engineers at Optimizing NVIDIA's Own GPU"
+description: "The AVO paper gave a coding agent access to CUDA docs and Blackwell B200 specs. It produced 40 kernel versions in 7 days — outperforming cuDNN by 3.5% and FlashAttention-4 by 10.5%."
+date: 2026-03-27
+readTime: "4 min"
+linkedin: true
+---
+
+An AI coding agent just beat NVIDIA's own engineers at optimizing NVIDIA's own GPU.
+
+The paper is called AVO — Agentic Variation Operators. Researchers gave a coding agent access to CUDA documentation, Blackwell B200 architecture specs, and a scoring function. Then they let it run for 7 days.
+
+The agent produced 40 committed kernel versions. Explored over 500 optimization directions internally. And the final result: 1,668 TFLOPS on multi-head attention — outperforming cuDNN by 3.5% and FlashAttention-4 by 10.5%.
+
+cuDNN is NVIDIA's crown jewel. FlashAttention is the most important kernel innovation of the transformer era. Both represent months of hand-tuning by senior GPU kernel engineers — the kind of people who think in register allocation and warp synchronization.
+
+The agent beat them in a week.
+
+What makes this different from the usual "AI writes code" story: the optimizations weren't superficial. The agent discovered branchless accumulator rescaling that eliminated warp synchronization overhead. It restructured the dual-stage pipeline so correction and GEMM operations overlap. It rebalanced registers across warp groups — 184/88/56 instead of FlashAttention's 192/80/48 — reducing spilling on the critical path.
+
+These are optimizations that require reasoning simultaneously about memory ordering, pipeline scheduling, and hardware architecture. The kind of work that takes senior engineers weeks to even conceptualize.
+
+And then the agent adapted its MHA kernel to grouped-query attention in 30 minutes. Not 30 days. 30 minutes.
+
+The paper's framing is the most interesting part. They argue that confining AI to a "generate code" step inside a human-designed pipeline is fundamentally limiting. The real unlock: give the agent full autonomy over the entire process — when to consult documentation, what to test, when to change strategy, when to backtrack.
+
+Sound familiar? That's the same shift Karpathy described last week. Stop typing code. Start directing agents. The agents don't just execute faster. They explore spaces humans can't reach.
+
+---
+
+*Paper: [AVO: Agentic Variation Operators for Autonomous Evolutionary Search](https://arxiv.org/pdf/2603.24517)*

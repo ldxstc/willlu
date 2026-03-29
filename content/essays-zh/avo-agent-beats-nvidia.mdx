@@ -1,0 +1,31 @@
+---
+title: "一个AI代理刚刚在优化NVIDIA自家GPU上击败了NVIDIA自己的工程师"
+description: "AVO论文给了一个编程代理CUDA文档和Blackwell B200规格的访问权限。它在7天内产出40个内核版本——性能超过cuDNN 3.5%，超过FlashAttention-4 10.5%。"
+date: 2026-03-27
+readTime: "4 min"
+linkedin: true
+---
+
+一个AI编程代理刚刚在优化NVIDIA自家GPU上击败了NVIDIA自己的工程师。
+
+这篇论文叫AVO——Agentic Variation Operators。研究人员给了一个编程代理CUDA文档、Blackwell B200架构规格和一个评分函数的访问权限。然后让它跑了7天。
+
+这个代理产出了40个提交的内核版本。在内部探索了超过500个优化方向。最终结果：multi-head attention达到1,668 TFLOPS——超过cuDNN 3.5%，超过FlashAttention-4 10.5%。
+
+cuDNN是NVIDIA的皇冠上的宝石。FlashAttention是transformer时代最重要的内核创新。两者都代表了高级GPU内核工程师数月的手工调优——那种用寄存器分配和warp同步来思考的人。
+
+这个代理在一周内击败了他们。
+
+让这个故事与通常"AI写代码"不同的是：这些优化并不肤浅。代理发现了无分支的累加器重缩放，消除了warp同步开销。它重构了双阶段流水线，使纠正和GEMM操作重叠。它在warp组之间重新平衡了寄存器——184/88/56而不是FlashAttention的192/80/48——减少了关键路径上的溢出。
+
+这些优化需要同时推理内存排序、流水线调度和硬件架构。这种工作通常需要资深工程师数周才能概念化。
+
+然后这个代理在30分钟内将其MHA内核适配为grouped-query attention。不是30天。30分钟。
+
+论文最有趣的部分是它的框架。他们认为，将AI限制在人类设计的流水线中的"生成代码"步骤是根本性的限制。真正的突破：给代理对整个过程的完全自主权——何时查阅文档、测试什么、何时改变策略、何时回溯。
+
+听起来熟悉吗？这和Karpathy上周描述的转变完全一样。停止敲代码。开始指挥代理。代理不只是执行得更快。它们探索人类无法到达的空间。
+
+---
+
+*论文: [AVO: Agentic Variation Operators for Autonomous Evolutionary Search](https://arxiv.org/pdf/2603.24517)*
