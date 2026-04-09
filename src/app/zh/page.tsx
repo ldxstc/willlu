@@ -236,6 +236,54 @@ export default function HomeZh() {
 
             <div className="now-card">
               <div className="now-card-header">
+                <div className="now-card-icon icon-helix" />
+                <div>
+                  <h3>Voice AI</h3>
+                  <div className="now-card-type">
+                    Uniphore对话智能
+                  </div>
+                </div>
+              </div>
+              <p>
+                覆盖每一次客户互动的实时对话智能。情感检测、实时座席指导、
+                将对话转化为竞争优势的洞察。
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-slm" />
+                <div>
+                  <h3>Marketing AI</h3>
+                  <div className="now-card-type">
+                    Uniphore AI原生客户互动
+                  </div>
+                </div>
+              </div>
+              <p>
+                AI代理激活客户数据驱动个性化互动、编排营销活动、在每个渠道
+                最大化ROI。构建在AI原生的客户数据平台之上。
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-telos" />
+                <div>
+                  <h3>Business AI Platform</h3>
+                  <div className="now-card-type">
+                    Uniphore完整企业AI技术栈
+                  </div>
+                </div>
+              </div>
+              <p>
+                将知识层、SLM、AI代理和信任基础设施连接为一个平台。SLM飞轮、
+                代理架构和企业治理在此汇聚为一个完整系统。
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
                 <div className="logo-dark-bg">
                   <Image
                     src="/logo-lore.png"

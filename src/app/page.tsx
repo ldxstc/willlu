@@ -241,6 +241,57 @@ export default function Home() {
 
             <div className="now-card">
               <div className="now-card-header">
+                <div className="now-card-icon icon-helix" />
+                <div>
+                  <h3>Voice AI</h3>
+                  <div className="now-card-type">
+                    Conversational intelligence at Uniphore
+                  </div>
+                </div>
+              </div>
+              <p>
+                Real-time conversation intelligence across every customer
+                interaction. Emotion detection, agent guidance, and insights
+                that turn conversations into competitive advantage.
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-slm" />
+                <div>
+                  <h3>Marketing AI</h3>
+                  <div className="now-card-type">
+                    AI-native customer engagement at Uniphore
+                  </div>
+                </div>
+              </div>
+              <p>
+                AI agents that activate customer data to drive personalized
+                engagement, orchestrate campaigns, and maximize ROI across
+                every channel. Built on an AI-first customer data platform.
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
+                <div className="now-card-icon icon-telos" />
+                <div>
+                  <h3>Business AI Platform</h3>
+                  <div className="now-card-type">
+                    The full enterprise AI stack at Uniphore
+                  </div>
+                </div>
+              </div>
+              <p>
+                One platform connecting knowledge, SLMs, agents, and trust
+                infrastructure. Where the SLM Flywheel, agent architecture,
+                and enterprise governance come together as a single system.
+              </p>
+            </div>
+
+            <div className="now-card">
+              <div className="now-card-header">
                 <div className="logo-dark-bg">
                   <Image
                     src="/logo-lore.png"
