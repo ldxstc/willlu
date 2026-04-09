@@ -5,7 +5,7 @@ import RevealSection from "@/components/RevealSection";
 import { getEssays, formatDate } from "@/lib/essays";
 
 export default function Home() {
-  const essays = getEssays();
+  const essays = getEssays().slice(0, 5);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -146,6 +146,7 @@ export default function Home() {
             </a>
           ))}
         </div>
+        <a href="/essays" className="view-all">View all essays →</a>
       </RevealSection>
 
       <div className="section-breath" />

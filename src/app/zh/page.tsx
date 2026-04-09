@@ -5,7 +5,7 @@ import RevealSection from "@/components/RevealSection";
 import { getEssaysZh, formatDateZh } from "@/lib/essays-zh";
 
 export default function HomeZh() {
-  const essays = getEssaysZh();
+  const essays = getEssaysZh().slice(0, 5);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -143,6 +143,7 @@ export default function HomeZh() {
             </a>
           ))}
         </div>
+        <a href="/zh/essays" className="view-all">查看全部 →</a>
       </RevealSection>
 
       <div className="section-breath" />
