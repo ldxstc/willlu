@@ -14,10 +14,17 @@ export default function EssaysZhPage() {
     <>
       <NavZh />
 
-      <RevealSection className="writing" id="writing">
-        <h2>文章</h2>
-        <p>企业AI的框架与真实经验。</p>
+      <section className="hero" style={{ minHeight: 'auto', paddingBottom: '3rem' }}>
+        <div className="hero-rule" />
+        <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>文章</h1>
+        <p className="hero-intro">
+          企业AI的框架与真实经验。
+        </p>
+      </section>
 
+      <hr className="divider" />
+
+      <RevealSection className="writing" id="writing">
         <div className="essay-list">
           {essays.map((essay) => (
             <a
@@ -36,6 +43,12 @@ export default function EssaysZhPage() {
             </a>
           ))}
         </div>
+      </RevealSection>
+
+      <RevealSection className="closing" as="div">
+        <p className="closing-line">
+          我在<a href="https://linkedin.com/in/will-dongxu-lu-9b9b972b" target="_blank" rel="noopener noreferrer">LinkedIn</a>上发表文章，并在构建的过程中更新这个网站。
+        </p>
       </RevealSection>
 
       <footer>

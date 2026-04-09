@@ -14,10 +14,17 @@ export default function EssaysPage() {
     <>
       <Nav />
 
-      <RevealSection className="writing" id="writing">
-        <h2>Writing</h2>
-        <p>Frameworks and honest lessons from enterprise AI.</p>
+      <section className="hero" style={{ minHeight: 'auto', paddingBottom: '3rem' }}>
+        <div className="hero-rule" />
+        <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Writing</h1>
+        <p className="hero-intro">
+          Frameworks and honest lessons from enterprise AI.
+        </p>
+      </section>
 
+      <hr className="divider" />
+
+      <RevealSection className="writing" id="writing">
         <div className="essay-list">
           {essays.map((essay) => (
             <a
@@ -36,6 +43,20 @@ export default function EssaysPage() {
             </a>
           ))}
         </div>
+      </RevealSection>
+
+      <RevealSection className="closing" as="div">
+        <p className="closing-line">
+          I publish on{" "}
+          <a
+            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>{" "}
+          and update this site as I build.
+        </p>
       </RevealSection>
 
       <footer>
