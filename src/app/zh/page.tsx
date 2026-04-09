@@ -71,6 +71,17 @@ export default function HomeZh() {
 
         <div className="path-items">
           <div className="path-item">
+            <div className="path-year">2012</div>
+            <div className="path-content">
+              <h3>NVIDIA</h3>
+              <div className="at">GPU计算与AI</div>
+              <p className="lesson">
+                早期接触了将驱动AI革命的硬件。学会了在芯片与软件的交汇处思考。
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
             <div className="path-year">2013</div>
             <div className="path-content">
               <h3>Google</h3>

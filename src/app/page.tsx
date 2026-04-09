@@ -73,6 +73,19 @@ export default function Home() {
 
         <div className="path-items">
           <div className="path-item">
+            <div className="path-year">2012</div>
+            <div className="path-content">
+              <h3>NVIDIA</h3>
+              <div className="at">GPU Computing & AI</div>
+              <p className="lesson">
+                Early exposure to the hardware that would power the AI
+                revolution. Learned to think at the intersection of silicon
+                and software.
+              </p>
+            </div>
+          </div>
+
+          <div className="path-item">
             <div className="path-year">2013</div>
             <div className="path-content">
               <h3>Google</h3>
