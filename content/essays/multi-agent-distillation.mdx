@@ -1,0 +1,33 @@
+---
+title: "Are You Running 5 Agents Because the Task Needs 5?"
+description: "A new paper tested when to collapse multi-agent systems into a single agent. The answer is counterintuitive: it's not about the task. It's about the metric."
+date: 2026-04-06
+readTime: "4 min"
+linkedin: true
+---
+
+A new paper just answered a question every enterprise running AI agents should be asking: when should you use multiple agents, and when should you collapse them into one?
+
+The answer is counterintuitive. It's not about the task. It's about the metric.
+
+Researchers tested skill distillation — taking a multi-agent system and compressing it into a single agent with extracted skills. On the exact same task, with the exact same outputs, distillation improved accuracy by 28 percentage points under one metric and degraded it by 2 points under another.
+
+Same agents. Same outputs. Opposite results. The only variable was how you measure success.
+
+They introduced a concept called Metric Freedom — a score from 0 to 1 that measures how many paths lead to a good result. When the metric is rigid (F near 0), there's a narrow corridor to success. Structured skill guidance is extremely valuable. When the metric is free (F near 1), many paths work. Adding structure actually hurts by restricting the agent's natural exploration.
+
+The practical implications hit hard.
+
+Pipeline ordering — the carefully designed sequence of steps in your multi-agent system — provided zero value when distilled. The elaborate coordination mechanisms (debate, voting, message passing) that make multi-agent architectures complex and expensive? Also zero value. In some cases, negative value. One multi-agent debate system produced the worst accuracy in the study because debating on incorrect assumptions compounded the errors.
+
+What did transfer: tools and domain knowledge. Extracted selectively, based on metric rigidity.
+
+The cost difference: single-agent distilled systems ran 1.4-8× cheaper and up to 15× faster than the multi-agent originals. On one task, a multi-agent system took 8-13 hours. The distilled single agent took 45 minutes. Comparable accuracy.
+
+Most enterprises I talk to are building increasingly complex multi-agent architectures — more agents, more coordination, more message passing. This paper suggests the opposite direction might be right: start with multiple agents to explore, then distill into fewer, specialized ones.
+
+The question is: are you running 5 agents because the task needs 5, or because you designed it that way?
+
+---
+
+*Paper: [From Multi-Agent to Single-Agent: When Is Skill Distillation Beneficial?](https://arxiv.org/abs/2604.01608)*
