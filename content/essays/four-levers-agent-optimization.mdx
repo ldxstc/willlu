@@ -1,0 +1,37 @@
+---
+title: "Most People Think Improving an AI Agent Means Retraining the Model. That's One Lever. There Are Four."
+description: "A new paper shows agents improving themselves without model updates. But the bigger insight is the full optimization surface most enterprises aren't using."
+date: 2026-04-13
+readTime: "4 min"
+linkedin: true
+---
+
+Most people think improving an AI agent means retraining the model.
+
+That's one lever. There are four.
+
+A new paper from the Memento team just demonstrated a system where agents improve themselves continuously — without any model updates. The agent rewrites its own skill library based on what worked and what didn't. Accuracy on multi-step reasoning tasks went from 65% to 92% in three cycles. On Humanity's Last Exam, performance more than doubled. Starting from five basic skills, the library grew to 235. No fine-tuning. No human intervention.
+
+This is impressive. But the bigger insight isn't the paper itself. It's what the paper reveals about the full optimization surface that most enterprises aren't using.
+
+There are at least four independent levers to improve an agent's performance:
+
+**Model optimization.** Fine-tune the underlying SLM on your domain data. The SLM Flywheel. This changes what the model knows. Checkr did it — 5× cheaper, 30× faster, 90%+ accuracy.
+
+**Skill optimization.** Evolve the agent's behavioral playbook — the workflows, multi-step procedures, and decision trees it follows. This is what Memento-Skills demonstrates. It changes how the agent acts, without changing what it knows.
+
+**Prompt optimization.** Refine the instructions, system prompts, and few-shot examples. A/B test prompts against production outcomes. This changes how the agent interprets tasks. The cheapest lever, often the most underused.
+
+**Tool optimization.** Improve which tools the agent selects, when it uses them, and how it chains them. Better tool routing, smarter fallback logic, tighter integration. This changes what the agent can do.
+
+Most enterprise teams pull one lever — usually the model — and leave the other three untouched. That's like optimizing your engine but never changing the tires, the route, or the driver's technique.
+
+The compound effect is multiplicative, not additive. A 20% improvement on each lever doesn't give you 80% total improvement. It gives you 2× or more. Because each lever amplifies the others: a better model makes skill optimization more effective, which makes better use of tools, which generates better training data for the next model cycle.
+
+This is the optimization flywheel. Not just a model flywheel — a full-stack agent improvement loop that touches every layer simultaneously.
+
+The teams winning at enterprise AI aren't the ones with the best model. They're the ones pulling all four levers at once.
+
+---
+
+*Paper: [Memento-Skills: Evolving LLM Agents Through Self-Improving Skill Memory](https://arxiv.org/abs/2603.18743)*
