@@ -1,0 +1,31 @@
+---
+title: "Why Your AI Costs Go Up With Usage and Theirs Go Down"
+description: "A new paper shows 84.6% token savings through knowledge compounding. The insight: tokens should be capital investments, not consumables."
+date: 2026-04-15
+readTime: "4 min"
+linkedin: true
+---
+
+Every time your AI agent answers a question, the answer disappears. The next query starts from scratch. Same tokens. Same cost. Same latency.
+
+A new paper calls this what it is: treating tokens as consumables. Like electricity — used once and gone.
+
+The authors built a system where every token spent leaves something behind. When the agent researches a topic, the results get written back into a persistent knowledge base. When it answers a question well, that answer becomes a reusable synthesis page. When it searches the web, the findings merge permanently into entity pages.
+
+The knowledge base grows with every interaction. The next query on a related topic hits the wiki first — retrieval instead of generation. Retrieval costs 10-50× less than generation.
+
+In a controlled test with sequential queries on the same domain, cumulative token usage was 47K versus 305K for a standard RAG baseline. 84.6% savings. By the fourth query, the system needed only 4K tokens for a question that would have cost 28K from scratch — because earlier queries had already deposited the relevant knowledge.
+
+The 30-day projections are more interesting than the lab results. For high-concentration domains — a research team, a product support org, a legal department working the same cases — token savings hit 81% by day 30. For medium concentration, 54%. Even the worst case (diffuse, low-repetition queries) still saved 26%.
+
+The insight that matters for enterprise: your AI spending should compound, not accumulate. Every token spent today should make tomorrow cheaper. If your costs scale linearly with usage, your architecture is missing the write-back loop.
+
+The paper frames this as reclassifying tokens from operating expense to capital investment. Capex, not opex. The knowledge base is the asset. The tokens are the construction material. Every query either builds the asset or wastes the material.
+
+The implementation is surprisingly simple — Markdown files, structured prompts, no vector database. About 200 lines of code on top of an existing agent framework. The critical feature that closes the loop: search write-back. When the agent goes to the web because the wiki doesn't have the answer, it writes what it learned back permanently. Without that one feature, the wiki only knows what you initially fed it. With it, the wiki learns from every interaction.
+
+No other open-source implementation does this.
+
+---
+
+*Paper: [Knowledge Compounding](https://arxiv.org/abs/2604.11243)*
