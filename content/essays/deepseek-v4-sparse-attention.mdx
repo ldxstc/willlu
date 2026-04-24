@@ -1,0 +1,29 @@
+---
+title: "DeepSeek V4: 1M Context at 21× Less Than Opus. The Open-Weight Gap Just Closed Again."
+description: "DeepSeek shipped V4 the same day as GPT-5.5. 1.6T parameters, 1M context, Apache 2.0, $3.48 per million output tokens. Sparse attention cuts KV cache to 10% of V3.2."
+date: 2026-04-24
+readTime: "4 min"
+linkedin: true
+---
+
+DeepSeek shipped V4 today. Same day as GPT-5.5. That timing is not accidental.
+
+The headline specs: 1.6 trillion parameters, 49 billion activated (MoE), 1 million token context window, Apache 2.0 license, weights on Hugging Face.
+
+The number that matters: $3.48 per million output tokens. GPT-5.5 costs $30. Claude Opus 4.7 costs $75. DeepSeek V4 is 8.6× cheaper than GPT-5.5 and 21× cheaper than Opus — at competitive performance.
+
+But the architecture is the real story.
+
+V4 introduces Compressed Sparse Attention — a hybrid mechanism that cuts inference FLOPs to 27% of V3.2 and reduces the KV cache to 10% of V3.2 at the full million-token context. That's an order of magnitude less memory for long-context inference. This was the main cost barrier preventing open models from serving 1M context windows. V4 just removed it.
+
+On Codeforces, V4-Pro scores 3,206 — higher than GPT-5.4 at 3,168. On LiveCodeBench, 93.5% — ahead of Kimi K2.6 and Opus 4.6. On Chinese-SimpleQA, it leads every model except Gemini.
+
+Where it loses: long-context retrieval still trails Opus (83.5 vs 92.9 on MRCR 1M). SWE-Bench Pro trails Kimi K2.6 (55.4 vs 58.6). The knowledge-work economic value benchmark still favors closed models.
+
+The Flash variant is almost as interesting. 284B parameters, 13B activated. At $0.28 per million output tokens — essentially free. And Flash-Max approaches Pro-level reasoning on most benchmarks.
+
+Here's what I keep coming back to: the sparse attention breakthrough is what makes 1M context economically viable for the first time in an open-weight model. Context length used to be a luxury only frontier labs could afford to serve. V4 makes it commodity infrastructure.
+
+The SLM Flywheel thesis just got a new foundation layer. Fine-tune a domain-specialized model on top of an architecture that can hold a million tokens of context at 10% of the previous memory cost. The compounding gets faster when the base gets cheaper.
+
+Apache 2.0. Weights on Hugging Face. The open-weight gap just closed again.
