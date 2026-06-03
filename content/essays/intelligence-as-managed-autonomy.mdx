@@ -1,0 +1,31 @@
+---
+title: "Most AI Agent Failures Aren't Alignment Failures. They're Architecture Failures."
+description: "A new paper reframes hallucination and overconfidence as symptoms of unbounded autonomy — and proposes a four-state framework (SMARt) for governing when agents can and cannot act."
+date: 2026-06-02
+readTime: "4 min"
+linkedin: true
+---
+
+Most AI agent failures aren't alignment failures. They're architecture failures.
+
+A new paper reframes hallucination, overconfidence, and "confident wrong answers" as symptoms of a single architectural flaw: unbounded autonomy. Once an agent is given permission to act, nothing in the current architecture forces it to stop — even when its confidence is collapsing.
+
+The paper introduces SMARt, a four-state framework for managing agent autonomy:
+
+**Stable** — the agent operates within verified epistemic bounds. This is the only state where external output is permitted.
+
+**Meta-cognitive Recovery** — the agent detects rising uncertainty and suspends action to self-diagnose. Output is structurally blocked.
+
+**Assisted Recovery** — self-repair failed. External resources — verifier agents, domain specialists, retrieval systems — are engaged. Unilateral action is suspended.
+
+**Regulated/Revoked** — autonomy is explicitly surrendered to human oversight or controlled shutdown.
+
+The key architectural property: the system mathematically cannot produce external output when its epistemic grounding is invalid. This isn't a probability reduction. It's a structural prohibition.
+
+Five formal properties are proven. Bounded autonomy: the system must leave autonomous operation within bounded time when uncertainty exceeds thresholds. Mandatory escalation: failed self-recovery forces escalation. Governance reachability: unsafe conditions always reach human oversight in bounded time.
+
+The most counterintuitive insight: current evaluation metrics actually incentivize hallucination. Task completion rate, accuracy benchmarks, and response fluency all reward systems that keep acting under uncertainty. They penalize refusal, escalation, and silence — even when those are the correct behaviors.
+
+The paper proves a formal impossibility result: no domain-agnostic governance trigger set is universally safe. Healthcare AI, autonomous robotics, and financial systems each need different escalation signals.
+
+For enterprise teams deploying agents: autonomy should be a dynamically allocated privilege that must be continuously earned through epistemic validity — not a static right granted at deployment.
