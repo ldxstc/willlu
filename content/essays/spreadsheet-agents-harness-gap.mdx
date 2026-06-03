@@ -1,0 +1,21 @@
+---
+title: "Specialized AI Agents Can't Do Spreadsheets. General Agents Can."
+description: "WorkstreamBench tested agents on real financial modeling tasks. Claude's general web interface scored 69.1. Its specialized Excel add-in scored 60.4. Same model, different harness, 3.8× gap."
+date: 2026-05-28
+readTime: "3 min"
+linkedin: true
+---
+
+A new benchmark tested AI agents on real financial modeling tasks — DCF valuations, 3-statement models, debt schedules.
+
+The most surprising finding: Claude's general web interface scored 69.1. Claude's specialized Excel add-in scored 60.4. ChatGPT's Excel add-in scored 59.0. The tools built specifically for spreadsheets performed worse than the general-purpose interface.
+
+The deeper finding: the same Claude model accessed via API with an agentic framework scored 18.2. The web interface scored 69.1. A 3.8× gap — same model, different harness.
+
+The failure mode: specialized Excel agents compute correct numbers but hardcode them into cells instead of building formulas. The workbooks look complete but are professionally useless — no one can audit, edit, or extend a model full of magic numbers.
+
+On hard tasks, golden solutions contain 20,925 formulas. The best agent produced 3,138 — covering 15% of the reference.
+
+For enterprise teams evaluating AI tools: a product labeled "AI for finance" may underperform a general-purpose model with a better-engineered harness. The label is marketing. The harness is performance.
+
+Same model, different wrapper, 3.8× performance gap. Your tool selection process should be testing the harness, not the model.

@@ -1,0 +1,27 @@
+---
+title: "Memory, Skills, and Rules Aren't Three Different Systems. They're the Same System at Different Compression Levels."
+description: "A new paper unifies agent memory, skill discovery, and rule learning into a single Experience Compression Spectrum — and shows agents with Level 2 skills outperform Level 1 memory by 68.5 percentage points."
+date: 2026-04-28
+readTime: "4 min"
+linkedin: true
+---
+
+Memory, skills, and rules aren't three different systems. They're the same system at different compression levels.
+
+A new paper surveyed every major agent knowledge system — Mem0, Voyager, SkillWeaver, all of them — and formalized something builders have felt but couldn't articulate.
+
+Level 1 — episodic memory. "User requested Q3 revenue analysis via SQL. Preferred tabular format." 15× compression. Useful for that user. Doesn't transfer.
+
+Level 2 — procedural skill. "DATA_ANALYSIS: confirm source → select tool → present in preferred format → verify." 500× compression. Transfers across tasks.
+
+Level 3 — declarative rule. "Always verify computed results against source data." 1,000×+ compression. Transfers across everything.
+
+Agents with Level 2 skills outperformed agents with Level 1 memory by 68.5 percentage points on the same benchmark. Not marginal. A different category.
+
+The scalability math: 1,000 episodes at Level 1 = 500K tokens searched every decision. Compress to Level 2: 5K tokens. Level 3: 500 tokens. A 1,000× reduction compounding across thousands of daily decisions.
+
+The problem: every existing system operates at exactly one level. Memory systems never compress upward into skills. Skill systems never consolidate into rules. The authors call this the "missing diagonal."
+
+Auto-generated skills provided zero benefit. Curated skills improved performance by 16 points. Compression without quality control is compact noise, not compact knowledge.
+
+If your agents store everything but compress nothing, retrieval costs grow linearly forever.

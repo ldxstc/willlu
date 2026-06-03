@@ -1,0 +1,23 @@
+---
+title: "A Coding Agent Just Scored the Theoretical Maximum on Atari Breakout. No Neural Network. No Gradients."
+description: "Heuristic Learning uses coding agents to maintain and improve software-based policies through feedback loops — matching Deep RL baselines without training a single neural network."
+date: 2026-05-11
+readTime: "4 min"
+linkedin: true
+---
+
+A coding agent just scored the theoretical maximum on Atari Breakout. No neural network. No training. No gradients. Pure code.
+
+Jiayi Weng ran an experiment: let Codex maintain a software system — rules, state detectors, tests, replays — and keep iterating it against environment feedback. In Breakout, the score went from 387 to 864 (the ceiling). In MuJoCo, a Python-only policy matched Deep RL baselines. In VizDoom, OpenCV without any neural network solved first-person combat.
+
+He calls this Heuristic Learning: the feedback loop of Deep RL, but the thing being updated is code, not weights.
+
+Expert systems didn't die because rules were useless. They died because humans couldn't afford to maintain them. Coding agents change the maintenance curve. Rules that used to be one-off patches can now become software worth owning.
+
+The practical properties: explainability — the policy is readable code. Regression-testability — old capabilities become tests. Sample efficiency — one good code edit jumps directly to a new policy.
+
+The continual learning connection: neural networks forget because new learning overwrites old weights. Heuristic systems don't have to — old capabilities live in tests, replays, and version history. Forgetting becomes an engineering problem, not a mathematical one.
+
+The honest limitation: Heuristic Learning can't do everything neural networks can. The real architecture is probably both — fast heuristics for online adaptation, periodic neural network updates for deep generalization.
+
+The paradigm shifted from pretraining to RLHF to large-scale RL. The next shift: anything that can be continuously iterated on becomes solvable.

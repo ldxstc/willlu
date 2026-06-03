@@ -1,0 +1,23 @@
+---
+title: "A 3B Model Just Outperformed GPT-4o by Internalizing Skills Into Its Weights"
+description: "SKILL0 trains small models with curated skills then progressively withdraws them. The result: a 3B model scores 87.9% where GPT-4o scores 48.0%, at 5× lower inference cost."
+date: 2026-05-26
+readTime: "4 min"
+linkedin: true
+---
+
+A 3B model just outperformed GPT-4o and Gemini-2.5-Pro on autonomous agent tasks. Not by adding more parameters. By internalizing skills directly into the small model's weights.
+
+SKILL0 trains a small language model with curated domain skills, then progressively withdraws them during training until the model operates with zero skill retrieval at inference. The knowledge moves from the context window into the parameters.
+
+The results: a 3B model scores 87.9% on ALFWorld. GPT-4o scores 48.0%. Gemini-2.5-Pro scores 60.3%. A fraction of the parameters, nearly twice the performance.
+
+SKILL0 uses 0.38k tokens per step versus 2.21k for skill-augmented approaches — more than 5× reduction in inference cost. No retrieval pipeline. No skill bank. No embedding index at runtime.
+
+The most counterintuitive finding: the model performs better without skills at inference (87.9%) than with them (86.3%). Once knowledge is in the weights, retrieval context actually introduces noise.
+
+The pattern: curate domain skills → train a small model to absorb them → deploy at a fraction of the cost → collect production data → refine the skills → retrain. Each cycle makes the small model more capable while the cost advantage over frontier models widens.
+
+The training cost: 180 steps on 4 H800 GPUs. The result: a model that runs with zero retrieval infrastructure indefinitely.
+
+Frontier models are getting more expensive. Small models are getting better at absorbing domain expertise. The gap between renting intelligence from an API and owning intelligence in your weights is closing — from the bottom up.

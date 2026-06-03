@@ -1,0 +1,19 @@
+---
+title: "Your AI Costs Might Be 30-40% Higher Than They Need to Be — Because of the Tokenizer"
+description: "1,308 models trained to show that the Chinchilla rule of ~20 tokens per parameter is wrong. The universal rule is ~60 bytes per parameter."
+date: 2026-05-06
+readTime: "4 min"
+linkedin: true
+---
+
+Scaling laws have optimized two variables: model size and training data. A new paper adds a third — the compression rate of the tokenizer — and shows it changes the optimal recipe more than most teams realize.
+
+The researchers trained 1,308 models from 50M to 7B parameters. The core finding: the Chinchilla rule of ~20 tokens per parameter isn't universal. It's an artifact of one specific compression rate. The general rule is ~60 bytes per parameter, regardless of tokenizer.
+
+At the largest scale tested, a BPE tokenizer with 90% of its vocabulary disabled outperformed standard BPE. Standard BPE — what Llama 3 and Qwen 3 ship with — appears to over-compress at frontier scale.
+
+A 3.3B model with near-optimal compression scored 74.1% on HellaSwag. A 6.7B model with higher compression scored 68.2% at the same inference cost. Properly tuned compression lets a smaller model outperform a model twice its size.
+
+For multilingual teams, the gap is worse. Optimal compression varies 2× across languages — 3.71 bytes/token for English, 8.09 for Hindi.
+
+When comparing model costs across providers, normalizing by tokens is misleading. A SuperBPE token carries 6 bytes of information. A character-level token carries 1. The byte is the honest unit of comparison.

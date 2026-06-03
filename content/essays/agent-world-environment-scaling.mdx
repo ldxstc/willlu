@@ -1,0 +1,21 @@
+---
+title: "An 8B Model Just Outperformed a 235B Model on Agent Tool-Use. The Difference Was Environments, Not Parameters."
+description: "Agent-World builds 2,000 realistic training environments with 19,822 tools — and shows environment diversity beats parameter scaling for agentic tasks."
+date: 2026-05-03
+readTime: "4 min"
+linkedin: true
+---
+
+An 8B model just outperformed a 235B model on agent tool-use benchmarks. The difference wasn't parameters. It was environments.
+
+Agent-World builds nearly 2,000 realistic training environments with 19,822 executable tools, all mined from real-world data sources: MCP server specs, tool documentation, and product requirement documents.
+
+The core insight: agent training has a data infrastructure problem, not a model scale problem. LLM-simulated environments produce agents that look capable in demos but fail on real tool APIs.
+
+Agent-World-8B scores 51.4% on BFCL-V4 — competitive with models 30× its size. Agent-World-14B hits 55.8%, matching DeepSeek-V3.2-685B at 54.1%.
+
+Performance doubles going from 0 to 2,000 training environments. The largest jumps happen between 100 and 500 environments. Adding more environments consistently beats adding more parameters.
+
+The self-evolving loop: after initial training, an arena evaluates the agent on fresh tasks, an auto-diagnosis agent analyzes failure traces, and targeted new environments are synthesized. Each round produces measurable gains.
+
+Simulated environments can actively hurt performance. Models trained on LLM-generated feedback failed on real MCP tool interactions. The gap is negative transfer, not noise.

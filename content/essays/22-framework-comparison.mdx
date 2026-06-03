@@ -1,0 +1,23 @@
+---
+title: "22 AI Agent Frameworks Tested Head-to-Head. The Top 12 Were Separated by 1.4 Percentage Points."
+description: "The largest systematic comparison of agentic AI frameworks reveals that engineering discipline — memory management, retry policies, failure handling — matters more than architecture."
+date: 2026-04-22
+readTime: "4 min"
+linkedin: true
+---
+
+Researchers just tested 22 AI agent frameworks head-to-head. 16,495 tasks. $3,154 in API costs. 685,000 API requests. 24 days of compute.
+
+The finding that should make every enterprise AI team uncomfortable: the top 12 frameworks were separated by only 1.4 percentage points.
+
+LangGraph, CrewAI, AutoGen, MetaGPT, OpenAI Agents — all tested under identical conditions, same model, same configuration. The architectural differences that dominate every conference talk — single-agent vs multi-agent, hierarchical vs graph-based — made almost no measurable difference to reasoning accuracy.
+
+What did make a difference: memory management. Retry policies. Context window discipline. Failure handling. The engineering, not the architecture.
+
+MetaGPT — 65K GitHub stars, the most popular framework in the study — scored literally 0% on math tasks. AutoGen, by Microsoft, ranked 18th out of 22. Camel ran for 11 days on a single benchmark without finishing because of uncontrolled context growth.
+
+GitHub stars predicted nothing. The most-starred framework performed worst.
+
+Adding more agents made things worse. A two-agent setup was the sweet spot. Four agents increased cost and time with no accuracy improvement.
+
+If you're choosing an agent framework for production, stop comparing architectures. Start comparing failure handling, cost governance, and context management.
