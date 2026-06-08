@@ -128,9 +128,12 @@ export default function Home() {
               <h3>Uniphore</h3>
               <div className="at">VP Engineering · Head of AI Strategy</div>
               <p className="lesson">
-                Building the definitive enterprise AI platform — stacked SLMs,
-                autonomous agents, and a self-improving flywheel that compounds
-                with every customer interaction. This is the generational
+                I&apos;ve never been more excited about what I&apos;m building.
+                Open-weight models will capture 70–80% of the enterprise AI
+                market — and Uniphore is positioned to own the stack that
+                makes them production-ready. Stacked SLMs, autonomous agents,
+                and a platform that lets enterprises build custom AI
+                applications on their own data. This is the generational
                 opportunity I&apos;ve been building toward for the last decade.
               </p>
             </div>
@@ -264,17 +267,20 @@ export default function Home() {
         <RevealSection className="long-game">
           <div className="long-game-accent" />
           <blockquote>
-            Enterprise AI is a once-in-a-generation platform shift. Uniphore
-            is where I&apos;m putting everything I&apos;ve learned — from Google,
-            from building and selling a company, from Stanford — into building
-            the platform that defines this era.
+            The enterprise software market is about to be rebuilt. Platforms
+            that let companies create custom AI applications — not just use
+            pre-built ones — will dominate. Uniphore is where I&apos;m putting
+            everything I&apos;ve learned into building that platform.
           </blockquote>
           <p>
-            A proven exit, deep enterprise AI experience, a Stanford network,
-            and trilingual access to the American, Chinese, and Korean markets.
-            All of it is deployed at Uniphore. I write about enterprise AI
-            because I&apos;m building it every day — and I believe the companies
-            that own their intelligence will define the next decade.
+            I believe open-weight models will own 70–80% of the enterprise
+            market. The winners won&apos;t be the companies with the best
+            foundation model — they&apos;ll be the platforms that make those
+            models deployable, governable, and compounding. A proven exit,
+            deep enterprise AI experience, a Stanford network, and trilingual
+            access to the American, Chinese, and Korean markets — all of it
+            is deployed at Uniphore. I write about enterprise AI because
+            I&apos;m building it every day.
           </p>
         </RevealSection>
       </div>
