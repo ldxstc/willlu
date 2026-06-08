@@ -33,9 +33,9 @@ export default function Home() {
           <div className="hero-text">
             <div className="hero-rule" />
             <h1>
-              Building the AI platform that
+              Building enterprise AI
               <br />
-              transforms how enterprises work
+              at Uniphore
             </h1>
             <p className="hero-intro">
               I spent years{" "}
