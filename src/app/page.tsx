@@ -16,7 +16,7 @@ export default function Home() {
     image: "https://willlu.com/headshot.jpg",
     sameAs: ["https://linkedin.com/in/will-dongxu-lu-9b9b972b"],
     description:
-      "Enterprise AI builder. Stanford GSB. Google Cloud AI. Co-Founded Orby AI (acquired by Uniphore).",
+      "Building the enterprise AI platform at Uniphore. Stanford GSB. Ex-Google Cloud AI (Founding Member). Co-Founded Orby AI (acquired by Uniphore).",
   };
 
   return (
@@ -33,17 +33,18 @@ export default function Home() {
           <div className="hero-text">
             <div className="hero-rule" />
             <h1>
-              I study how compounding
+              Building the AI platform that
               <br />
-              businesses get built
+              transforms how enterprises work
             </h1>
             <p className="hero-intro">
-              I spent{" "}
+              I spent years{" "}
               <strong>building enterprise AI at Google Cloud</strong>,
               then co-founded a company that was{" "}
-              <strong>acquired for hundreds of millions</strong>. Now I write about the
-              patterns I see — how experienced operators are using AI to build
-              things that compound over decades, not months.
+              <strong>acquired for hundreds of millions</strong>. Now I&apos;m leading
+              AI strategy at <strong>Uniphore</strong>, building the platform
+              that turns enterprise intelligence into a compounding advantage.
+              I write about what I learn along the way.
             </p>
             <div className="credential-line">
               UF · NVIDIA · Google Cloud AI · Stanford GSB · Orby AI · Uniphore
@@ -127,8 +128,10 @@ export default function Home() {
               <h3>Uniphore</h3>
               <div className="at">VP Engineering · Head of AI Strategy</div>
               <p className="lesson">
-                Leading AI strategy and building next-generation agent platforms.
-                Using this chapter to prepare for the next one.
+                Building the definitive enterprise AI platform — stacked SLMs,
+                autonomous agents, and a self-improving flywheel that compounds
+                with every customer interaction. This is the generational
+                opportunity I&apos;ve been building toward for the last decade.
               </p>
             </div>
           </div>
@@ -166,60 +169,9 @@ export default function Home() {
 
       <div className="now-band">
         <RevealSection className="now" id="now">
-          <h2>Building now</h2>
+          <h2>Building at Uniphore</h2>
 
           <div className="now-grid">
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="logo-dark-bg">
-                  <Image
-                    src="/logo-rumin.png"
-                    alt="Rumin"
-                    width={40}
-                    height={40}
-                    className="now-card-logo"
-                  />
-                </div>
-                <div>
-                  <h3>Rumin</h3>
-                  <div className="now-card-type">
-                    Ambient intelligence for small teams
-                  </div>
-                </div>
-              </div>
-              <p>
-                A judgment model that becomes unmigratable over time. Permanent
-                memory, autonomous execution, partnership intelligence. Not an
-                app — a presence.
-              </p>
-            </div>
-
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="logo-dark-bg">
-                  <svg viewBox="0 0 512 512" width="56" height="56" aria-label="PeiPei logo" style={{borderRadius:'10px'}}>
-                    <rect width="512" height="512" rx="112" fill="#1A1A2E"/>
-                    <defs>
-                      <radialGradient id="dawn-glow" cx="52%" cy="58%" r="42%">
-                        <stop offset="0%" stopColor="#C4956A" stopOpacity="0.4"/>
-                        <stop offset="100%" stopColor="#1A1A2E" stopOpacity="0"/>
-                      </radialGradient>
-                    </defs>
-                    <path d="M 155 380 L 155 170 C 155 110, 195 78, 260 78 C 335 78, 355 128, 355 180 C 355 232, 330 264, 288 274 C 315 270, 348 268, 385 267 L 440 267" fill="none" stroke="#F2EDE4" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round"/>
-                    <ellipse cx="268" cy="182" rx="40" ry="52" fill="url(#dawn-glow)"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3>PeiPei</h3>
-                  <div className="now-card-type">AI running coach</div>
-                </div>
-              </div>
-              <p>
-                Garmin sync, adaptive training, weight tracking. Near MVP. The
-                small bet that teaches me consumer product-market fit.
-              </p>
-            </div>
-
             <div className="now-card">
               <div className="now-card-header">
                 <div className="now-card-icon icon-helix" />
@@ -304,46 +256,6 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="logo-dark-bg">
-                  <Image
-                    src="/logo-lore.png"
-                    alt="Lore"
-                    width={40}
-                    height={40}
-                    className="now-card-logo"
-                  />
-                </div>
-                <div>
-                  <h3>Lore</h3>
-                  <div className="now-card-type">
-                    Tribal knowledge, without the tribe
-                  </div>
-                </div>
-              </div>
-              <p>
-                Every engineering org has lore — the unwritten rules, the
-                patterns that work. Lore captures it automatically from AI
-                coding sessions and turns it into a living, shared brain.
-              </p>
-            </div>
-
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="now-card-icon icon-telos" />
-                <div>
-                  <h3>Telos</h3>
-                  <div className="now-card-type">
-                    AI product management engine
-                  </div>
-                </div>
-              </div>
-              <p>
-                Role-based AI agents that already know the PM. Chat-first
-                interface. You talk to the system; the system updates itself.
-              </p>
-            </div>
           </div>
         </RevealSection>
       </div>
@@ -352,15 +264,17 @@ export default function Home() {
         <RevealSection className="long-game">
           <div className="long-game-accent" />
           <blockquote>
-            I want to build something that outlasts me. Not a product — a
-            compounding system of ideas, trust, and leverage that keeps growing
-            whether I am in the room or not.
+            Enterprise AI is a once-in-a-generation platform shift. Uniphore
+            is where I&apos;m putting everything I&apos;ve learned — from Google,
+            from building and selling a company, from Stanford — into building
+            the platform that defines this era.
           </blockquote>
           <p>
-            I have a proven exit, deep enterprise AI experience, a
-            Stanford network, and trilingual access to the American, Chinese, and
-            Korean markets. The next decade is about deploying all of that at
-            once. I am writing to hold myself accountable.
+            A proven exit, deep enterprise AI experience, a Stanford network,
+            and trilingual access to the American, Chinese, and Korean markets.
+            All of it is deployed at Uniphore. I write about enterprise AI
+            because I&apos;m building it every day — and I believe the companies
+            that own their intelligence will define the next decade.
           </p>
         </RevealSection>
       </div>
