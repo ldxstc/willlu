@@ -41,11 +41,6 @@ export default async function EssayPage({
         <div className="essay-page-meta">
           {essay.readTime} &middot; {formatDate(essay.date)}
         </div>
-        {essay.linkedin && (
-          <div className="essay-linkedin-note">
-            Originally published on LinkedIn
-          </div>
-        )}
       </header>
 
       <div className="essay-body">

@@ -41,11 +41,6 @@ export default async function EssayPageZh({
         <div className="essay-page-meta">
           {essay.readTime} &middot; {formatDateZh(essay.date)}
         </div>
-        {essay.linkedin && (
-          <div className="essay-linkedin-note">
-            最初发表于LinkedIn
-          </div>
-        )}
       </header>
 
       <div className="essay-body">
