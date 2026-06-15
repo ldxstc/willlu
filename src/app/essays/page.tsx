@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import RevealSection from "@/components/RevealSection";
-import { getEssays, formatDate } from "@/lib/essays";
+import { getLongEssays, getShortPosts, formatDate } from "@/lib/essays";
 
 export const metadata = {
   title: "Writing — Will Lu",
@@ -8,7 +8,8 @@ export const metadata = {
 };
 
 export default function EssaysPage() {
-  const essays = getEssays();
+  const longEssays = getLongEssays();
+  const shortPosts = getShortPosts();
 
   return (
     <>
@@ -25,23 +26,54 @@ export default function EssaysPage() {
       <hr className="divider" />
 
       <RevealSection className="writing" id="writing">
-        <div className="essay-list">
-          {essays.map((essay) => (
-            <a
-              key={essay.slug}
-              href={`/essays/${essay.slug}`}
-              className="essay"
-            >
-              <div className="essay-inner">
-                <h3>{essay.title}</h3>
-                <p>{essay.description}</p>
-                <div className="essay-meta">
-                  {essay.readTime} · {formatDate(essay.date)}
+        <div style={{ marginBottom: '4rem' }}>
+          <h2 style={{ fontSize: '1.6rem', marginBottom: '0.75rem' }}>Essays</h2>
+          <p style={{ color: 'var(--muted)', marginBottom: '1.5rem' }}>
+            Longer arguments and thesis pieces.
+          </p>
+          <div className="essay-list">
+            {longEssays.map((essay) => (
+              <a
+                key={essay.slug}
+                href={`/essays/${essay.slug}`}
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{essay.title}</h3>
+                  <p>{essay.description}</p>
+                  <div className="essay-meta">
+                    {essay.readTime} · {formatDate(essay.date)}
+                  </div>
                 </div>
-              </div>
-              <span className="essay-arrow">→</span>
-            </a>
-          ))}
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2 style={{ fontSize: '1.6rem', marginBottom: '0.75rem' }}>Posts</h2>
+          <p style={{ color: 'var(--muted)', marginBottom: '1.5rem' }}>
+            Shorter pieces that started on LinkedIn.
+          </p>
+          <div className="essay-list">
+            {shortPosts.map((essay) => (
+              <a
+                key={essay.slug}
+                href={`/essays/${essay.slug}`}
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{essay.title}</h3>
+                  <p>{essay.description}</p>
+                  <div className="essay-meta">
+                    {essay.readTime} · {formatDate(essay.date)}
+                  </div>
+                </div>
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
         </div>
       </RevealSection>
 

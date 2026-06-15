@@ -2,10 +2,11 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import RevealSection from "@/components/RevealSection";
 
-import { getEssays, formatDate } from "@/lib/essays";
+import { getLongEssays, getShortPosts, formatDate } from "@/lib/essays";
 
 export default function Home() {
-  const essays = getEssays().slice(0, 5);
+  const essays = getLongEssays().slice(0, 3);
+  const posts = getShortPosts().slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -145,27 +146,52 @@ export default function Home() {
 
       <RevealSection className="writing" id="writing">
         <h2>Writing</h2>
-        <p>Frameworks and honest lessons from enterprise AI.</p>
+        <p>Long essays for deeper theses, short posts for sharper observations.</p>
 
-        <div className="essay-list">
-          {essays.map((essay) => (
-            <a
-              key={essay.slug}
-              href={`/essays/${essay.slug}`}
-              className="essay"
-            >
-              <div className="essay-inner">
-                <h3>{essay.title}</h3>
-                <p>{essay.description}</p>
-                <div className="essay-meta">
-                  {essay.readTime} · {formatDate(essay.date)}
+        <div style={{ marginTop: '2rem' }}>
+          <h3 style={{ fontSize: '1.35rem', marginBottom: '1rem' }}>Essays</h3>
+          <div className="essay-list">
+            {essays.map((essay) => (
+              <a
+                key={essay.slug}
+                href={`/essays/${essay.slug}`}
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{essay.title}</h3>
+                  <p>{essay.description}</p>
+                  <div className="essay-meta">
+                    {essay.readTime} · {formatDate(essay.date)}
+                  </div>
                 </div>
-              </div>
-              <span className="essay-arrow">→</span>
-            </a>
-          ))}
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
         </div>
-        <a href="/essays" className="view-all">View all essays →</a>
+
+        <div style={{ marginTop: '3rem' }}>
+          <h3 style={{ fontSize: '1.35rem', marginBottom: '1rem' }}>Posts</h3>
+          <div className="essay-list">
+            {posts.map((essay) => (
+              <a
+                key={essay.slug}
+                href={`/essays/${essay.slug}`}
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{essay.title}</h3>
+                  <p>{essay.description}</p>
+                  <div className="essay-meta">
+                    {essay.readTime} · {formatDate(essay.date)}
+                  </div>
+                </div>
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        <a href="/essays" className="view-all">View all writing →</a>
       </RevealSection>
 
       <div className="section-breath" />

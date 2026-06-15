@@ -11,6 +11,11 @@ export interface Essay {
   linkedin: boolean;
 }
 
+function parseReadTimeMinutes(readTime: string): number {
+  const match = readTime.match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+}
+
 const essaysDir = path.join(process.cwd(), "content", "essays");
 
 export function getEssays(): Essay[] {
@@ -36,6 +41,14 @@ export function getEssays(): Essay[] {
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr);
   return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+
+export function getShortPosts(): Essay[] {
+  return getEssays().filter((essay) => essay.linkedin && parseReadTimeMinutes(essay.readTime) <= 5);
+}
+
+export function getLongEssays(): Essay[] {
+  return getEssays().filter((essay) => !essay.linkedin || parseReadTimeMinutes(essay.readTime) > 5);
 }
 
 export function getEssayBySlug(slug: string) {
