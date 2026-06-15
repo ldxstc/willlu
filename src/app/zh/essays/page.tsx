@@ -47,7 +47,7 @@ export default function EssaysZhPage() {
 
       <RevealSection className="closing" as="div">
         <p className="closing-line">
-          我在<a href="https://linkedin.com/in/will-dongxu-lu-9b9b972b" target="_blank" rel="noopener noreferrer">LinkedIn</a>上发表文章，并在构建的过程中更新这个网站。
+          我在<a href="https://www.linkedin.com/in/will-lu-9b9b972b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>上发表文章，并在构建的过程中更新这个网站。
         </p>
       </RevealSection>
 
@@ -58,7 +58,7 @@ export default function EssaysZhPage() {
         </div>
         <div className="footer-links">
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >

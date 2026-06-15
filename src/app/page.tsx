@@ -15,7 +15,7 @@ export default function Home() {
     jobTitle: "VP Engineering & Head of AI Strategy at Uniphore",
     url: "https://willlu.com",
     image: "https://willlu.com/headshot.jpg",
-    sameAs: ["https://linkedin.com/in/will-dongxu-lu-9b9b972b"],
+    sameAs: ["https://www.linkedin.com/in/will-lu-9b9b972b/"],
     description:
       "Building the enterprise AI platform at Uniphore. Stanford GSB. Ex-Google Cloud AI (Founding Member). Co-Founded Orby AI (acquired by Uniphore).",
   };
@@ -315,7 +315,7 @@ export default function Home() {
         <p className="closing-line">
           I publish on{" "}
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -332,7 +332,7 @@ export default function Home() {
         </div>
         <div className="footer-links">
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >

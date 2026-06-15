@@ -81,7 +81,7 @@ export default function EssaysPage() {
         <p className="closing-line">
           I publish on{" "}
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -98,7 +98,7 @@ export default function EssaysPage() {
         </div>
         <div className="footer-links">
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >

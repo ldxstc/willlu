@@ -14,7 +14,7 @@ export default function HomeZh() {
     jobTitle: "VP Engineering & Head of AI Strategy at Uniphore",
     url: "https://willlu.com/zh",
     image: "https://willlu.com/headshot.jpg",
-    sameAs: ["https://linkedin.com/in/will-dongxu-lu-9b9b972b"],
+    sameAs: ["https://www.linkedin.com/in/will-lu-9b9b972b/"],
     description:
       "企业AI构建者。斯坦福商学院。Google Cloud AI。Orby AI联合创始人（被Uniphore收购）。",
   };
@@ -356,7 +356,7 @@ export default function HomeZh() {
         <p className="closing-line">
           我在{" "}
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -373,7 +373,7 @@ export default function HomeZh() {
         </div>
         <div className="footer-links">
           <a
-            href="https://linkedin.com/in/will-dongxu-lu-9b9b972b"
+            href="https://www.linkedin.com/in/will-lu-9b9b972b/"
             target="_blank"
             rel="noopener noreferrer"
           >
