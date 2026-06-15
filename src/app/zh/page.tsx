@@ -2,10 +2,11 @@ import Image from "next/image";
 import NavZh from "@/components/NavZh";
 import RevealSection from "@/components/RevealSection";
 
-import { getEssaysZh, formatDateZh } from "@/lib/essays-zh";
+import { getLongEssaysZh, getShortPostsZh, formatDateZh } from "@/lib/essays-zh";
 
 export default function HomeZh() {
-  const essays = getEssaysZh().slice(0, 5);
+  const essays = getLongEssaysZh().slice(0, 3);
+  const posts = getShortPostsZh().slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -33,15 +34,15 @@ export default function HomeZh() {
           <div className="hero-text">
             <div className="hero-rule" />
             <h1>
-              我研究复利型企业
+              在 Uniphore 构建
               <br />
-              是如何建成的
+              企业 AI
             </h1>
             <p className="hero-intro">
-              我曾在<strong>Google Cloud从事企业AI建设</strong>，
-              之后联合创立了一家公司，最终以<strong>数亿美元被收购</strong>。
-              现在我写下我观察到的规律——那些经验丰富的操盘手如何用AI构建
-              能够跨越数十年持续复利增长的事业，而非昙花一现。
+              我曾在<strong>Google Cloud 构建企业AI</strong>，
+              之后联合创立了一家公司，并最终被<strong>Uniphore 收购</strong>。
+              现在我在 <strong>Uniphore</strong> 负责 AI 战略，构建把企业智能
+              变成复利优势的平台。我写下沿途学到的判断与框架。
             </p>
             <div className="credential-line">
               UF · NVIDIA · Google Cloud AI · 斯坦福商学院 · Orby AI · Uniphore
@@ -122,8 +123,9 @@ export default function HomeZh() {
               <h3>Uniphore</h3>
               <div className="at">VP Engineering · Head of AI Strategy</div>
               <p className="lesson">
-                主导AI战略，构建下一代智能体平台。
-                用这一章节为下一章做准备。
+                这是我至今最兴奋的一段。开源权重模型将拿下企业 AI 市场的大部分，
+                而 Uniphore 正在构建让它们真正落地的那一层：堆叠式 SLM、智能体，
+                以及让企业能在自有数据上构建定制 AI 应用的平台。
               </p>
             </div>
           </div>
@@ -133,26 +135,51 @@ export default function HomeZh() {
       <hr className="divider" />
 
       <RevealSection className="writing" id="writing">
-        <h2>文章</h2>
-        <p>来自企业AI一线的框架和真实经验。</p>
+        <h2>写作</h2>
+        <p>长文讲更深的 thesis，短文记录更锋利的判断。</p>
 
-        <div className="essay-list">
-          {essays.map((essay) => (
-            <a
-              key={essay.slug}
-              href={`/zh/essays/${essay.slug}`}
-              className="essay"
-            >
-              <div className="essay-inner">
-                <h3>{essay.title}</h3>
-                <p>{essay.description}</p>
-                <div className="essay-meta">
-                  {essay.readTime} · {formatDateZh(essay.date)}
+        <div style={{ marginTop: '2rem' }}>
+          <h3 style={{ fontSize: '1.35rem', marginBottom: '1rem' }}>长文</h3>
+          <div className="essay-list">
+            {essays.map((essay) => (
+              <a
+                key={essay.slug}
+                href={`/zh/essays/${essay.slug}`}
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{essay.title}</h3>
+                  <p>{essay.description}</p>
+                  <div className="essay-meta">
+                    {essay.readTime} · {formatDateZh(essay.date)}
+                  </div>
                 </div>
-              </div>
-              <span className="essay-arrow">→</span>
-            </a>
-          ))}
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ marginTop: '3rem' }}>
+          <h3 style={{ fontSize: '1.35rem', marginBottom: '1rem' }}>短文</h3>
+          <div className="essay-list">
+            {posts.map((essay) => (
+              <a
+                key={essay.slug}
+                href={`/zh/essays/${essay.slug}`}
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{essay.title}</h3>
+                  <p>{essay.description}</p>
+                  <div className="essay-meta">
+                    {essay.readTime} · {formatDateZh(essay.date)}
+                  </div>
+                </div>
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
         </div>
         <a href="/zh/essays" className="view-all">查看全部 →</a>
       </RevealSection>
@@ -161,59 +188,9 @@ export default function HomeZh() {
 
       <div className="now-band">
         <RevealSection className="now" id="now">
-          <h2>正在构建</h2>
+          <h2>在 Uniphore 构建</h2>
 
           <div className="now-grid">
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="logo-dark-bg">
-                  <Image
-                    src="/logo-rumin.png"
-                    alt="Rumin"
-                    width={40}
-                    height={40}
-                    className="now-card-logo"
-                  />
-                </div>
-                <div>
-                  <h3>Rumin</h3>
-                  <div className="now-card-type">
-                    小团队的环境智能
-                  </div>
-                </div>
-              </div>
-              <p>
-                一个随时间推移变得不可替代的判断模型。永久记忆、自主执行、
-                伙伴智能。不是一个应用——是一种存在。
-              </p>
-            </div>
-
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="logo-dark-bg">
-                  <svg viewBox="0 0 512 512" width="56" height="56" aria-label="PeiPei logo" style={{borderRadius:'10px'}}>
-                    <rect width="512" height="512" rx="112" fill="#1A1A2E"/>
-                    <defs>
-                      <radialGradient id="dawn-glow" cx="52%" cy="58%" r="42%">
-                        <stop offset="0%" stopColor="#C4956A" stopOpacity="0.4"/>
-                        <stop offset="100%" stopColor="#1A1A2E" stopOpacity="0"/>
-                      </radialGradient>
-                    </defs>
-                    <path d="M 155 380 L 155 170 C 155 110, 195 78, 260 78 C 335 78, 355 128, 355 180 C 355 232, 330 264, 288 274 C 315 270, 348 268, 385 267 L 440 267" fill="none" stroke="#F2EDE4" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round"/>
-                    <ellipse cx="268" cy="182" rx="40" ry="52" fill="url(#dawn-glow)"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3>PeiPei</h3>
-                  <div className="now-card-type">AI跑步教练</div>
-                </div>
-              </div>
-              <p>
-                Garmin同步、自适应训练、体重追踪。接近MVP阶段。
-                这个小赌注让我学习消费端的产品市场契合。
-              </p>
-            </div>
-
             <div className="now-card">
               <div className="now-card-header">
                 <div className="now-card-icon icon-helix" />
@@ -294,45 +271,6 @@ export default function HomeZh() {
               </p>
             </div>
 
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="logo-dark-bg">
-                  <Image
-                    src="/logo-lore.png"
-                    alt="Lore"
-                    width={40}
-                    height={40}
-                    className="now-card-logo"
-                  />
-                </div>
-                <div>
-                  <h3>Lore</h3>
-                  <div className="now-card-type">
-                    无需部落的部落知识
-                  </div>
-                </div>
-              </div>
-              <p>
-                每个工程团队都有口传心授的经验——那些不成文的规则和有效的模式。
-                Lore从AI编程会话中自动捕获这些知识，将其变成一个活的共享大脑。
-              </p>
-            </div>
-
-            <div className="now-card">
-              <div className="now-card-header">
-                <div className="now-card-icon icon-telos" />
-                <div>
-                  <h3>Telos</h3>
-                  <div className="now-card-type">
-                    AI产品管理引擎
-                  </div>
-                </div>
-              </div>
-              <p>
-                基于角色的AI智能体，天生了解PM。对话优先的界面。
-                你跟系统说话，系统自动更新自己。
-              </p>
-            </div>
           </div>
         </RevealSection>
       </div>
@@ -341,13 +279,13 @@ export default function HomeZh() {
         <RevealSection className="long-game">
           <div className="long-game-accent" />
           <blockquote>
-            我想构建一个比我更持久的东西。不是一个产品——而是一个由想法、
-            信任和杠杆组成的复利系统，无论我在不在场，都能持续增长。
+            企业软件市场将被重新搭建。未来的赢家，不是预装了几个 AI 功能的公司，
+            而是那些让企业能够构建定制 AI 应用的平台。
           </blockquote>
           <p>
-            我有成功的退出经验、深厚的企业AI积累、斯坦福的人脉网络，
-            以及通达美国、中国和韩国市场的三语能力。未来十年，
-            我要把这一切同时投入。我写作，是为了让自己保持自律。
+            我相信开源权重模型会拿下企业市场的大部分份额。真正的赢家，
+            不是基础模型本身，而是让这些模型变得可部署、可治理、能持续复利的平台。
+            我写企业 AI，不是因为它热门，而是因为我每天都在 Uniphore 亲手构建它。
           </p>
         </RevealSection>
       </div>

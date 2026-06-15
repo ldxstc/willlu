@@ -11,6 +11,11 @@ export interface EssayZh {
   linkedin: boolean;
 }
 
+function parseReadTimeMinutes(readTime: string): number {
+  const match = readTime.match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+}
+
 const essaysDir = path.join(process.cwd(), "content", "essays-zh");
 
 export function getEssaysZh(): EssayZh[] {
@@ -36,6 +41,14 @@ export function getEssaysZh(): EssayZh[] {
 function formatDateZh(dateStr: string): string {
   const d = new Date(dateStr);
   return `${d.getFullYear()}年${d.getMonth() + 1}月`;
+}
+
+export function getShortPostsZh(): EssayZh[] {
+  return getEssaysZh().filter((essay) => essay.linkedin && parseReadTimeMinutes(essay.readTime) <= 5);
+}
+
+export function getLongEssaysZh(): EssayZh[] {
+  return getEssaysZh().filter((essay) => !essay.linkedin || parseReadTimeMinutes(essay.readTime) > 5);
 }
 
 export function getEssayZhBySlug(slug: string) {
