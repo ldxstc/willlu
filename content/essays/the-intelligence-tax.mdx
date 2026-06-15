@@ -23,7 +23,7 @@ These are not hypothetical risks. They are events from the past twelve months. A
 
 I recognize the pattern because I have seen it before. I have spent over a decade building enterprise AI — first at Google, where I was a founding member of Google Cloud AI, then building and selling a company, now leading AI strategy at Uniphore. I have watched hundreds of enterprise deployments from the inside. The pattern I see now is one I have seen before in cloud, in SaaS, in every platform shift: the organizations that rent capability get started faster, but the ones that own the layer that matters build the durable advantage.
 
-In AI, the layer that matters is intelligence itself. And the cost of renting it is higher than most people realize.
+In AI, the layer that matters is intelligence itself. More specifically, it is the system that turns raw model capability into enterprise action: domain-tuned models, workflow context, governance, and feedback loops. And the cost of renting that system is higher than most people realize.
 
 ---
 
@@ -45,6 +45,8 @@ The self-hosted option is 14× cheaper than GPT-5.5 and 41× cheaper than Opus. 
 
 The math changes at enterprise scale. A company processing 10 million AI-assisted decisions per day — routing, classification, anomaly detection, customer intent — runs the same arithmetic at 100× the volume. The self-hosted advantage widens. But the architecture is rarely all-or-nothing. The practical move is to identify the high-volume, domain-specific workloads where a fine-tuned model matches the frontier, and migrate those first. The exploratory, cross-domain, low-volume work stays on the API. The intelligence tax applies specifically to the workloads you *should* own but don’t — and at enterprise scale, those workloads are where most of the tokens go.
 
+This is why I believe SLMs, not frontier generalists, will become the native architecture of enterprise AI. Most enterprise work is narrow, repetitive, governed, latency-sensitive, and deeply shaped by proprietary context. That is exactly where smaller, domain-tuned models win: lower latency, lower cost, tighter control, easier fine-tuning, clearer governance boundaries. An SLM is not just a cheaper LLM. In the enterprise, it is often the better operating unit.
+
 A reasonable counterargument: token prices have been falling with each model generation, and OpenAI priced GPT-5 deliberately low. But the volume of tokens consumed per agent interaction is rising faster than prices are dropping. An agentic workload generates 10 to 100 times more tokens than a chatbot query — tool calls, reasoning chains, retries, multi-step execution. Cheaper per token, vastly more tokens. The total bill grows.
 
 The immediate objection is capability. A fine-tuned 7B model is not GPT-5.5. It is not Opus. The comparison is only honest if the smaller model is good enough for the task.
@@ -57,7 +59,7 @@ A year ago, that was a theoretical argument. It is not anymore.
 
 In June 2026, researchers fine-tuned a LLaMA 3.1 8B model on just 219 examples for compliance evaluation of conversational transcripts — an 18-field structured prediction task in a regulated industry. The result: 100% accuracy on the most critical classification field in blind evaluation on production data. 83% overall accuracy. Inference in two seconds on a single A100 GPU — 2 to 5 times faster than frontier APIs — at $0.013 per evaluation versus $0.025 to $0.055 for GPT-4o and Opus. A 46 to 76 percent cost reduction, with matching or better accuracy, using a model with only 2% of its parameters adjusted through fine-tuning.
 
-The finding is domain-scoped, and that is exactly the point. Enterprises do not need a model that can do everything. They need a model that does their thing — compliance review, claims processing, customer routing, contract analysis — better, cheaper, and without sending proprietary transcripts to a third-party API.
+The finding is domain-scoped, and that is exactly the point. Enterprises do not need a model that can do everything. They need a model that does their thing — compliance review, claims processing, customer routing, contract analysis — better, cheaper, and without sending proprietary transcripts to a third-party API. A global enterprise, for example, might still use frontier APIs for exploratory work, but move high-volume post-call compliance scoring, routing, and workflow execution onto fine-tuned SLMs where latency, privacy, and unit economics actually determine whether the system survives procurement.
 
 The broader market confirms this at a different scale. OpenRouter publishes real-time usage rankings — a real-time measure of what developers actually choose to run. As of June 2026, the five most-used models on the platform are all open-weight. DeepSeek V4 Flash leads at 4.51 trillion tokens served. MiniMax M3 is third and growing 103% month over month. The first US closed model — Claude Opus 4.7 — appears at number six.
 
@@ -69,7 +71,7 @@ Before publicly revealing GLM-5, Zhipu AI and Tsinghua University released their
 
 Users speculated Pony Alpha was Claude Sonnet 5. Or DeepSeek. Or Grok. Twenty-five percent guessed it was an Anthropic model. Nobody guessed it was an open-weight model from China.
 
-When the people closest to the models cannot tell the difference between the rented product and the open alternative, the intelligence tax stops buying intelligence. It buys only convenience — and a set of dependencies most enterprises have not fully priced.
+That does not mean enterprises should anchor their future to any single open model vendor. It means the source of advantage is shifting. Raw model intelligence is becoming more available, more competitive, and harder to monopolize. The durable value is moving up the stack: model selection, orchestration, tuning, governance, and deployment. When the people closest to the models cannot tell the difference between the rented product and the open alternative, the intelligence tax stops buying intelligence. It buys only convenience — and a set of dependencies most enterprises have not fully priced.
 
 ---
 
@@ -105,11 +107,13 @@ Two frontier model providers built separate deployment companies in the same mon
 
 The platform that lets enterprises own their data, customize their models, govern their agents, and compound their intelligence is the one that will define enterprise AI for the next decade. Not the one with the highest benchmark score.
 
-I believe this deeply enough to be building it. At Uniphore, we bet early that open-weight models would capture the majority of the enterprise market — and that the winning architecture would be a platform that makes those models production-ready: stacked SLMs, autonomous agents, governance infrastructure, all grounded in the customer's own data. Every signal from the past six months — the export bans, the retention policies, the benchmark convergence, the OpenRouter usage data — confirms that bet.
+I believe this deeply enough to be building it. At Uniphore, we bet early that open-weight models would capture the majority of the enterprise market — and that the winning architecture would not be one giant general model at the center of the company. It would be a stack of smaller, domain-tuned models around the workflow: one optimized for latency, one for compliance, one for retrieval, one for execution, all governed as a system. That is the SLM stack. And I believe it will become the defining architecture of enterprise AI.
+
+This is the category shift I expect the market to undergo. The first phase of enterprise AI was access: who had a model. The second was experimentation: who could build a demo. The third will be ownership: who can turn models into durable operating systems for real work. In that phase, Uniphore's position is not that SLMs are merely cheaper. It is that stacked, governed, domain-tuned SLM systems are the most practical way to ship AI that enterprises can trust.
 
 The intelligence tax is a structural dependency disguised as a convenience. Low headline token prices make it feel cheap. But total cost — token volume at agentic scale, sovereign risks of retention and export controls, pricing changes you cannot predict, and the compounding advantage you forgo by never training on your own data — accumulates into a widening gap against any competitor who owns their intelligence.
 
-The enterprises that will define the next decade of AI will not be the ones with access to the best model. They will be the ones that own their intelligence — models trained on their data, deployed on their infrastructure, governed by their policies, compounding with every interaction.
+The enterprises that will define the next decade of AI will not be the ones with access to the best model. They will be the ones that own their intelligence — models trained on their data, deployed on their infrastructure, governed by their policies, compounding with every interaction. And in practice, I believe that ownership will look less like one supermodel and more like a coordinated stack of SLMs, each shaped to the task, the policy boundary, and the economics of the workflow.
 
 Frontier models will keep getting more powerful. They will also keep getting more controlled, more retained, and more restricted. But the question that matters most is not about risk — it is about trajectory. The rental customer pays the same price on day one and day one thousand. The owner's model gets smarter every day. That gap — invisible in the first quarter, uncomfortable by the second year, decisive by the third — is the only one that matters.
 
