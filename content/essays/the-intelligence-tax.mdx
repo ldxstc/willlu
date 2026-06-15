@@ -21,7 +21,7 @@ And in May 2025, a federal court in New York ordered OpenAI to preserve all Chat
 
 These are not hypothetical risks. They are events from the past twelve months. And they expose a structural dependency that most enterprise AI strategies have not priced in: **when your intelligence is rented, your access, your data, and your continuity belong to someone else.**
 
-I have spent over a decade building enterprise AI — first at Google, where I was a founding member of Google Cloud AI, then building and selling a company, now leading AI strategy at Uniphore. I have watched hundreds of enterprise deployments from the inside. The pattern I see now is one I have seen before in cloud, in SaaS, in every platform shift: the organizations that rent capability get started faster, but the ones that own the layer that matters build the durable advantage.
+I recognize the pattern because I have seen it before. I have spent over a decade building enterprise AI — first at Google, where I was a founding member of Google Cloud AI, then building and selling a company, now leading AI strategy at Uniphore. I have watched hundreds of enterprise deployments from the inside. The pattern I see now is one I have seen before in cloud, in SaaS, in every platform shift: the organizations that rent capability get started faster, but the ones that own the layer that matters build the durable advantage.
 
 In AI, the layer that matters is intelligence itself. And the cost of renting it is higher than most people realize.
 
@@ -41,7 +41,7 @@ Start with the bill itself. At 100,000 agent interactions per day — a reasonab
 
 **A self-hosted fine-tuned 7B model on two H100 GPUs: $94,000 per year, all-in.** Hardware amortized over three years, power, cooling, maintenance, and a quarter of an MLOps engineer.
 
-The self-hosted option is 14× cheaper than GPT-5.5 and 41× cheaper than Opus. The breakeven against GPT-5.5 is roughly 6,000 interactions per day. Against Opus, it is 2,500. Any enterprise running agents at production volume is well past both thresholds.
+The self-hosted option is 14× cheaper than GPT-5.5 and 41× cheaper than Opus. Even if you double the staffing assumption to a full FTE of MLOps support — $200K loaded — the self-hosted cost rises to $244K, still nearly 6× cheaper than GPT-5.5. The breakeven is roughly 6,000 interactions per day against GPT-5.5, and 2,500 against Opus. Any enterprise running agents at production volume is well past both thresholds.
 
 The immediate objection is capability. A fine-tuned 7B model is not GPT-5.5. It is not Opus. The comparison is only honest if the smaller model is good enough for the task.
 
@@ -55,17 +55,9 @@ In June 2026, researchers fine-tuned a LLaMA 3.1 8B model on just 219 examples f
 
 The finding is domain-scoped, and that is exactly the point. Enterprises do not need a model that can do everything. They need a model that does their thing — compliance review, claims processing, customer routing, contract analysis — better, cheaper, and without sending proprietary transcripts to a third-party API.
 
-The broader market confirms this at a different scale. OpenRouter publishes real-time usage rankings — the closest thing to a revealed-preference survey of what developers actually deploy. As of June 2026, the five most-used models on the platform are all open-weight:
+The broader market confirms this at a different scale. OpenRouter publishes real-time usage rankings — the closest thing to a revealed-preference survey of what developers actually deploy. As of June 2026, the five most-used models on the platform are all open-weight. DeepSeek V4 Flash leads at 4.51 trillion tokens served. MiniMax M3 is third and growing 103% month over month. The first US closed model — Claude Opus 4.7 — appears at number six.
 
-1. DeepSeek V4 Flash — 4.51 trillion tokens served
-2. Tencent Hy3 Preview — 4.26 trillion tokens
-3. MiniMax M3 — 4.15 trillion tokens, growing 103% month over month
-4. Xiaomi MiMo-V2.5 — 3.43 trillion tokens
-5. Owl Alpha — 2.43 trillion tokens
-
-The first US closed model — Claude Opus 4.7 — appears at number six.
-
-The benchmark data explains why. DeepSeek V4 Pro Max scores 80.6% on SWE-bench Verified — tied with Gemini 3.1 Pro, the best closed model on that benchmark — at $0.87 per million output tokens. Claude Opus 4.8 costs $25. GPT-5.5 costs $30. MiniMax M3 scores 80.5% on the same benchmark at $1.20 per million output. These are not approximations of frontier performance at lower cost. On the benchmarks that matter most for production agents — real code, real repositories, real engineering tasks — the open-weight models are matching the frontier.
+The benchmark data explains why. DeepSeek V4 Pro Max scores 80.6% on SWE-bench Verified — tied with Gemini 3.1 Pro — at [$0.87 per million output tokens](https://www.morphllm.com/best-ai-model-for-coding). Claude Opus 4.8 costs $25. GPT-5.5 costs $30. MiniMax M3 scores 80.5% on the same benchmark at $1.20 per million output. On the benchmarks that matter most for production agents — real code, real repositories, real engineering tasks — the open-weight models are matching the frontier at a fraction of the price.
 
 And then there is the story of Pony Alpha.
 
@@ -89,7 +81,7 @@ The difference between renting and owning AI is the difference between a tool an
 
 MIT's Project NANDA studied GenAI deployment patterns and found that customized, learning-capable tools reached production deployment roughly 67% of the time, compared to 33% for internally built tools and even less for off-the-shelf SaaS. The moat is not "we host our own weights." The moat is "we own our data and domain context inside a customized, governed platform that learns."
 
-This is the flywheel. Curate domain knowledge. Train or fine-tune a model. Deploy on your infrastructure. Collect production feedback. Improve the model. Redeploy. Each cycle makes the model more capable and the cost advantage wider. The rental customer pays the same per-token price on day one and day one thousand. The owner's effective cost per unit of intelligence drops with every cycle.
+This is the flywheel. Curate domain knowledge. Train or fine-tune a model. Deploy on your infrastructure. Collect production feedback — which interactions succeeded, which failed, which edge cases the model had never seen. Improve the model with that data. Redeploy. I have watched this cycle play out at Uniphore across customer deployments: every quarter, the domain-tuned models get measurably better on the tasks that matter to that specific customer, while the frontier API they replaced charges the same per-token rate it charged on day one. Each cycle makes the owned model more capable and the cost advantage wider.
 
 Sarah Guo, the investor behind Conviction Capital, recently articulated the other side of this argument in an essay called "The Untrainable." Her framework: anything you can put on a leaderboard, you can train against. Anything measurable is on its way to commodity. The valuable work is illegible by construction — private correctness that exists only inside someone's data.
 
@@ -115,10 +107,10 @@ The intelligence tax is a structural dependency disguised as a convenience. Low 
 
 The enterprises that will define the next decade of AI will not be the ones with access to the best model. They will be the ones that own their intelligence — models trained on their data, deployed on their infrastructure, governed by their policies, compounding with every interaction.
 
-Frontier models will keep getting more powerful. They will also keep getting more controlled, more retained, and more restricted. The question is not whether your current model is good enough. The question is whether your AI strategy survives the next export directive, the next retention policy, the next pricing revision — or whether it depends entirely on decisions made in rooms you are not in.
+Frontier models will keep getting more powerful. They will also keep getting more controlled, more retained, and more restricted. But the question that matters most is not about risk — it is about trajectory. The rental customer pays the same price on day one and day one thousand. The owner's model gets smarter every day. That gap — invisible in the first quarter, uncomfortable by the second year, decisive by the third — is the only one that matters.
 
 ---
 
-*Will Lu is VP Engineering & Head of AI Strategy at Uniphore. Previously, he was a founding member of Google Cloud AI and co-founded Orby AI, which was acquired by Uniphore. Stanford GSB.*
+*Will Lu leads AI strategy at Uniphore, where he is building the enterprise AI platform described in this essay. Previously, he was a founding member of Google Cloud AI and co-founded Orby AI, which was acquired by Uniphore. Stanford GSB.*
 
 *Sources: [Anthropic Fable/Mythos access notice](https://www.anthropic.com/news/fable-mythos-access) · [OpenAI data preservation response](https://openai.com/index/response-to-nyt-data-demands/) · [NBER w34836](https://www.nber.org/papers/w34836) · [Gartner AI layoffs/ROI](https://www.gartner.com/en/newsroom/press-releases/2026-05-05-gartner-says-autonomous-business-and-artificial-intelligence-layoffs-may-create-budget-room-but-do-not-deliver-returns) · [MIT Project NANDA](https://nanda.media.mit.edu/ai_report_2025.pdf) · [Domain-adapted SLM](https://arxiv.org/abs/2606.05781) · [GLM-5 paper](https://arxiv.org/abs/2602.15763) · [MorphLLM SWE-bench rankings](https://www.morphllm.com/best-ai-model-for-coding) · [VentureBeat on MiniMax M3](https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost) · TCO model uses original analysis with stated assumptions.*
