@@ -38,7 +38,7 @@ export async function generateMetadata({
           alt: '卢东旭',
         },
       ],
-      publishedTime: essay.date,
+      publishedTime: new Date(essay.date).toISOString(),
     },
     twitter: {
       card: 'summary_large_image',
