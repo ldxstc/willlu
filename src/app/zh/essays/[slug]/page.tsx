@@ -15,9 +15,37 @@ export async function generateMetadata({
   const { slug } = await params;
   const essay = getEssayZhBySlug(slug);
   if (!essay) return {};
+  const url = `https://willlu.com/zh/essays/${slug}`;
+  const title = `${essay.title} — 卢东旭`;
+
   return {
-    title: `${essay.title} — 卢东旭`,
+    title,
     description: essay.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description: essay.description,
+      url,
+      siteName: '卢东旭',
+      type: 'article',
+      images: [
+        {
+          url: 'https://willlu.com/headshot.jpg',
+          width: 800,
+          height: 800,
+          alt: '卢东旭',
+        },
+      ],
+      publishedTime: essay.date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: essay.description,
+      images: ['https://willlu.com/headshot.jpg'],
+    },
   };
 }
 

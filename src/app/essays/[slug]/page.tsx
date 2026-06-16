@@ -15,9 +15,37 @@ export async function generateMetadata({
   const { slug } = await params;
   const essay = getEssayBySlug(slug);
   if (!essay) return {};
+  const url = `https://willlu.com/essays/${slug}`;
+  const title = `${essay.title} — Will Lu`;
+
   return {
-    title: `${essay.title} — Will Lu`,
+    title,
     description: essay.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description: essay.description,
+      url,
+      siteName: 'Will Lu',
+      type: 'article',
+      images: [
+        {
+          url: 'https://willlu.com/headshot.jpg',
+          width: 800,
+          height: 800,
+          alt: 'Will Lu',
+        },
+      ],
+      publishedTime: essay.date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: essay.description,
+      images: ['https://willlu.com/headshot.jpg'],
+    },
   };
 }
 
