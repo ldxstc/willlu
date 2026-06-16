@@ -650,57 +650,94 @@ nav {
   line-height: 1.65;
 }
 
-/* ── CSS-ONLY ICONS — Iteration 11 ── */
+/* ── CSS-ONLY ICONS — refined for enterprise feel ── */
 .now-card-icon {
   width: 56px;
   height: 56px;
-  border-radius: 12px;
+  border-radius: 14px;
   flex-shrink: 0;
   position: relative;
+  background: linear-gradient(145deg, #161312 0%, #221c19 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 8px 18px rgba(0,0,0,0.10);
+  border: 1px solid rgba(180, 83, 9, 0.10);
 }
 
-/* Helix: two intertwined gradient diagonals */
+/* Helix: layered crossing rails with center node */
+.icon-helix::before,
+.icon-helix::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  top: 26px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(180, 83, 9, 0.15), rgba(180, 83, 9, 0.75), rgba(180, 83, 9, 0.15));
+  transform-origin: center;
+}
+
+.icon-helix::before {
+  transform: rotate(34deg);
+}
+
+.icon-helix::after {
+  transform: rotate(-34deg);
+}
+
+.icon-helix {
+  overflow: hidden;
+}
+
 .icon-helix {
   background:
-    linear-gradient(35deg, transparent 40%, rgba(180, 83, 9, 0.55) 40%, rgba(180, 83, 9, 0.55) 43%, transparent 43%),
-    linear-gradient(-35deg, transparent 40%, rgba(217, 119, 6, 0.45) 40%, rgba(217, 119, 6, 0.45) 43%, transparent 43%),
-    linear-gradient(135deg, #1C1917, #292524);
+    radial-gradient(circle at center, rgba(217,119,6,0.22) 0 3px, transparent 4px),
+    linear-gradient(145deg, #161312 0%, #221c19 100%);
 }
 
-/* Enterprise SLM: 3 stacked bars */
+/* Enterprise SLM: stacked modules with routing spine */
 .icon-slm {
-  background: linear-gradient(135deg, #1C1917, #292524);
   overflow: hidden;
 }
 
 .icon-slm::before {
   content: "";
   position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 3px;
-  top: 33%;
-  background: rgba(180, 83, 9, 0.6);
-  border-radius: 1px;
-  box-shadow: 0 7px 0 rgba(180, 83, 9, 0.45), 0 14px 0 rgba(180, 83, 9, 0.3);
+  left: 15px;
+  right: 15px;
+  top: 16px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(180, 83, 9, 0.70);
+  box-shadow:
+    0 10px 0 rgba(180, 83, 9, 0.48),
+    0 20px 0 rgba(180, 83, 9, 0.28);
 }
 
-/* Telos: compass/target circles */
+.icon-slm::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  bottom: 13px;
+  left: 12px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(180,83,9,0.15), rgba(180,83,9,0.55), rgba(180,83,9,0.15));
+  border-radius: 999px;
+}
+
+/* Business AI Platform: concentric system rings + orbit */
 .icon-telos {
-  background: linear-gradient(135deg, #1C1917, #292524);
   overflow: hidden;
 }
 
 .icon-telos::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 22px;
-  height: 22px;
-  transform: translate(-50%, -50%);
-  border: 2px solid rgba(180, 83, 9, 0.45);
+  inset: 13px;
   border-radius: 50%;
+  border: 2px solid rgba(180, 83, 9, 0.42);
+  box-shadow: inset 0 0 0 6px rgba(180,83,9,0.06);
 }
 
 .icon-telos::after {
@@ -711,8 +748,9 @@ nav {
   width: 8px;
   height: 8px;
   transform: translate(-50%, -50%);
-  background: rgba(180, 83, 9, 0.6);
+  background: rgba(180, 83, 9, 0.78);
   border-radius: 50%;
+  box-shadow: 14px -10px 0 -1px rgba(180,83,9,0.55);
 }
 
 /* ── LONG GAME — Iteration 17: warmer background band ── */
