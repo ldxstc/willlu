@@ -28,31 +28,6 @@ For a surprising amount of that work, the central question is no longer whether 
 
 That is the shift.
 
-<div class="essay-diagram">
-  <div class="essay-diagram-label">Diagram 1 · Where the moat moved</div>
-  <div class="essay-diagram-grid essay-diagram-grid-2">
-    <div class="essay-diagram-panel">
-      <div class="essay-diagram-panel-label">Old stack</div>
-      <div class="essay-diagram-stack">
-        <div class="essay-diagram-node">Frontier model</div>
-        <div class="essay-diagram-arrow">↓</div>
-        <div class="essay-diagram-node">Prompt + documents</div>
-        <div class="essay-diagram-arrow">↓</div>
-        <div class="essay-diagram-node">Output</div>
-      </div>
-    </div>
-    <div class="essay-diagram-panel essay-diagram-panel-accent">
-      <div class="essay-diagram-panel-label essay-diagram-panel-label-accent">New stack</div>
-      <div class="essay-diagram-stack">
-        <div class="essay-diagram-node">Smart-enough SLM</div>
-        <div class="essay-diagram-arrow">↓</div>
-        <div class="essay-diagram-node essay-diagram-node-accent">Context engine<br /><span class="essay-diagram-subtext">Goal · Memory · State · Constraints · Validation</span></div>
-        <div class="essay-diagram-arrow">↓</div>
-        <div class="essay-diagram-node">Action / escalation / output</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 The SLM story is still often told as a race for parity, as if these models are forever chasing a finish line set by a handful of frontier labs. But that framing misses the economics of “good enough.” In enterprise software, the decisive threshold is rarely “best in the world.” It is “good enough to carry the workflow when paired with the right controls, context, and operating environment.”
 
@@ -172,19 +147,6 @@ A graph may help in some situations. Process intelligence may help in others. Re
 
 That is the role of the context engine.
 
-<div class="essay-diagram">
-  <div class="essay-diagram-label">Diagram 2 · Context engine execution loop</div>
-  <div class="essay-diagram-grid">
-    <div class="essay-diagram-grid essay-diagram-grid-5">
-      <div class="essay-diagram-node essay-diagram-node-accent">1. Set goal</div>
-      <div class="essay-diagram-node essay-diagram-node-accent">2. Load memory</div>
-      <div class="essay-diagram-node essay-diagram-node-accent">3. Load state + constraints</div>
-      <div class="essay-diagram-node essay-diagram-node-accent">4. Execute action</div>
-      <div class="essay-diagram-node essay-diagram-node-accent">5. Validate + update</div>
-    </div>
-    <div class="essay-diagram-caption">Repeat for the next step with a new goal, new state, and new validation rule.</div>
-  </div>
-</div>
 
 A context engine has to do at least five jobs.
 
