@@ -33,13 +33,13 @@ The SLM story is still often told as a race for parity, as if these models are f
 
 Once that threshold is crossed, the center of gravity begins to move.
 
-You can already see it in the model landscape. The [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388) presents Qwen3 as competitive with larger mixture-of-experts systems and proprietary models across code, math, multilingual understanding, and agent tasks.[^1] In coding, [OpenCoder](https://arxiv.org/abs/2411.04905) reported performance on par with leading proprietary systems while surpassing most previous open-source models at comparable scales.[^2]
+You can already see it in the model landscape. The [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388) presents Qwen3 as competitive with larger mixture-of-experts systems and proprietary models across code, math, multilingual understanding, and agent tasks. In coding, [OpenCoder](https://arxiv.org/abs/2411.04905) reported performance on par with leading proprietary systems while surpassing most previous open-source models at comparable scales.
 
 The point is not that every SLM is suddenly elite.
 
 The point is that useful capability is no longer monopolized.
 
-The same pattern appears outside technical reports. When developers are given routing choice, usage increasingly migrates toward cheaper, faster, highly capable challengers rather than always defaulting to the most prestigious frontier model. Those rankings are not scientific proof of market structure. They are, however, revealed preference. They show what people choose when they have to solve real problems under real constraints, as visible in [OpenRouter’s model rankings](https://openrouter.ai/rankings).[^3]
+The same pattern appears outside technical reports. When developers are given routing choice, usage increasingly migrates toward cheaper, faster, highly capable challengers rather than always defaulting to the most prestigious frontier model. Those rankings are not scientific proof of market structure. They are, however, revealed preference. They show what people choose when they have to solve real problems under real constraints, as visible in [OpenRouter’s model rankings](https://openrouter.ai/rankings).
 
 The evidence suggests the model layer may be commoditizing faster than many incumbents expected.
 
@@ -109,9 +109,9 @@ That kind of failure is harder to diagnose because the model does not look broke
 
 In enterprise settings, that distortion compounds quickly.
 
-A recent paper on memory control in multi-turn agents, [AI Agents Need Memory Control Over More Context](https://arxiv.org/html/2601.11653v1), makes this problem explicit. As workflows extend across more turns, agent behavior degrades not only because of knowledge gaps, but because of constraint loss, error accumulation, and memory drift. Transcript replay and naive retrieval feel like easy solutions, but they produce unbounded context growth, noisy recall, and increasingly unstable behavior over time. The system remembers more and understands less.[^4]
+A recent paper on memory control in multi-turn agents, [AI Agents Need Memory Control Over More Context](https://arxiv.org/html/2601.11653v1), makes this problem explicit. As workflows extend across more turns, agent behavior degrades not only because of knowledge gaps, but because of constraint loss, error accumulation, and memory drift. Transcript replay and naive retrieval feel like easy solutions, but they produce unbounded context growth, noisy recall, and increasingly unstable behavior over time. The system remembers more and understands less.
 
-A recent Microsoft study, [Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents](https://arxiv.org/abs/2506.15655), makes the same point in operational terms. In an expense-itemization workflow, the full-context baseline reached **71.0%** complete itemization but consumed nearly **1.48 million tokens** and more than **14.5 hours** per benchmark run. Pruning context to the last five tool interactions improved performance to **79.0%** while cutting token use by **63.9%**. Adding automated summarization pushed complete itemization to **91.6%**.[^5] The path to better performance was not a smarter model and not a longer context window. It was a better theory of what context should be kept.
+A recent Microsoft study, [Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents](https://arxiv.org/abs/2506.15655), makes the same point in operational terms. In an expense-itemization workflow, the full-context baseline reached **71.0%** complete itemization but consumed nearly **1.48 million tokens** and more than **14.5 hours** per benchmark run. Pruning context to the last five tool interactions improved performance to **79.0%** while cutting token use by **63.9%**. Adding automated summarization pushed complete itemization to **91.6%**. The path to better performance was not a smarter model and not a longer context window. It was a better theory of what context should be kept.
 
 That distinction changes the diagnosis.
 
@@ -123,9 +123,9 @@ The model may understand language.
 
 That is why documents alone are not enough. It is why raw transcripts are not enough. It is why naive retrieval is not enough. Enterprise context is not just a pile of reference material waiting to be stuffed into a prompt. It is structured, temporal, relational, and procedural. It lives in workflow state, exception patterns, escalation histories, policy boundaries, system transitions, human overrides, and the small but critical judgments that experienced operators make when reality diverges from the written process.
 
-That claim is starting to surface in the literature from several directions at once. [Knowledge Activation](https://arxiv.org/abs/2603.14805) argues directly that the bottleneck is not model capability but knowledge architecture, and reports a Yahoo deployment study in which engineers described meaningful productivity and developer-experience gains when institutional knowledge was turned into structured, agent-consumable units.[^6] A separate line of work on business-to-ML translation, [From Business Problems to AI Solutions: Where Does Transformation Support Fail?](https://arxiv.org/html/2604.18770v1), reaches a similar conclusion from upstream: many AI projects fail before deployment because the business problem is translated poorly into the system design in the first place.[^7]
+That claim is starting to surface in the literature from several directions at once. [Knowledge Activation](https://arxiv.org/abs/2603.14805) argues directly that the bottleneck is not model capability but knowledge architecture, and reports a Yahoo deployment study in which engineers described meaningful productivity and developer-experience gains when institutional knowledge was turned into structured, agent-consumable units. A separate line of work on business-to-ML translation, [From Business Problems to AI Solutions: Where Does Transformation Support Fail?](https://arxiv.org/html/2604.18770v1), reaches a similar conclusion from upstream: many AI projects fail before deployment because the business problem is translated poorly into the system design in the first place.
 
-[McKinsey’s 2025 *State of AI*](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) makes the same point from a different angle. AI use is now broad, but enterprise-scale value creation still lags. **88%** of organizations report using AI in at least one business function, yet nearly **two-thirds** have not begun scaling AI across the enterprise, only **23%** report scaling agentic AI anywhere in the enterprise, and only **39%** report enterprise-level EBIT impact.[^8] If model access were the primary bottleneck, those numbers would likely look very different.
+[McKinsey’s 2025 *State of AI*](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) makes the same point from a different angle. AI use is now broad, but enterprise-scale value creation still lags. **88%** of organizations report using AI in at least one business function, yet nearly **two-thirds** have not begun scaling AI across the enterprise, only **23%** report scaling agentic AI anywhere in the enterprise, and only **39%** report enterprise-level EBIT impact. If model access were the primary bottleneck, those numbers would likely look very different.
 
 Context failure does not begin only at retrieval time. It begins when the system is never given a clean operational definition of the world it is supposed to work inside.
 
@@ -170,7 +170,7 @@ The agent should not be asked to infer the operating reality of the business fro
 
 That is the job of the context engine.
 
-This is where graph-oriented approaches still matter, but only as part of the larger system. A good context engine may rely on relational structures to understand that a customer is linked to an account, that the account is governed by a contract, that the contract has an exception policy, that the exception policy was revised after an incident, and that the resulting rule now constrains what action is allowed in the workflow. In those cases, graph-based representations can be strategically valuable because they preserve relationships, time, and provenance, as seen in work on [temporal knowledge graph memory for agents](https://arxiv.org/abs/2501.13956) and the cautionary literature on [when to use graphs in RAG](https://arxiv.org/abs/2506.05690).[^9][^10]
+This is where graph-oriented approaches still matter, but only as part of the larger system. A good context engine may rely on relational structures to understand that a customer is linked to an account, that the account is governed by a contract, that the contract has an exception policy, that the exception policy was revised after an incident, and that the resulting rule now constrains what action is allowed in the workflow. In those cases, graph-based representations can be strategically valuable because they preserve relationships, time, and provenance, as seen in work on [temporal knowledge graph memory for agents](https://arxiv.org/abs/2501.13956) and the cautionary literature on [when to use graphs in RAG](https://arxiv.org/abs/2506.05690).
 
 But the point is not to “give the model a graph.”
 
@@ -209,15 +209,15 @@ That is a very different kind of moat.
 
 And unlike the model itself, it belongs to the enterprise that builds it.
 
-## Notes
+## Sources
 
-[^1]: [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
-[^2]: [OpenCoder: The Open Cookbook for Top-Tier Code Large Language Models](https://arxiv.org/abs/2411.04905).
-[^3]: [OpenRouter model rankings](https://openrouter.ai/rankings), used here as a revealed-preference signal rather than a scientific benchmark.
-[^4]: [AI Agents Need Memory Control Over More Context](https://arxiv.org/html/2601.11653v1).
-[^5]: [Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents](https://arxiv.org/abs/2506.15655).
-[^6]: [Knowledge Activation: AI Skills as the Institutional Knowledge Primitive for Agentic Software Development](https://arxiv.org/abs/2603.14805).
-[^7]: [From Business Problems to AI Solutions: Where Does Transformation Support Fail?](https://arxiv.org/html/2604.18770v1).
-[^8]: [McKinsey, State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai).
-[^9]: [A Temporal Knowledge Graph Architecture for Agent Memory](https://arxiv.org/abs/2501.13956).
-[^10]: [When to Use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2506.05690).
+- [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388)
+- [OpenCoder: The Open Cookbook for Top-Tier Code Large Language Models](https://arxiv.org/abs/2411.04905)
+- [OpenRouter Rankings](https://openrouter.ai/rankings)
+- [AI Agents Need Memory Control Over More Context](https://arxiv.org/html/2601.11653v1)
+- [Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents](https://arxiv.org/abs/2506.15655)
+- [Knowledge Activation: AI Skills as the Institutional Knowledge Primitive for Agentic Software Development](https://arxiv.org/abs/2603.14805)
+- [From Business Problems to AI Solutions: Where Does Transformation Support Fail?](https://arxiv.org/html/2604.18770v1)
+- [McKinsey: The State of AI](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)
+- [A Temporal Knowledge Graph Architecture for Agent Memory](https://arxiv.org/abs/2501.13956)
+- [When to Use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2506.05690)
