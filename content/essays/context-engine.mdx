@@ -1,0 +1,221 @@
+---
+title: "Why Enterprise AI Needs a Context Engine"
+description: "Top SLMs are already capable enough for a growing share of enterprise workflows. The next moat is the system that gives those models the right goal, memory, workflow state, constraints, and validation at each step."
+date: "2026-06-23"
+readTime: "12 min read"
+linkedin: false
+---
+
+The enterprise AI market is still fighting the last war.
+
+Listen to the way most executives, investors, and product teams talk about the space and you hear the same assumption in different forms: the real breakthrough is still ahead of us. One more jump in frontier model intelligence. One more benchmark leap that will finally make enterprise AI broadly usable.
+
+That assumption is becoming dated.
+
+The more important shift may have already happened.
+
+**Top SLMs are now capable enough for a growing share of enterprise workloads.**
+
+By SLMs, I mean smaller, more deployable models, often open-weight, that can be tuned, governed, and embedded directly into enterprise workflows. They are not universal substitutes for the largest frontier systems. They do not need to be. What matters is that they have crossed the threshold from interesting alternatives to usable intelligence substrates for a meaningful portion of enterprise work.
+
+That sentence needs precision.
+
+It does not mean SLMs are the best models in the world. They are not. It does not mean frontier labs have stopped mattering. They have not. It does not mean capability progress is over. It is not. The largest proprietary systems will likely remain ahead on the broadest and most difficult tasks for some time.
+
+But enterprise AI does not live at the frontier of possible cognition. It lives in repeated workflows: summarizing internal documents, extracting data from messy inputs, routing issues to the right team, classifying risk, comparing contracts against policy, generating first drafts, checking compliance, interpreting product manuals, navigating enterprise systems, and recommending next actions inside a workflow.
+
+For a surprising amount of that work, the central question is no longer whether a model can reason at all. It is whether the surrounding system can make that reasoning usable.
+
+That is the shift.
+
+The SLM story is still often told as a race for parity, as if these models are forever chasing a finish line set by a handful of frontier labs. But that framing misses the economics of “good enough.” In enterprise software, the decisive threshold is rarely “best in the world.” It is “good enough to carry the workflow when paired with the right controls, context, and operating environment.”
+
+Once that threshold is crossed, the center of gravity begins to move.
+
+You can already see it in the model landscape. Qwen3, for example, is publicly released under Apache 2.0 and presented by its authors as competitive with larger mixture-of-experts systems and proprietary models across code, math, multilingual understanding, and agent tasks.[^1] In coding, OpenCoder reported performance on par with leading proprietary systems while surpassing most previous open-source models at comparable scales.[^2]
+
+The point is not that every SLM is suddenly elite.
+
+The point is that useful capability is no longer monopolized.
+
+The same pattern appears outside technical reports. When developers are given routing choice, usage increasingly migrates toward cheaper, faster, highly capable challengers rather than always defaulting to the most prestigious frontier model. Those rankings are not scientific proof of market structure. They are, however, revealed preference. They show what people choose when they have to solve real problems under real constraints.[^3]
+
+The evidence suggests the model layer may be commoditizing faster than many incumbents expected.
+
+This is where many enterprise conversations go wrong. They ask the wrong question.
+
+They ask: is the best SLM better than the best frontier model?
+
+For enterprise strategy, that is often the wrong benchmark.
+
+The better question is: is the best SLM good enough for the task, once you factor in cost, latency, governance, privacy, deployment control, tuning potential, and workflow specificity?
+
+That is a much harder question for the frontier narrative to win.
+
+Suppose a frontier model is still modestly better on a broad benchmark. That matters if your application lives or dies on the margin of general reasoning quality. But if your task is bounded, repeated, and embedded in a controlled workflow, then a different set of variables starts to dominate. Can the model be deployed close to the data? Can its behavior be tuned for the domain? Can latency be reduced to fit operational requirements? Can inference cost support sustained usage at volume? Can the organization govern what the system sees, remembers, and exposes? Can it adapt the model to its own environment instead of adapting the business to the vendor?
+
+Those are not secondary concerns.
+
+They are the architecture.
+
+That is why the phrase “smart enough” matters so much. Below the threshold, raw model capability dominates everything. Above it, the constraints of the enterprise reassert themselves. Cost reappears. Latency reappears. Security reappears. Tool integration reappears. Workflow design reappears. Organizational trust reappears.
+
+The stack changes character.
+
+The first era of generative AI rewarded proximity to the smartest closed model. Intelligence was scarce, so whoever controlled the best model seemed likely to control the market.
+
+But once SLMs cross the threshold for practical enterprise usefulness, intelligence begins to behave differently. It stops looking like an exotic scarce good and starts looking more like a capable substrate. Not free. Not trivial. Not uniform. But increasingly available.
+
+When that happens, enterprise advantage moves up the stack.
+
+That is the part the market has not fully internalized.
+
+Most people still talk as if enterprise AI will be won by whoever rents the smartest model. But for a large class of workflows inside large organizations, that is becoming the wrong abstraction. The bigger strategic question is no longer who has access to intelligence in the abstract. It is who can make intelligence usable, governable, and reliable inside a real operating environment.
+
+In other words, the decisive shift is not from dumb models to smart models.
+
+It is from scarce intelligence to abundant, smart-enough intelligence.
+
+And when intelligence becomes abundant enough, the bottleneck moves somewhere else.
+
+The obvious question is where it moves.
+
+For the past two years, the default explanation for enterprise AI disappointment has been model quality. The model hallucinated. The model missed nuance. The model was not yet capable enough. The model was impressive in the demo and unreliable in production.
+
+That explanation is becoming less complete.
+
+As SLMs improve, and as more enterprise workflows become technically reachable, the source of failure shifts. The model still matters, of course. But in many deployments the decisive problem is no longer that the model is too weak. It is that the model is being dropped into the wrong informational environment.
+
+The system gives it the wrong world to think inside.
+
+Most people talk about “context” as if it were just a larger bucket of extra tokens. Add the documents. Add the transcript. Add the notes. Add the knowledge base. Add the policy pages. Add the product manual. Add the CRM history. Add the Jira tickets. Add the Slack messages. Add everything, then hope the model figures out what matters.
+
+That is not context architecture.
+
+That is context dumping.
+
+And context dumping fails for a simple reason: more information is not the same thing as the right information, delivered in the right form, at the right moment, under the right constraints.
+
+This is where many enterprise systems quietly collapse. Not at the frontier of intelligence, but in the plumbing of relevance.
+
+A contract-review system retrieves the wrong clause because the search layer surfaces semantic similarity rather than policy importance. A service agent sees the customer’s latest ticket but not the pattern across six escalations. A finance assistant gets the full transaction history but not the one business rule that determines whether a charge is reimbursable. A workflow agent receives every previous tool response in the session, even though only the last two state transitions matter. A planning agent can describe the task in fluent language but has no structured view of the actual control flow, exceptions, or handoff logic behind the process it is supposed to execute.
+
+The result is not always a dramatic hallucination.
+
+More often, it is something worse: a plausible action taken in the wrong context.
+
+That kind of failure is harder to diagnose because the model does not look broken. It looks confident. It sounds fluent. It may even be locally reasonable. But it is operating with a distorted understanding of the business environment around the task.
+
+In enterprise settings, that distortion compounds quickly.
+
+A recent paper on memory control in multi-turn agents makes this problem explicit. As workflows extend across more turns, agent behavior degrades not only because of knowledge gaps, but because of constraint loss, error accumulation, and memory drift. Transcript replay and naive retrieval feel like easy solutions, but they produce unbounded context growth, noisy recall, and increasingly unstable behavior over time. The system remembers more and understands less.[^4]
+
+A recent Microsoft study on tool-using agents in Dynamics 365 Finance and Operations makes the same point in operational terms. In an expense-itemization workflow, the full-context baseline reached **71.0%** complete itemization but consumed nearly **1.48 million tokens** and more than **14.5 hours** per benchmark run. Pruning context to the last five tool interactions improved performance to **79.0%** while cutting token use by **63.9%**. Adding automated summarization pushed complete itemization to **91.6%**.[^5] The path to better performance was not a smarter model and not a longer context window. It was a better theory of what context should be kept.
+
+That distinction changes the diagnosis.
+
+The failure is not simply that the system does not know enough. It is that it does not know what to remember, what to ignore, what state matters, what constraint is active, what step of the workflow it is in, or which relationship between entities is operationally decisive.
+
+The model may understand language.
+
+**The system still does not understand the business.**
+
+That is why documents alone are not enough. It is why raw transcripts are not enough. It is why naive retrieval is not enough. Enterprise context is not just a pile of reference material waiting to be stuffed into a prompt. It is structured, temporal, relational, and procedural. It lives in workflow state, exception patterns, escalation histories, policy boundaries, system transitions, human overrides, and the small but critical judgments that experienced operators make when reality diverges from the written process.
+
+That claim is starting to surface in the literature from several directions at once. *Knowledge Activation* argues directly that the bottleneck is not model capability but knowledge architecture, and reports a Yahoo deployment study in which engineers described meaningful productivity and developer-experience gains when institutional knowledge was turned into structured, agent-consumable units.[^6] A separate line of work on business-to-ML translation reaches a similar conclusion from upstream: many AI projects fail before deployment because the business problem is translated poorly into the system design in the first place.[^7]
+
+McKinsey’s 2025 *State of AI* data makes the same point from a different angle. AI use is now broad, but enterprise-scale value creation still lags. **88%** of organizations report using AI in at least one business function, yet nearly **two-thirds** have not begun scaling AI across the enterprise, only **23%** report scaling agentic AI anywhere in the enterprise, and only **39%** report enterprise-level EBIT impact.[^8] If model access were the primary bottleneck, those numbers would likely look very different.
+
+Context failure does not begin only at retrieval time. It begins when the system is never given a clean operational definition of the world it is supposed to work inside.
+
+This is also why so many enterprise AI deployments feel more fragile than the benchmark curves suggest. The model itself may have crossed the threshold. The surrounding context system has not.
+
+And once that becomes true, the problem changes completely.
+
+The next enterprise stack is not “frontier model plus prompt.”
+
+It is not “SLM plus a larger context window.”
+
+And it is not “RAG plus hope.”
+
+It is a **context engine** wrapped around a smart-enough model.
+
+That phrase matters because it shifts the conversation away from storage format and toward execution.
+
+A graph may help in some situations. Process intelligence may help in others. Retrieval may matter in some steps, summarization in others, validation in still others. The point is not that one substrate wins. The point is that the enterprise needs a system that can decide what context the agent gets at each step, in what form, for what purpose, and under what controls.
+
+That is the role of the context engine.
+
+A context engine has to do at least five jobs.
+
+First, it must provide the right **goal**. Not every step in a workflow is trying to optimize for the same thing. Sometimes the objective is classification. Sometimes it is retrieval. Sometimes it is escalation. Sometimes it is action selection. Sometimes it is exception handling. If the goal is underspecified, the model can be locally intelligent and globally wrong.
+
+Second, it must provide the right **memory**. The system has to decide what should persist, what should be summarized, what should stay retrievable but inactive, and what should be discarded. The challenge is not to remember everything. It is to remember the right things in the right way.
+
+Third, it must provide the right **workflow state**. What step is active? What handoff just happened? What approvals are pending? What exception path has been triggered? Which policy now applies because the workflow crossed a threshold? Without this, the model may generate a plausible action that is invalid for the current state of the business process.
+
+Fourth, it must provide the right **constraints**. This includes permissions, policy boundaries, escalation rules, and operational limits. A capable model without constraint control is not a workflow system. It is an improviser.
+
+Fifth, it must provide the right **validation method**. The system has to know how to check whether an output or action is actually acceptable before proceeding. That may involve rule checks, cross-system comparisons, policy validation, human approval paths, or specialized evaluators.
+
+This is why the next enterprise moat is not just better retrieval, and not just better memory, and not just better models.
+
+It is a better **context engine**.
+
+Sometimes that engine will use graph-like structures because relationships, temporality, and provenance matter. In those cases, a context graph can be a powerful component. But the graph is not the architecture. It is one substrate inside the architecture. The real problem is orchestration.
+
+The agent should not be asked to infer the operating reality of the business from a random pile of tokens.
+
+That is the job of the context engine.
+
+This is where graph-oriented approaches still matter, but only as part of the larger system. A good context engine may rely on relational structures to understand that a customer is linked to an account, that the account is governed by a contract, that the contract has an exception policy, that the exception policy was revised after an incident, and that the resulting rule now constrains what action is allowed in the workflow. In those cases, graph-based representations can be strategically valuable because they preserve relationships, time, and provenance.[^9][^10]
+
+But the point is not to “give the model a graph.”
+
+The point is to build a system that knows what the model needs to know right now.
+
+Put differently:
+
+**The context engine decides what matters now.  
+It sets the goal, the memory, the state, the constraints, and the validation loop around the model.**
+
+That is a more powerful abstraction than prompt engineering, and a more durable one than model access alone.
+
+This is the shift the market is only beginning to absorb. In the first phase of generative AI, competitive advantage came from access to the best intelligence. In the next phase, advantage will come from knowing how to situate intelligence inside the enterprise.
+
+That means building a system that can decide:
+- what the agent should optimize for right now
+- what it should remember
+- what it should ignore
+- what workflow state it is in
+- what constraints apply
+- what tools it can use
+- how its output will be validated
+- and when it should stop and ask for help
+
+In that world, the model matters less as a standalone artifact and more as a component inside a broader execution system.
+
+The winners are unlikely to be the companies that simply rent intelligence from the frontier.
+
+They are more likely to be the companies that build the best context engines around smart-enough models.
+
+Because once SLMs cross the threshold, the real question is no longer who has the smartest model.
+
+It is who knows how to tell the model what matters now.
+
+That is a very different kind of moat.
+
+And unlike the model itself, it belongs to the enterprise that builds it.
+
+## Notes
+
+[^1]: Qwen3 Technical Report.
+[^2]: OpenCoder technical report.
+[^3]: Model-routing / usage rankings, used here as revealed-preference signal rather than scientific benchmark.
+[^4]: *AI Agents Need Memory Control Over More Context*.
+[^5]: *Less Context, Better Agents: Efficient Context Engineering for Long-Horizon Tool-Using LLM Agents*.
+[^6]: *Knowledge Activation: AI Skills as the Institutional Knowledge Primitive for Agentic Software Development*.
+[^7]: *From Business Problems to AI Solutions: Where Does Transformation Support Fail?*
+[^8]: McKinsey, *State of AI 2025*.
+[^9]: *A Temporal Knowledge Graph Architecture for Agent Memory*.
+[^10]: *When to Use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation*.
