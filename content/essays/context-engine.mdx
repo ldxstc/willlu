@@ -28,6 +28,32 @@ For a surprising amount of that work, the central question is no longer whether 
 
 That is the shift.
 
+<div style={{margin:'36px 0 44px',padding:'24px',border:'1px solid rgba(212,165,116,0.2)',borderRadius:'18px',background:'rgba(212,165,116,0.05)'}}>
+  <div style={{fontSize:'12px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#A1A1AA',marginBottom:'18px'}}>Diagram 1 · Where the moat moved</div>
+  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'18px'}}>
+    <div style={{padding:'20px',border:'1px solid rgba(255,255,255,0.08)',borderRadius:'16px',background:'rgba(255,255,255,0.02)'}}>
+      <div style={{fontSize:'13px',letterSpacing:'0.1em',textTransform:'uppercase',color:'#A1A1AA',marginBottom:'14px'}}>Old stack</div>
+      <div style={{display:'grid',gap:'10px'}}>
+        <div style={{padding:'12px 14px',borderRadius:'12px',background:'#27272A'}}>Frontier model</div>
+        <div style={{textAlign:'center',color:'#71717A'}}>↓</div>
+        <div style={{padding:'12px 14px',borderRadius:'12px',background:'#27272A'}}>Prompt + documents</div>
+        <div style={{textAlign:'center',color:'#71717A'}}>↓</div>
+        <div style={{padding:'12px 14px',borderRadius:'12px',background:'#27272A'}}>Output</div>
+      </div>
+    </div>
+    <div style={{padding:'20px',border:'1px solid rgba(212,165,116,0.28)',borderRadius:'16px',background:'rgba(212,165,116,0.08)'}}>
+      <div style={{fontSize:'13px',letterSpacing:'0.1em',textTransform:'uppercase',color:'#D4A574',marginBottom:'14px'}}>New stack</div>
+      <div style={{display:'grid',gap:'10px'}}>
+        <div style={{padding:'12px 14px',borderRadius:'12px',background:'#27272A'}}>Smart-enough SLM</div>
+        <div style={{textAlign:'center',color:'#71717A'}}>↓</div>
+        <div style={{padding:'12px 14px',borderRadius:'12px',background:'#18181B',border:'1px solid rgba(212,165,116,0.28)'}}>Context engine<br /><span style={{fontSize:'14px',color:'#A1A1AA'}}>Goal · Memory · State · Constraints · Validation</span></div>
+        <div style={{textAlign:'center',color:'#71717A'}}>↓</div>
+        <div style={{padding:'12px 14px',borderRadius:'12px',background:'#27272A'}}>Action / escalation / output</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 The SLM story is still often told as a race for parity, as if these models are forever chasing a finish line set by a handful of frontier labs. But that framing misses the economics of “good enough.” In enterprise software, the decisive threshold is rarely “best in the world.” It is “good enough to carry the workflow when paired with the right controls, context, and operating environment.”
 
 Once that threshold is crossed, the center of gravity begins to move.
@@ -145,6 +171,20 @@ That phrase matters because it shifts the conversation away from storage format 
 A graph may help in some situations. Process intelligence may help in others. Retrieval may matter in some steps, summarization in others, validation in still others. The point is not that one substrate wins. The point is that the enterprise needs a system that can decide what context the agent gets at each step, in what form, for what purpose, and under what controls.
 
 That is the role of the context engine.
+
+<div style={{margin:'36px 0 44px',padding:'24px',border:'1px solid rgba(212,165,116,0.2)',borderRadius:'18px',background:'rgba(212,165,116,0.05)'}}>
+  <div style={{fontSize:'12px',letterSpacing:'0.12em',textTransform:'uppercase',color:'#A1A1AA',marginBottom:'18px'}}>Diagram 2 · Context engine execution loop</div>
+  <div style={{display:'grid',gap:'14px'}}>
+    <div style={{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:'12px'}}>
+      <div style={{padding:'14px',borderRadius:'14px',background:'#18181B',border:'1px solid rgba(212,165,116,0.24)'}}>1. Set goal</div>
+      <div style={{padding:'14px',borderRadius:'14px',background:'#18181B',border:'1px solid rgba(212,165,116,0.24)'}}>2. Load memory</div>
+      <div style={{padding:'14px',borderRadius:'14px',background:'#18181B',border:'1px solid rgba(212,165,116,0.24)'}}>3. Load state + constraints</div>
+      <div style={{padding:'14px',borderRadius:'14px',background:'#18181B',border:'1px solid rgba(212,165,116,0.24)'}}>4. Execute action</div>
+      <div style={{padding:'14px',borderRadius:'14px',background:'#18181B',border:'1px solid rgba(212,165,116,0.24)'}}>5. Validate + update</div>
+    </div>
+    <div style={{textAlign:'center',fontSize:'15px',color:'#A1A1AA'}}>Repeat for the next step with a new goal, new state, and new validation rule.</div>
+  </div>
+</div>
 
 A context engine has to do at least five jobs.
 
