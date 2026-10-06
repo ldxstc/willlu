@@ -1,0 +1,35 @@
+---
+title: "More History Does Not Automatically Mean Better Judgment"
+description: "MemAdapter shows why accurate, relevant memories can still mislead agents—and why enterprise knowledge systems must preserve evidence, distinguish meaning, and control applicability."
+date: "2026-10-06"
+readTime: "2 min"
+linkedin: true
+---
+
+Giving an AI agent more history does not automatically give it better judgment.
+
+Historical context needs to be carefully managed: what gets retrieved, how it is represented, and how much influence it has on the current decision.
+
+The MemAdapter paper illustrates why. In a controlled study of 75 selected cases, adding accurate, relevant memories reduced accuracy from 96.0% to 77.3%. Those memories could not justify the current answer, yet agents gave them too much influence.
+
+Accuracy and relevance alone were insufficient.
+
+This is a central design consideration for how I think about our knowledge system at Uniphore. Automatically building knowledge graphs and ontologies from human decisions, system events, and agent traces creates an opportunity to turn enterprise history into reusable knowledge.
+
+That process also requires careful context management:
+
+- **Preserve evidence:** connect each observation or inference to its source, conditions, and outcome.
+- **Distinguish meaning:** represent observed actions, inferred patterns, and authorized rules as different kinds of knowledge.
+- **Control applicability:** assess whether past experience supports the current decision, including what has changed and what evidence conflicts.
+
+Consider a manager who approved an exception. A knowledge graph can accurately capture that event. An agent still needs to understand its scope before using it to justify another approval.
+
+An automatically generated ontology should preserve that distinction. Otherwise, a historical exception can become an assumed rule across many future decisions.
+
+MemAdapter addresses one important part of this problem: calibrating how retrieved memories influence reasoning. My broader architectural takeaway is that context management must extend from knowledge extraction through retrieval to decision-making.
+
+The opportunity is substantial. Enterprise history can help agents discover patterns, reuse experience, and improve decisions.
+
+Realizing that value requires a knowledge system that helps agents determine what the past actually supports in the present.
+
+[Read the MemAdapter paper](https://arxiv.org/abs/2610.05162)
