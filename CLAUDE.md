@@ -46,7 +46,7 @@ Match that design EXACTLY in the Next.js implementation. Same fonts, same spacin
 
 ## Bio Context (for content)
 - Will Lu, Cupertino CA
-- Stanford GSB → Google 9 years (enterprise AI) → Founded Orby AI → $245M acquisition by Uniphore → VP Eng & Head of AI Strategy at Uniphore
+- Stanford GSB → Google 9 years (enterprise AI) → Founded Orby AI → $245M acquisition by Uniphore → SVP, Engineering & Research, Head of AI Strategy at Uniphore
 - Trilingual: English, Chinese, Korean
 - Building: Rumin (ambient intelligence for small teams), PeiPei (AI running coach), Helix (agent platform at Uniphore)
 - Goal: $1B by 50 (currently 40)

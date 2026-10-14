@@ -1261,6 +1261,66 @@ footer a:hover {
   }
 }
 
+/* ── PODCAST ── */
+.podcast {
+  padding: 96px 2rem;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.podcast > h2 {
+  font-family: var(--serif);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 32;
+}
+
+.podcast-name {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  font-variation-settings: "opsz" 24;
+}
+
+.podcast-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  font-variation-settings: "opsz" 14;
+}
+
+.podcast-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 56ch;
+  margin-bottom: 28px;
+}
+
+.podcast-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.podcast-links a {
+  font-size: 0.88rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.25s;
+}
+
+.podcast-links a:hover {
+  opacity: 0.7;
+}
+
 /* ── CLOSING LINE ── */
 .closing {
   padding: 3rem 2rem 2rem;

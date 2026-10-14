@@ -43,6 +43,7 @@ export default function Nav() {
         <div className="nav-right">
           <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>Path</a>
           <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>Writing</a>
+          <a href="#podcast" className="nav-link" onClick={(e) => handleClick(e, "#podcast")}>Podcast</a>
           <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>Now</a>
           <span className="nav-lang-separator">|</span>
           <a href="/zh" className="nav-link nav-lang">中</a>

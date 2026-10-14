@@ -43,6 +43,7 @@ export default function NavZh() {
         <div className="nav-right">
           <a href="#path" className="nav-link" onClick={(e) => handleClick(e, "#path")}>经历</a>
           <a href="#writing" className="nav-link" onClick={(e) => handleClick(e, "#writing")}>文章</a>
+          <a href="#podcast" className="nav-link" onClick={(e) => handleClick(e, "#podcast")}>播客</a>
           <a href="#now" className="nav-link" onClick={(e) => handleClick(e, "#now")}>构建</a>
           <span className="nav-lang-separator">|</span>
           <a href="/" className="nav-link nav-lang">EN</a>

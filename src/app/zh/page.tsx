@@ -3,8 +3,10 @@ import NavZh from "@/components/NavZh";
 import RevealSection from "@/components/RevealSection";
 
 import { getLongEssaysZh, getShortPostsZh, formatDateZh } from "@/lib/essays-zh";
+import { getPodcast, formatEpisodeDate } from "@/lib/podcast";
 
-export default function HomeZh() {
+export default async function HomeZh() {
+  const podcast = await getPodcast(3);
   const essays = getLongEssaysZh().slice(0, 3);
   const posts = getShortPostsZh().slice(0, 3);
 
@@ -12,10 +14,13 @@ export default function HomeZh() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "卢东旭 (Will Lu)",
-    jobTitle: "VP Engineering & Head of AI Strategy at Uniphore",
+    jobTitle: "SVP, Engineering & Research, Head of AI Strategy at Uniphore",
     url: "https://willlu.com/zh",
     image: "https://willlu.com/headshot.jpg",
-    sameAs: ["https://www.linkedin.com/in/will-lu-9b9b972b/"],
+    sameAs: [
+      "https://www.linkedin.com/in/will-lu-9b9b972b/",
+      "https://svgradient.fm",
+    ],
     description:
       "企业AI构建者。斯坦福商学院。Google Cloud AI。Orby AI联合创始人（被Uniphore收购）。",
   };
@@ -121,7 +126,7 @@ export default function HomeZh() {
             <div className="path-year">2025</div>
             <div className="path-content">
               <h3>Uniphore</h3>
-              <div className="at">VP Engineering · Head of AI Strategy</div>
+              <div className="at">工程与研究高级副总裁 · AI 战略负责人</div>
               <p className="lesson">
                 这是我至今最兴奋的一段。开源权重模型将拿下企业 AI 市场的大部分，
                 而 Uniphore 正在构建让它们真正落地的那一层：堆叠式 SLM、智能体，
@@ -182,6 +187,51 @@ export default function HomeZh() {
           </div>
         </div>
         <a href="/zh/essays" className="view-all">查看全部 →</a>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="podcast" id="podcast">
+        <h2>播客</h2>
+        <p className="podcast-name">
+          硅谷温差 · SV Gradient
+        </p>
+        <p className="podcast-tagline">Demo 很热，Production 很冷。</p>
+        <p className="podcast-desc">
+          中文 AI 圈硬核建设者的硅谷前沿实战手册。每周从一线拆公司、拆模型、拆
+          Agent——Gemini 创始 PM Lewis Liu 与我主理。
+          {podcast.total > 0 && `已更新 ${podcast.total} 期。`}
+        </p>
+        {podcast.episodes.length > 0 && (
+          <div className="essay-list podcast-episodes">
+            {podcast.episodes.map((ep) => (
+              <a
+                key={ep.number || ep.url}
+                href={ep.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{ep.title}</h3>
+                  <div className="essay-meta">
+                    {ep.number ? `第 ${ep.number} 期 · ` : ""}
+                    {ep.duration.replace(" min", " 分钟")} · {formatEpisodeDate(ep.date, "zh")}
+                  </div>
+                </div>
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        )}
+        <div className="podcast-links">
+          <a href="https://svgradient.fm" target="_blank" rel="noopener noreferrer">svgradient.fm</a>
+          <a href="https://www.xiaoyuzhoufm.com/podcast/69c4bfcd35970edbfba4b22f" target="_blank" rel="noopener noreferrer">小宇宙</a>
+          <a href="https://space.bilibili.com/3706980459874845" target="_blank" rel="noopener noreferrer">Bilibili</a>
+          <a href="https://www.youtube.com/@svgradient" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://open.spotify.com/show/2NBrnrLWJlFG6Vup0Xha3u" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://podcasts.apple.com/podcast/id1888781855" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+        </div>
       </RevealSection>
 
       <div className="section-breath" />
@@ -300,7 +350,15 @@ export default function HomeZh() {
           >
             LinkedIn
           </a>{" "}
-          上发表文章，并在构建的过程中更新这个网站。
+          上发表文章，每周在{" "}
+          <a
+            href="https://svgradient.fm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            硅谷温差
+          </a>{" "}
+          聊硅谷一线，并在构建的过程中更新这个网站。
         </p>
       </RevealSection>
 
@@ -317,7 +375,13 @@ export default function HomeZh() {
           >
             LinkedIn
           </a>
-
+          <a
+            href="https://svgradient.fm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            播客
+          </a>
         </div>
       </footer>
     </>

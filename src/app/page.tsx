@@ -3,19 +3,24 @@ import Nav from "@/components/Nav";
 import RevealSection from "@/components/RevealSection";
 
 import { getLongEssays, getShortPosts, formatDate } from "@/lib/essays";
+import { getPodcast, formatEpisodeDate } from "@/lib/podcast";
 
-export default function Home() {
+export default async function Home() {
   const essays = getLongEssays().slice(0, 3);
   const posts = getShortPosts().slice(0, 3);
+  const podcast = await getPodcast(3);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Will Lu",
-    jobTitle: "VP Engineering & Head of AI Strategy at Uniphore",
+    jobTitle: "SVP, Engineering & Research, Head of AI Strategy at Uniphore",
     url: "https://willlu.com",
     image: "https://willlu.com/headshot.jpg",
-    sameAs: ["https://www.linkedin.com/in/will-lu-9b9b972b/"],
+    sameAs: [
+      "https://www.linkedin.com/in/will-lu-9b9b972b/",
+      "https://svgradient.fm",
+    ],
     description:
       "Building the enterprise AI platform at Uniphore. Stanford GSB. Ex-Google Cloud AI (Founding Member). Co-Founded Orby AI (acquired by Uniphore).",
   };
@@ -127,7 +132,7 @@ export default function Home() {
             <div className="path-year">2025</div>
             <div className="path-content">
               <h3>Uniphore</h3>
-              <div className="at">VP Engineering · Head of AI Strategy</div>
+              <div className="at">SVP, Engineering &amp; Research · Head of AI Strategy</div>
               <p className="lesson">
                 I&apos;ve never been more excited about what I&apos;m building.
                 Open-weight models will capture 70–80% of the enterprise AI
@@ -192,6 +197,52 @@ export default function Home() {
           </div>
         </div>
         <a href="/essays" className="view-all">View all writing →</a>
+      </RevealSection>
+
+      <hr className="divider" />
+
+      <RevealSection className="podcast" id="podcast">
+        <h2>Podcast</h2>
+        <p className="podcast-name">
+          硅谷温差 · SV Gradient
+        </p>
+        <p className="podcast-tagline">Demo is hot. Production is cold.</p>
+        <p className="podcast-desc">
+          A weekly Chinese-language show from the Silicon Valley front line.
+          Lewis Liu, founding PM on Gemini, and I take apart the companies,
+          models, and agents that matter — and the gap between what demos
+          and what ships.
+          {podcast.total > 0 && ` ${podcast.total} episodes and counting.`}
+        </p>
+        {podcast.episodes.length > 0 && (
+          <div className="essay-list podcast-episodes">
+            {podcast.episodes.map((ep) => (
+              <a
+                key={ep.number || ep.url}
+                href={ep.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="essay"
+              >
+                <div className="essay-inner">
+                  <h3>{ep.title}</h3>
+                  <div className="essay-meta">
+                    {ep.number ? `Episode ${ep.number} · ` : ""}
+                    {ep.duration} · {formatEpisodeDate(ep.date)}
+                  </div>
+                </div>
+                <span className="essay-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        )}
+        <div className="podcast-links">
+          <a href="https://svgradient.fm" target="_blank" rel="noopener noreferrer">svgradient.fm</a>
+          <a href="https://www.youtube.com/@svgradient" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://open.spotify.com/show/2NBrnrLWJlFG6Vup0Xha3u" target="_blank" rel="noopener noreferrer">Spotify</a>
+          <a href="https://podcasts.apple.com/podcast/id1888781855" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+          <a href="https://www.xiaoyuzhoufm.com/podcast/69c4bfcd35970edbfba4b22f" target="_blank" rel="noopener noreferrer">小宇宙</a>
+        </div>
       </RevealSection>
 
       <div className="section-breath" />
@@ -320,8 +371,16 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             LinkedIn
-          </a>{" "}
-          and update this site as I build.
+          </a>
+          , talk weekly on{" "}
+          <a
+            href="https://svgradient.fm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SV Gradient
+          </a>
+          , and update this site as I build.
         </p>
       </RevealSection>
 
@@ -338,7 +397,13 @@ export default function Home() {
           >
             LinkedIn
           </a>
-
+          <a
+            href="https://svgradient.fm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Podcast
+          </a>
         </div>
       </footer>
     </>
