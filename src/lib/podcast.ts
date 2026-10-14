@@ -1,3 +1,6 @@
+import Anthropic from "@anthropic-ai/sdk";
+import { EPISODE_TITLES_EN } from "./podcast-titles";
+
 const RSS_URL = "https://anchor.fm/s/110abc21c/podcast/rss";
 const SITE_URL = "https://svgradient.fm";
 
@@ -30,7 +33,43 @@ function formatDuration(raw: string): string {
   return `${Math.round(secs / 60)} min`;
 }
 
-export async function getPodcast(limit = 3): Promise<Podcast> {
+async function translateTitles(titles: string[]): Promise<string[]> {
+  if (titles.length === 0 || !process.env.ANTHROPIC_API_KEY) return titles;
+  try {
+    const client = new Anthropic();
+    const response = await client.beta.messages.create({
+      model: "claude-opus-5-5",
+      max_tokens: 4096,
+      output_config: { effort: "low" },
+      betas: ["server-side-fallback-2026-07-01"],
+      fallbacks: "default",
+      system:
+        "You translate Chinese podcast episode titles into tight, idiomatic English for a tech audience. Keep product and company names as-is. Respond with only a JSON array of strings, same order and length as the input.",
+      messages: [{ role: "user", content: JSON.stringify(titles) }],
+    });
+    if (response.stop_reason === "refusal") return titles;
+    const text = response.content
+      .filter((b): b is Anthropic.Beta.BetaTextBlock => b.type === "text")
+      .map((b) => b.text)
+      .join("");
+    const parsed = JSON.parse(text.slice(text.indexOf("["), text.lastIndexOf("]") + 1));
+    if (
+      Array.isArray(parsed) &&
+      parsed.length === titles.length &&
+      parsed.every((t) => typeof t === "string" && t.trim())
+    ) {
+      return parsed;
+    }
+    return titles;
+  } catch {
+    return titles;
+  }
+}
+
+export async function getPodcast(
+  limit = 3,
+  locale: "en" | "zh" = "en"
+): Promise<Podcast> {
   try {
     const res = await fetch(RSS_URL, { next: { revalidate: 3600 } });
     if (!res.ok) return { episodes: [], total: 0 };
@@ -57,7 +96,18 @@ export async function getPodcast(limit = 3): Promise<Podcast> {
     });
 
     episodes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    return { episodes: episodes.slice(0, limit), total: episodes.length };
+    const latest = episodes.slice(0, limit);
+
+    if (locale === "en") {
+      const missing = latest.filter((ep) => !EPISODE_TITLES_EN[ep.number]);
+      const translated = await translateTitles(missing.map((ep) => ep.title));
+      const byTitle = new Map(missing.map((ep, i) => [ep.title, translated[i]]));
+      for (const ep of latest) {
+        ep.title = EPISODE_TITLES_EN[ep.number] ?? byTitle.get(ep.title) ?? ep.title;
+      }
+    }
+
+    return { episodes: latest, total: episodes.length };
   } catch {
     return { episodes: [], total: 0 };
   }

@@ -8,7 +8,7 @@ import { getPodcast, formatEpisodeDate } from "@/lib/podcast";
 export default async function Home() {
   const essays = getLongEssays().slice(0, 3);
   const posts = getShortPosts().slice(0, 3);
-  const podcast = await getPodcast(3);
+  const podcast = await getPodcast(3, "en");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -203,9 +203,7 @@ export default async function Home() {
 
       <RevealSection className="podcast" id="podcast">
         <h2>Podcast</h2>
-        <p className="podcast-name">
-          硅谷温差 · SV Gradient
-        </p>
+        <p className="podcast-name">SV Gradient</p>
         <p className="podcast-tagline">Demo is hot. Production is cold.</p>
         <p className="podcast-desc">
           A weekly Chinese-language show from the Silicon Valley front line.
@@ -241,7 +239,7 @@ export default async function Home() {
           <a href="https://www.youtube.com/@svgradient" target="_blank" rel="noopener noreferrer">YouTube</a>
           <a href="https://open.spotify.com/show/2NBrnrLWJlFG6Vup0Xha3u" target="_blank" rel="noopener noreferrer">Spotify</a>
           <a href="https://podcasts.apple.com/podcast/id1888781855" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
-          <a href="https://www.xiaoyuzhoufm.com/podcast/69c4bfcd35970edbfba4b22f" target="_blank" rel="noopener noreferrer">小宇宙</a>
+          <a href="https://www.xiaoyuzhoufm.com/podcast/69c4bfcd35970edbfba4b22f" target="_blank" rel="noopener noreferrer">Xiaoyuzhou</a>
         </div>
       </RevealSection>
 

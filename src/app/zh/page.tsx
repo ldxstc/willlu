@@ -6,7 +6,7 @@ import { getLongEssaysZh, getShortPostsZh, formatDateZh } from "@/lib/essays-zh"
 import { getPodcast, formatEpisodeDate } from "@/lib/podcast";
 
 export default async function HomeZh() {
-  const podcast = await getPodcast(3);
+  const podcast = await getPodcast(3, "zh");
   const essays = getLongEssaysZh().slice(0, 3);
   const posts = getShortPostsZh().slice(0, 3);
 
